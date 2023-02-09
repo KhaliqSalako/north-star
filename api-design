@@ -1,0 +1,470 @@
+### Log in
+
+* Endpoint path: /token
+* Endpoint method: POST
+
+* Request shape (form):
+   ```json
+    {
+    "user_name" : string,
+    "password": string
+      },
+      ```
+* Response: Account information and a token
+* Response shape (JSON):
+    ```json
+    {
+      "account" : {
+      "name" : string,
+      "user_name" : string,
+      "password": string
+      },
+      "token" : string
+    }
+    ```
+
+### User Details
+
+* Endpoint path: /token
+* Endpoint method: GET
+
+* Request shape (form):
+    ```json
+    {
+      "token": string
+      }
+    ```
+* Response: Account information and a token
+* Response shape (JSON):
+    ```json
+    {
+      "account" : {
+      "name" : string,
+      "user_name" : string
+      }
+    }
+    ```
+
+### sign up
+
+* Endpoint path: /accounts
+* Endpoint method: POST
+
+* Request shape (JSON):
+    ```json
+  {
+    "name" : string,
+    "user_name" : string,
+    "password" : string,
+  }
+    ```
+
+### Log out
+
+* Endpoint path: /token
+* Endpoint method: DELETE
+
+* Headers:
+  * Authorization: Bearer token
+
+* Response: Always true
+* Response shape (JSON):
+    ```json
+    true
+    ```
+
+
+### List of Trips
+
+* Endpoint path: /trips
+* Endpoint method: GET
+
+* Headers:
+    * Authorization: Bearer token
+
+* Response: A list of all trips
+* Response shape:
+    ```json
+    {
+        "trips": [
+            {
+              "name" : string,
+              "id" : int,
+              "start_date" : date field,
+              "end_date" : date field,
+              "picture_url" : url
+            }
+        ]
+    }
+    ```
+
+### Create a Trip
+
+* Endpoint path: /trips/create
+* Endpoint method: POST
+
+* Headers:
+    * Authorization: Bearer token
+
+* Request shape (JSON):
+    ```json
+  {
+        "trips": [
+            {
+              "name" : string,
+              "start_date" : date field,
+              "end_date" : date field,
+              "picture_url" : url
+            }
+        ]
+    }
+    ```
+
+* Response: Create a new trip
+* Response shape:
+    ```json
+    {
+        "trips": [
+            {
+              "name" : string,
+              "id" : int,
+              "start_date" : date field,
+              "end_date" : date field,
+              "picture_url" : url
+            }
+        ]
+    }
+    ```
+
+### Delete a Trip
+
+* Endpoint path: /trips/{id}
+* Endpoint method: DELETE
+
+* Headers:
+    * Authorization: Bearer token
+
+* Request shape (JSON):
+
+* Response: Delete a Trip
+* Response shape:
+    ```json
+    {
+        "trip":
+            {
+              "name" : string,
+              "start_date" : date field,
+              "end_date" : date field,
+              "picture_url" : url
+            }
+    }
+    ```
+
+### Edit a Trip
+
+* Endpoint path: /trips/{id}
+* Endpoint method: PUT
+
+* Headers:
+    * Authorization: Bearer token
+
+* Request shape (JSON):
+    ```json
+    {
+        "trip":
+            {
+              "name" : string,
+              "start_date" : date field,
+              "end_date" : date field,
+              "picture_url" : url
+            }
+    }
+    ```
+
+* Response: Edit a Trip
+* Response shape:
+    ```json
+    {
+        "trip":
+            {
+              "name" : string,
+              "id" : int,
+              "start_date" : date field,
+              "end_date" : date field,
+              "picture_url" : url
+            }
+    }
+    ```
+
+
+
+### Itinerary Detail
+
+* Endpoint path: /trips/{id}/itinerary/{id}
+* Endpoint method: GET
+
+* Response shape for get itinerary detail
+    ```json
+    {
+      "itinerary": [
+        {
+          "id": number,
+          "date": DateField,
+          "events": [
+            {
+              "event_name",
+              "id",
+              "location" : {
+                "name": string,
+                "geo_location": string
+                },
+              }
+            ]
+        }
+      ]
+    }
+    ```
+
+### Delete Itinerary
+
+* Endpoint path: /trips/{id}/itinerary/{id}
+* Endpoint method: DELETE
+
+* Response shape for delete event
+    ```json
+    {
+      "event": [
+        {
+          "id": number,
+          "name": string,
+        }
+      ]
+    }
+    ```
+
+
+
+### Get Event Details
+
+- Endpoint path: /trips/<id>/itinerary/<id>/event/<id>/
+- Endpoint method: GET
+
+- Headers:
+
+  - Authorization: Bearer token
+
+- Response: Event Detail
+- Response shape:
+
+  ```json
+  {
+    "event": [
+      {
+        "id": number,
+        "name": string,
+        "location": {
+          "name": string,
+          "id": int,
+          "details": text,
+          "picture_url": string,
+          "geo_location": string,
+          "address": string,
+        },
+        "start_time": number,
+        "end_time": number,
+        "details": text,
+        "itinerary": {
+          "date": date,
+          "id": int,
+          "start_location": string,
+        }
+      }
+
+    ]
+  }
+  ```
+
+### Create new Event
+
+- Endpoint path: /trips/<id>/itinerary/<id>/event/
+- Endpoint method: POST
+
+- Headers:
+
+  - Authorization: Bearer token
+
+- Request body:
+  ```json
+  {
+    "event": [
+      {
+        "name": string,
+        "location": {
+          "name": string,
+        },
+        "start_time": number,
+        "end_time": number,
+        "details": text
+      }
+    ]
+  }
+  ```
+- Response: An indication of success or failure
+- Response shape:
+  ```json
+  {
+    "event": [
+      {
+        "name": string,
+        "location": {
+          "name": string,
+          "id": int,
+          "details": text,
+          "picture_url": string,
+          "geo_location": string,
+          "address": string,
+        },
+        "start_time": number,
+        "end_time": number,
+        "details": text
+      }
+    ]
+  }
+  ```
+
+### Edit Event
+
+- Endpoint path: /trips/<id>/itinerary/<id>/event/<id>/
+- Endpoint method: PUT
+
+- Headers:
+
+  - Authorization: Bearer token
+
+- Request body:
+  ```json
+  {
+    "event": [
+      {
+        "name": string,
+        "location": {
+          "name": string,
+        },
+        "start_time": number,
+        "end_time": number,
+        "details": text
+      }
+    ]
+  }
+  ```
+- Response: An indication of success or failure
+- Response shape:
+  ```json
+  {
+    "event": [
+      {
+        "name": string,
+        "location": {
+          "name": string,
+          "id": int,
+          "details": text,
+          "picture_url": string,
+          "geo_location": string,
+          "address": string,
+        },
+        "start_time": number,
+        "end_time": number,
+        "details": text
+      }
+    ]
+  }
+  ```
+
+### Get Location
+
+- Endpoint path: /trips/<id>/itinerary/<id>/event/<id>/
+- Endpoint method: GET
+- Query parameters:
+
+  - Search: Input
+
+- Headers:
+
+  - Authorization: Bearer token
+
+- Request shape (JSON):
+
+  ```json
+        "location": {
+          "id": int,
+        },
+  ```
+
+- Response: Search Maps API for location
+
+- Response shape (JSON):
+  ```json
+        "location": {
+          "name": string,
+          "details": text,
+          "picture_url": string,
+          "geo_location": string,
+        },
+  ```
+
+  ### Search Location
+
+- Endpoint path: https://maps.googleapis.com/maps/api/place/findplacefromtext/output?parameters
+- Endpoint method: GET
+- Query parameters:
+
+  - Search: Input
+
+- Headers:
+
+  - Authorization: Bearer token
+
+- Request shape (JSON):
+
+  ```json
+        "location": {
+          "name": string,
+        },
+  ```
+
+- Response: Search Maps API for location
+
+- Response shape (JSON):
+  ```json
+          {
+    "candidates":
+      [
+        {
+          "url": string,
+          "photos": ["photos"],
+          "editorial_summary": {
+          "overview": "Cutting-edge Australian & international contemporary art in a grand, waterside art deco building.",
+          }
+          "formatted_address": "140 George St, The Rocks NSW 2000, Australia",
+          "geometry":
+            {
+              "location": { "lat": -33.8599358, "lng": 151.2090295 },
+              "viewport":
+                {
+                  "northeast":
+                    { "lat": -33.85824377010728, "lng": 151.2104386798927 },
+                  "southwest":
+                    { "lat": -33.86094342989272, "lng": 151.2077390201073 },
+                },
+            },
+          "name": "Museum of Contemporary Art Australia",
+          "opening_hours": {
+            "open_now": false,
+            "periods": [Array<PlaceOpeningHoursPeriod>]
+            },
+          "rating": 4.4,
+        },
+      ],
+    "status": "OK",
+  }
+    ```
