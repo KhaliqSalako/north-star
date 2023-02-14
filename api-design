@@ -100,7 +100,7 @@
 
 ### Create a Trip
 
-* Endpoint path: /trips/create
+* Endpoint path: /trips
 * Endpoint method: POST
 
 * Headers:
@@ -108,32 +108,25 @@
 
 * Request shape (JSON):
     ```json
-  {
-        "trips": [
             {
               "name" : string,
               "start_date" : date field,
               "end_date" : date field,
               "picture_url" : url
             }
-        ]
-    }
-    ```
+            ```
+
 
 * Response: Create a new trip
 * Response shape:
     ```json
-    {
-        "trips": [
             {
               "name" : string,
-              "id" : int,
+              "trip_id" : int,
               "start_date" : date field,
               "end_date" : date field,
               "picture_url" : url
             }
-        ]
-    }
     ```
 
 ### Delete a Trip
@@ -149,15 +142,12 @@
 * Response: Delete a Trip
 * Response shape:
     ```json
-    {
-        "trip":
             {
               "name" : string,
               "start_date" : date field,
               "end_date" : date field,
               "picture_url" : url
             }
-    }
     ```
 
 ### Edit a Trip
@@ -170,22 +160,17 @@
 
 * Request shape (JSON):
     ```json
-    {
-        "trip":
             {
               "name" : string,
               "start_date" : date field,
               "end_date" : date field,
               "picture_url" : url
             }
-    }
     ```
 
 * Response: Edit a Trip
 * Response shape:
     ```json
-    {
-        "trip":
             {
               "name" : string,
               "id" : int,
@@ -193,60 +178,12 @@
               "end_date" : date field,
               "picture_url" : url
             }
-    }
     ```
-
-
-
-### Itinerary Detail
-
-* Endpoint path: /trips/{id}/itinerary/{id}
-* Endpoint method: GET
-
-* Response shape for get itinerary detail
-    ```json
-    {
-      "itinerary": [
-        {
-          "id": number,
-          "date": DateField,
-          "events": [
-            {
-              "event_name",
-              "id",
-              "location" : {
-                "name": string,
-                "geo_location": string
-                },
-              }
-            ]
-        }
-      ]
-    }
-    ```
-
-### Delete Itinerary
-
-* Endpoint path: /trips/{id}/itinerary/{id}
-* Endpoint method: DELETE
-
-* Response shape for delete event
-    ```json
-    {
-      "event": [
-        {
-          "id": number,
-          "name": string,
-        }
-      ]
-    }
-    ```
-
 
 
 ### Get Event Details
 
-- Endpoint path: /trips/<id>/itinerary/<id>/event/<id>/
+- Endpoint path: /trips/<trip_id>/events/<event_id>/
 - Endpoint method: GET
 
 - Headers:
@@ -258,26 +195,20 @@
 
   ```json
   {
-    "event": [
+    "events": [
       {
         "id": number,
         "name": string,
+        "trip_id": foreignKey,
         "location": {
-          "name": string,
           "id": int,
           "details": text,
           "picture_url": string,
           "geo_location": string,
           "address": string,
         },
-        "start_time": number,
-        "end_time": number,
+        "start_time": DateTime,
         "details": text,
-        "itinerary": {
-          "date": date,
-          "id": int,
-          "start_location": string,
-        }
       }
 
     ]
@@ -286,7 +217,7 @@
 
 ### Create new Event
 
-- Endpoint path: /trips/<id>/itinerary/<id>/event/
+- Endpoint path: /trips/<trip_id>/events/
 - Endpoint method: POST
 
 - Headers:
@@ -300,10 +231,13 @@
       {
         "name": string,
         "location": {
-          "name": string,
+          "id": int,
+          "details": text,
+          "picture_url": string,
+          "geo_location": string,
+          "address": string,
         },
-        "start_time": number,
-        "end_time": number,
+        "start_time": DateTime,
         "details": text
       }
     ]
@@ -315,17 +249,15 @@
   {
     "event": [
       {
-        "name": string,
+        "event_name": string,
         "location": {
-          "name": string,
           "id": int,
           "details": text,
           "picture_url": string,
           "geo_location": string,
           "address": string,
         },
-        "start_time": number,
-        "end_time": number,
+        "start_time": DateTime,
         "details": text
       }
     ]
@@ -334,7 +266,7 @@
 
 ### Edit Event
 
-- Endpoint path: /trips/<id>/itinerary/<id>/event/<id>/
+- Endpoint path: /trips/<trip_id>/events/<event_id>/
 - Endpoint method: PUT
 
 - Headers:
@@ -343,25 +275,14 @@
 
 - Request body:
   ```json
-  {
-    "event": [
       {
-        "name": string,
-        "location": {
-          "name": string,
-        },
         "start_time": number,
-        "end_time": number,
         "details": text
       }
-    ]
-  }
   ```
 - Response: An indication of success or failure
 - Response shape:
   ```json
-  {
-    "event": [
       {
         "name": string,
         "location": {
@@ -372,17 +293,14 @@
           "geo_location": string,
           "address": string,
         },
-        "start_time": number,
-        "end_time": number,
+        "start_time": DateTime,
         "details": text
       }
-    ]
-  }
   ```
 
 ### Get Location
 
-- Endpoint path: /trips/<id>/itinerary/<id>/event/<id>/
+- Endpoint path: /trips/<id>/events/<id>/
 - Endpoint method: GET
 - Query parameters:
 
