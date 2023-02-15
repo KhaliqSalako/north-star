@@ -24,8 +24,9 @@ services:
     volumes:
       - mongo-data:/data/db
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_ROOT_USERNAME: north
+      MONGO_INITDB_ROOT_PASSWORD: star
+
 
   ghi:
     image: node:lts-bullseye
