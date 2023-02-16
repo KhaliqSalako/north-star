@@ -12,7 +12,7 @@ services:
     volumes:
       - ./trip_service:/app
     environment:
-      DATABASE_URL: mongodb://root:password@mongo
+      DATABASE_URL: mongodb://root:password@mongo/admin
       DATABASE_NAME: mongo-data
       WAIT_HOSTS: mongo:27017
       SIGNING_KEY: ${SIGNING_KEY}
@@ -23,9 +23,11 @@ services:
     image: mongo:5
     volumes:
       - mongo-data:/data/db
+    ports:
+      - 27017:27017
     environment:
-      MONGO_INITDB_ROOT_USERNAME: north
-      MONGO_INITDB_ROOT_PASSWORD: star
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
 
 
   ghi:
