@@ -237,7 +237,7 @@
           "geo_location": string,
           "address": string,
         },
-        "start_time": DateTime,
+        "start_time": time,
         "details": text
       }
     ]
@@ -257,7 +257,7 @@
           "geo_location": string,
           "address": string,
         },
-        "start_time": DateTime,
+        "start_time": time,
         "details": text
       }
     ]
@@ -293,7 +293,7 @@
           "geo_location": string,
           "address": string,
         },
-        "start_time": DateTime,
+        "start_time": time,
         "details": text
       }
   ```

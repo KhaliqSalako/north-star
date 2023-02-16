@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 from queries.location import LocationQueries
+from typing import Optional
 
 router = APIRouter()
 
