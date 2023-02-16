@@ -15,12 +15,12 @@ def create_trip(
 ):
     if not account_data:
         return None
-    return repo.create_trip(trip=trip_in)
+    return repo.create_trip(trip=trip_in, account_id=account_data['id'])
 
 
-@router.get('trips', response_model= List[TripOut])
+@router.get('/trips', response_model= List[TripOut])
 def get_all_trips(
     account_data: dict = Depends(authenticator.get_current_account_data),
     repo: TripRepository = Depends()
 ):
-    return repo.get_all(account_id=account_data['id'])
+    return repo.get_all_trips(account_id=account_data['id'])

@@ -53,3 +53,4 @@ class TripIn(BaseModel):
 
 class TripOut(TripIn):
     id: str
+    account_id: str
