@@ -1,7 +1,11 @@
 from bson.objectid import ObjectId
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
+# from datetime import datetime, date
 
+
+# class Error(BaseModel):
+#     message: str
 
 class PydanticObjectId(ObjectId):
     @classmethod
@@ -40,3 +44,12 @@ class AccountOut(BaseModel):
 
 class AccountOutWithPassword(AccountOut):
     hashed_password: str
+
+class TripIn(BaseModel):
+    name: str
+    start_date: str
+    end_date: str
+    picture_url: Optional[str]
+
+class TripOut(TripIn):
+    id: str
