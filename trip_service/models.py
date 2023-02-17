@@ -4,8 +4,8 @@ from typing import List, Optional
 # from datetime import datetime, date
 
 
-# class Error(BaseModel):
-#     message: str
+class Error(BaseModel):
+    message: str
 
 class PydanticObjectId(ObjectId):
     @classmethod

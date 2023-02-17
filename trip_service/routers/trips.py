@@ -24,3 +24,12 @@ def get_all_trips(
     repo: TripRepository = Depends()
 ):
     return repo.get_all_trips(account_id=account_data['id'])
+
+
+@router.put("/trips/{trip_id}", response_model= TripOut)
+def update_trip(
+    trip_id: str,
+    trip: TripIn,
+    repo: TripRepository = Depends(),
+) -> TripOut:
+    return repo.update(trip_id, trip)
