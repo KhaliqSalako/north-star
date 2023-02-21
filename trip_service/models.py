@@ -54,3 +54,17 @@ class TripIn(BaseModel):
 class TripOut(TripIn):
     id: str
     account_id: str
+
+class Location(BaseModel):
+    name: str
+    geo_location: dict
+    formatted_address: str
+    photo_reference: str
+    details: str
+
+
+class Event(BaseModel):
+    event_name: str
+    location: dict
+    date: str
+
