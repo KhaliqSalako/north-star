@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from authenticator import authenticator
-from routers import accounts, locations, trips
+from routers import accounts, locations, trips, events
 import os
 
 
@@ -9,3 +9,4 @@ app.include_router(authenticator.router, tags=["Accounts"])
 app.include_router(accounts.router, tags=["Accounts"])
 app.include_router(locations.router, tags=["Google Maps API"])
 app.include_router(trips.router, tags=["Trips"])
+app.include_router(events.router, tags=["Events"])
