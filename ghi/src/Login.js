@@ -1,36 +1,28 @@
+import { useToken } from "./auth";
+import React, { useState } from "react";
+
 function Login() {
-    async function LoginModal(username, password) {
-    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token`;
+  const { token, login } = useToken();
 
-    const form = new FormData();
-    form.append("username", username);
-    form.append("password", password);
 
-    const response = await fetch(url, {
-        method: "post",
-        credentials: "include",
-        body: form,
-    });
-    if (response.ok) {
-        const tokenUrl = `${process.env.REACT_APP_ACCOUNTS_HOST}/token`;
-
-        try {
-        const response = await fetch(tokenUrl, {
-            credentials: "include",
-        });
-        if (response.ok) {
-            const data = await response.json();
-            const token = data.access_token;
-            // DO SOMETHING WITH THE TOKEN SO YOU CAN USE IT
-            // IN REQUESTS TO YOUR NON-ACCOUNTS SERVICES
-        }
-        } catch (e) {}
-        return false;
-    }
-    let error = await response.json();
-    // DO SOMETHING WITH THE ERROR, IF YOU WANT
-    }
+    return (
+      <div className="login-wrapper">
+        <h1>Please Log In</h1>
+        <form>
+          <label>
+            <p>Username</p>
+            <input type="text" />
+          </label>
+          <label>
+            <p>Password</p>
+            <input type="password" />
+          </label>
+          <div>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    );
 }
-
 
 export default Login;

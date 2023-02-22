@@ -1,5 +1,9 @@
 # Louis Journal
 
+7. 2/22/2022
+
+   - Today we finished up the backend routes.  We start up on the front end authentication and ran into some road blocks here.  We spent a lot of time setting up files and calls to the backend and were able to make a bit of progress.  We got a front end login page up and running but we still need to work on getting the token piece to transfer between the front and back end.  
+
 7. 2/21/2022
 
    - Today we made some solid progress on the endpoints for backend. We managed to get our Get One, Update, and Delete functions working for Trips. This springboarded us to also be able to complete the Events endpoints as well by connecting then to the trips. We tested all the endpoints and everything seems to be working the way we expected. We are almost done with out backend and only have a few more endpoints to figure out.
