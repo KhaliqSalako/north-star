@@ -15,7 +15,6 @@ def create_event(
     account_data: dict = Depends(authenticator.get_current_account_data),
     repo: EventRepository = Depends()
 ):
-    print(trip_id)
     if not account_data:
         return None
     return repo.create_event(event=event_in, account_id=account_data['id'], trip_id=trip_id)
