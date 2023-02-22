@@ -1,3 +1,7 @@
+### 2/21/2023
+
+Today was a very productive day. We started out with a roadblock on getting a single trip. We were able to overcome that, and then proceeded to complete all of our other API endpoints. We can now successfully create, list all, list one, update, and delete a trip and event. The events are also only visible for the trip that they are associated with. Tomorrow we are going to be working on implementing our location API call into the event "location" field.
+
 ### 2/15/2023
 
 Today we set up our external API through google maps. We wrote the function that will allow us to search for a location, and then retrieve various data into a json object. This was tough to get started on, but once we understood the format that the api wanted, it was much easier to pick and choose the points of data that we wanted to use. We also created an api_keys file that we put the google maps api key inside of. We added this file to the gitignore.
