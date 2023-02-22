@@ -63,8 +63,15 @@ class Location(BaseModel):
     details: str
 
 
-class Event(BaseModel):
+class EventIn(BaseModel):
     event_name: str
     location: dict
     date: str
+    start_time: str
+    details: str
 
+
+class EventOut(EventIn):
+    id: str
+    account_id: str
+    trip_id: str
