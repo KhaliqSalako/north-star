@@ -1,3 +1,7 @@
+### 2/22/2023
+
+Today we started on front end authentication. We ran into some blockers as far as understanding how to apply the code that is in the cookbook. After asking for help, we were finally able to fix our errors. We got a very barebones login form made, and will be attempting to get it to work tomorrow.
+
 ### 2/21/2023
 
 Today was a very productive day. We started out with a roadblock on getting a single trip. We were able to overcome that, and then proceeded to complete all of our other API endpoints. We can now successfully create, list all, list one, update, and delete a trip and event. The events are also only visible for the trip that they are associated with. Tomorrow we are going to be working on implementing our location API call into the event "location" field.
