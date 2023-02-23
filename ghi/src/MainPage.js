@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-console.log("hello");
 
 
 function MainPage() {

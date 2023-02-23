@@ -1,10 +1,12 @@
 import { useToken } from "./auth";
 import React, { useState } from "react";
 
-function Login() {
-  const { token, login, logout } = useToken();
+function SignUp() {
+  const { token, signup } = useToken();
 
   const [formData, setFormData] = useState({
+        name: '',
+        email: '',
         username: '',
         password: '',
     })
@@ -23,21 +25,23 @@ function Login() {
         e.preventDefault();
         const username = formData['username']
         const password = formData['password']
-        console.log(username)
-        console.log(password)
-        await login(username, password)
-        };
-
-    const handleLogout = async (e) => {
-        e.preventDefault();
-        await logout()
-        console.log("token-----", token)
+        const name = formData['name']
+        const email = formData['email']
+        await signup(username, password, email, name)
         };
 
     return (
       <div className="login-wrapper">
-        <h1>Please Log In</h1>
+        <h1>Sign Up</h1>
         <form onSubmit={handleSubmit}>
+          <label>
+            <p>Name</p>
+            <input name="name" onChange={handleFormChange} type="text" />
+          </label>
+          <label>
+            <p>Email</p>
+            <input name="email" onChange={handleFormChange} type="text" />
+          </label>
           <label>
             <p>Username</p>
             <input name="username" onChange={handleFormChange} type="text" />
@@ -50,11 +54,8 @@ function Login() {
             <button type="submit">Submit</button>
           </div>
         </form>
-        <div>
-            <button onClick={handleLogout}>Logout</button>
-          </div>
       </div>
     );
 }
 
-export default Login;
+export default SignUp;
