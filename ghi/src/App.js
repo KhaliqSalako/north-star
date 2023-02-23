@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Login.js";
 import SignUp from "./SignUp";
 import { AuthProvider, useToken } from "./auth";
+import TripList from './TripList';
 
 
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/trips" element={<TripList />} />
           {/* <ErrorNotification error={error} /> */}
           {/* <Construct info={launch_info} /> */}
         </Routes>

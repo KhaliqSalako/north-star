@@ -76,13 +76,13 @@ export function useToken() {
   }, [setToken, token]);
 
   async function logout() {
-    if (token) {
-      const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token`;
-      await fetch(url, { method: "delete", credentials: "include" });
-      internalToken = null;
-      setToken(null);
-      navigate("/");
-    }
+    console.log('logout')
+    console.log('token')
+    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token`;
+    await fetch(url, { method: "delete", credentials: "include" });
+    internalToken = null;
+    setToken(null);
+    navigate("/");
   }
 
   async function login(username, password) {
@@ -100,6 +100,7 @@ export function useToken() {
       const token = await getTokenInternal();
       setToken(token);
       console.log(token)
+      navigate('/')
       return;
     }
     let error = await response.json();

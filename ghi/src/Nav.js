@@ -42,15 +42,7 @@ function Nav() {
               </NavLink>
             </li>
             <li className="nav-item dropdown">
-              <NavLink
-                className="nav-link dropdown-toggle"
-                to="/"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                onClick={LogOut}>
-              Log Out
-              </NavLink>
+              <LogOut/>
             </li>
             <li className="nav-item dropdown">
               <NavLink

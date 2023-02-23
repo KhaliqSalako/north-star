@@ -2,7 +2,7 @@ import { useToken } from "./auth";
 import React, { useState } from "react";
 
 function Login() {
-  const { token, login, logout } = useToken();
+  const { login } = useToken();
 
   const [formData, setFormData] = useState({
         username: '',
@@ -28,11 +28,6 @@ function Login() {
         await login(username, password)
         };
 
-    const handleLogout = async (e) => {
-        e.preventDefault();
-        await logout()
-        console.log("token-----", token)
-        };
 
     return (
       <div className="login-wrapper">
@@ -50,9 +45,6 @@ function Login() {
             <button type="submit">Submit</button>
           </div>
         </form>
-        <div>
-            <button onClick={handleLogout}>Logout</button>
-          </div>
       </div>
     );
 }
