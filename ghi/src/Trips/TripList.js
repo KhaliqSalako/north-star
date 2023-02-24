@@ -1,25 +1,26 @@
-import { useState, useEffect } from 'react';
-import { useAuthContext } from './auth';
-
+import { useState, useEffect } from "react";
+import { useAuthContext } from "../Accounts/auth";
+// import Tripsidebar from "./Tripsidebar";
 
 function TripList() {
-    const { token } = useAuthContext();
+  const { token } = useAuthContext();
   const [trips, setTrips] = useState([]);
 
   const getTripData = async () => {
-    console.log(token)
+    console.log(token);
     const response = await fetch(
-        'http://localhost:8000/api/trips',
-        {
-        credentials : 'include',
+      `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips`,
+      {
+        credentials: "include",
         // headers: {
         // 'Authorization': `Bearer ${token}`
         // }
-    }
+      }
     );
 
     if (response.ok) {
       const data = await response.json();
+      console.log(data);
       setTrips(data.trips);
     }
   };
@@ -40,7 +41,7 @@ function TripList() {
           </tr>
         </thead>
         <tbody>
-          {trips.map(trip => {
+          {trips.map((trip) => {
             return (
               <tr key={trip.id}>
                 <td>{trip.name}</td>

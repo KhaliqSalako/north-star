@@ -1,20 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 // import Construct from './Construct.js'
-import ErrorNotification from './ErrorNotification';
-import './App.css';
-import MainPage from './MainPage.js';
+import ErrorNotification from "./Misc/ErrorNotification";
+import "./App.css";
+import MainPage from "./MainPage.js";
 import Nav from "./Nav";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./Login.js";
-import SignUp from "./SignUp";
-import { AuthProvider, useToken } from "./auth";
-import TripList from './TripList';
-
-
-
+import Login from "./Accounts/Login";
+import SignUp from "./Accounts/SignUp";
+import { AuthProvider, useToken } from "./Accounts/auth";
+import TripList from "./Trips/TripList";
 
 function App() {
-
   function GetToken() {
     // Get token from JWT cookie (if already logged in)
     useToken();
@@ -22,7 +18,6 @@ function App() {
   }
 
   return (
-
     <BrowserRouter>
       <AuthProvider>
         <GetToken />

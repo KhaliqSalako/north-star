@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from queries.trips import TripIn, TripRepository
 from typing import List
-from models import TripOut
+from models import TripOut, TripList
 from authenticator import authenticator
 from fastapi import FastAPI, HTTPException
 
@@ -19,12 +19,14 @@ def create_trip(
     return repo.create_trip(trip=trip_in, account_id=account_data["id"])
 
 
-@router.get("/api/trips", response_model=List[TripOut])
+@router.get("/api/trips", response_model=TripList)
 def get_all_trips(
     account_data: dict = Depends(authenticator.get_current_account_data),
     repo: TripRepository = Depends(),
 ):
-    return repo.get_all_trips(account_id=account_data["id"])
+    trips = repo.get_all_trips(account_id=account_data["id"])
+    print("trips print----",trips)
+    return {"trips": trips}
 
 
 @router.get("/api/trips/{trip_id}", response_model=TripOut)

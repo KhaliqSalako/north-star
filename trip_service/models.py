@@ -1,7 +1,6 @@
 from bson.objectid import ObjectId
 from pydantic import BaseModel
 from typing import List, Optional
-
 # from datetime import datetime, date
 
 
@@ -63,12 +62,6 @@ class TripOut(TripIn):
     id: str
     account_id: str
 
-<<<<<<< HEAD
-=======
-class TripList(BaseModel):
-    trips: List[TripOut]
-
->>>>>>> 767366352cd5229d27be4e364217225899d42e5a
 
 class TripList(BaseModel):
     trips: List[TripOut]
