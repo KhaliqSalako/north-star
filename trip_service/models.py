@@ -1,11 +1,13 @@
 from bson.objectid import ObjectId
 from pydantic import BaseModel
 from typing import List, Optional
+
 # from datetime import datetime, date
 
 
 class Error(BaseModel):
     message: str
+
 
 class PydanticObjectId(ObjectId):
     @classmethod
@@ -17,7 +19,7 @@ class PydanticObjectId(ObjectId):
         if value:
             try:
                 ObjectId(value)
-            except:
+            except ValueError:
                 raise ValueError(f"Not a valid object id: {value}")
         return value
 
@@ -26,15 +28,18 @@ class SessionOut(BaseModel):
     jti: str
     account_id: str
 
+
 class AccountIn(BaseModel):
     name: str
     email: str
     username: str
     password: str
 
+
 class Account(AccountIn):
     id: PydanticObjectId
     roles: List[str]
+
 
 class AccountOut(BaseModel):
     id: str
@@ -42,8 +47,10 @@ class AccountOut(BaseModel):
     email: str
     username: str
 
+
 class AccountOutWithPassword(AccountOut):
     hashed_password: str
+
 
 class TripIn(BaseModel):
     name: str
@@ -51,9 +58,11 @@ class TripIn(BaseModel):
     end_date: str
     picture_url: Optional[str]
 
+
 class TripOut(TripIn):
     id: str
     account_id: str
+
 
 class Location(BaseModel):
     name: str

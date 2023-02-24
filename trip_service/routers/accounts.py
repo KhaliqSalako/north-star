@@ -17,22 +17,24 @@ from models import (
     AccountOut,
 )
 
-from queries.accounts import (
-    DuplicateAccountError,
-    AccountQueries
-)
+from queries.accounts import DuplicateAccountError, AccountQueries
+
 
 class AccountForm(BaseModel):
     username: str
     password: str
 
+
 class AccountToken(Token):
     account: AccountOut
+
 
 class HttpError(BaseModel):
     detail: str
 
+
 router = APIRouter()
+
 
 @router.get("/protected", response_model=bool)
 async def get_protected(
@@ -41,11 +43,10 @@ async def get_protected(
     return True
 
 
-
 @router.get("/token", response_model=AccountToken | None)
 async def get_token(
     request: Request,
-    account: AccountOut = Depends(authenticator.try_get_current_account_data)
+    account: AccountOut = Depends(authenticator.try_get_current_account_data),
 ) -> AccountToken | None:
     if account and authenticator.cookie_name in request.cookies:
         return {

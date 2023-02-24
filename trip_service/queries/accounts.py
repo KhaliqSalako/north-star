@@ -1,6 +1,6 @@
 from .client import Queries
 from models import AccountIn, AccountOutWithPassword
-from pymongo.errors import DuplicateKeyError
+# from pymongo.errors import DuplicateKeyError
 
 
 class DuplicateAccountError(ValueError):
@@ -10,8 +10,9 @@ class DuplicateAccountError(ValueError):
 class AccountQueries(Queries):
     COLLECTION = "accounts"
 
-
-    def create(self, info: AccountIn, hashed_password: str) -> AccountOutWithPassword:
+    def create(
+        self, info: AccountIn, hashed_password: str
+    ) -> AccountOutWithPassword:
         props = info.dict()
         props["hashed_password"] = hashed_password
         try:

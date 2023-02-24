@@ -7,9 +7,9 @@ from models import Location
 
 router = APIRouter()
 
-@router.get('/api/location/{location_search}')
+
+@router.get("/api/location/{location_search}")
 def get_location_by_name(
-    location_search: str,
-    repo: LocationQueries = Depends()
+    location_search: str, repo: LocationQueries = Depends()
 ):
     return repo.get_location_by_name(location_search)
