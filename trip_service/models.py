@@ -70,6 +70,10 @@ class TripList(BaseModel):
 
 >>>>>>> 767366352cd5229d27be4e364217225899d42e5a
 
+class TripList(BaseModel):
+    trips: List[TripOut]
+
+
 class Location(BaseModel):
     name: str
     geo_location: dict
