@@ -23,7 +23,7 @@ class TripRepository(Queries):
         props['id'] = trip_id
         return TripOut(**props)
 
-    def get_all_trips(self, account_id) ->List[TripOut]:
+    def get_all_trips(self, account_id) -> List[TripOut]:
         result = self.collection.find({"account_id": account_id})
         new_list = []
         for trip in result:
@@ -31,10 +31,10 @@ class TripRepository(Queries):
             new_list.append(TripOut(**trip))
         return new_list
 
-    #{'_id': ObjectId('63f4ff4cb3e1e556b52a7501'), 'name': 'Test 1', 
-    # 'start_date': '1010', 'end_date': '2020', 
+    #{'_id': ObjectId('63f4ff4cb3e1e556b52a7501'), 'name': 'Test 1',
+    # 'start_date': '1010', 'end_date': '2020',
     # 'picture_url': 'test/url', 'account_id': '63f4fefcb3e1e556b52a7500'}
-    
+
     def get_trip(self, trip_id) -> TripOut:
         print("trip_id: ", trip_id)
         trip_dict = self.collection.find_one({"_id": ObjectId(trip_id)})
@@ -42,7 +42,7 @@ class TripRepository(Queries):
             raise HTTPException(status_code=404, detail="trip_id not found")
         trip_dict["id"] = trip_id
         return TripOut(**trip_dict)
-    
+
     def delete_trip(self, trip_id):
         print("trip_id: ", trip_id)
         trip_dict = self.collection.find_one({"_id": ObjectId(trip_id)})

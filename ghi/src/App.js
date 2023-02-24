@@ -24,9 +24,9 @@ function App() {
   return (
 
     <BrowserRouter>
-    <Nav />
       <AuthProvider>
         <GetToken />
+        <Nav />
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<Login />} />

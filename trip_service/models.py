@@ -55,6 +55,10 @@ class TripOut(TripIn):
     id: str
     account_id: str
 
+class TripList(BaseModel):
+    trips: List[TripOut]
+
+
 class Location(BaseModel):
     name: str
     geo_location: dict
