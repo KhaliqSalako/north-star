@@ -63,6 +63,12 @@ class TripOut(TripIn):
     id: str
     account_id: str
 
+<<<<<<< HEAD
+=======
+class TripList(BaseModel):
+    trips: List[TripOut]
+
+>>>>>>> 767366352cd5229d27be4e364217225899d42e5a
 
 class Location(BaseModel):
     name: str

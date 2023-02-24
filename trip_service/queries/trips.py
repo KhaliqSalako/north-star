@@ -33,7 +33,7 @@ class TripRepository(Queries):
             new_list.append(TripOut(**trip))
         return new_list
 
-    # {'_id': ObjectId('63f4ff4cb3e1e556b52a7501'), 'name': 'Test 1',
+    #{'_id': ObjectId('63f4ff4cb3e1e556b52a7501'), 'name': 'Test 1',
     # 'start_date': '1010', 'end_date': '2020',
     # 'picture_url': 'test/url', 'account_id': '63f4fefcb3e1e556b52a7500'}
 

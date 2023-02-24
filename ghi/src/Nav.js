@@ -1,6 +1,22 @@
 import { NavLink } from "react-router-dom";
+import LogOut from "./LogOut";
+import { useToken, getToken } from "./auth";
 
 function Nav() {
+  // const { token, logout } = useToken();
+
+  // const token = getToken()
+  // console.log(token)
+
+
+
+  // const handleLogout = async (e) => {
+  //       e.preventDefault();
+  //       console.log("token before---", token)
+  //       await logout()
+  //       console.log("token-----", token)
+  //       };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-gradient-to-l from-blue to-gray-dark nav-sticky">
       <div className="container-fluid">
@@ -23,6 +39,20 @@ function Nav() {
                 aria-expanded="false"
               >
                 Login
+              </NavLink>
+            </li>
+            <li className="nav-item dropdown">
+              <LogOut/>
+            </li>
+            <li className="nav-item dropdown">
+              <NavLink
+                className="nav-link dropdown-toggle"
+                to="/signup"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Sign Up
               </NavLink>
             </li>
           </ul>
