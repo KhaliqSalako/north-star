@@ -23,8 +23,6 @@ function Login() {
     e.preventDefault();
     const username = formData["username"];
     const password = formData["password"];
-    console.log(username);
-    console.log(password);
     await login(username, password);
   };
 
