@@ -38,6 +38,7 @@ def get_trip(
     if not len(trip_id) == 24:
         raise HTTPException(status_code=404, detail="Invalid trip_id")
     trip_data = repo.get_trip(trip_id)
+    print("TRIP DATA----",trip_data)
     if trip_data.account_id == account_data["id"]:
         return trip_data
     raise HTTPException(status_code=404, detail="trip_id not found")

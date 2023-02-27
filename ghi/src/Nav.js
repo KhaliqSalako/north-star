@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import LogOut from "./Accounts/LogOut";
 import { useToken, getToken } from "./Accounts/auth";
 
+
 function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-gradient-to-l from-blue to-gray-dark nav-sticky">

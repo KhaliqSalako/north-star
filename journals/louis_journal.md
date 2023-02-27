@@ -2,6 +2,10 @@
 
 1. 2/23/2022
 
+   - Today we started working on the Trip list and were able to get that to render on our page after some struggling.  We then decided to split up and work in pairs.  Anri and I worked on the Navigation sidebar which will be used to display our trips.  We spent a great deal of time working on this and eventually got it to work after about two hours of debugging.  We are now able to end the week on a good note after solving a difficult problem.  Cheers.
+
+1. 2/23/2022
+
    - Today we were working on the front end authentication again. This is a vey challenging piece to the project for our group. We eventually got the login, logout, and signup functionality to work from a front end perspective. However we also started setting up a trips list but ran into issues with authentication. When we were logged in we had issues with retrieving the trips due to an issue sending the token to the backend. We were not able to finish this piece and will start back on it tomorrow.
 
 2. 2/22/2022
