@@ -145,7 +145,7 @@ export function useToken() {
     if (response.ok) {
       await login(username, password);
     }
-    return false;
+    return false
   }
 
   return { token, login, logout, signup, update };
@@ -169,6 +169,7 @@ export const useUser = (token) => {
         setUser(newUser);
       }
     }
+
 
     getUser();
   }, [token]);

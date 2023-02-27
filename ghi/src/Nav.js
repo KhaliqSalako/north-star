@@ -52,6 +52,28 @@ function Nav() {
                 Trips
               </NavLink>
             </li>
+               <li className="nav-item dropdown">
+              <NavLink
+                className="nav-link dropdown-toggle"
+                to="/trips/create"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Create a Trip
+              </NavLink>
+              </li>
+              <li className="nav-item dropdown">
+              <NavLink
+                className="nav-link dropdown-toggle"
+                to="/trips/edit"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Edit a Trip
+              </NavLink>
+            </li>
           </ul>
         </div>
         <button
@@ -74,6 +96,3 @@ function Nav() {
 }
 
 export default Nav;
-
-
-

@@ -1,26 +1,21 @@
 import { useState, useEffect } from "react";
 import { useAuthContext } from "../Accounts/auth";
-// import Tripsidebar from "./Tripsidebar";
+import { Link } from 'react-router-dom'
 
 function TripList() {
   const { token } = useAuthContext();
   const [trips, setTrips] = useState([]);
 
   const getTripData = async () => {
-    console.log(token);
     const response = await fetch(
       `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips`,
       {
         credentials: "include",
-        // headers: {
-        // 'Authorization': `Bearer ${token}`
-        // }
       }
     );
 
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
       setTrips(data.trips);
     }
   };
@@ -28,6 +23,42 @@ function TripList() {
   useEffect(() => {
     getTripData();
   }, []);
+
+  const deleteTrip = async (trip_id) => {
+    const response = await fetch(`${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`, {
+      method: 'DELETE',
+      credentials: "include",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    const data = await response.json()
+    setTrips(
+      trips.filter((trip) => {
+        console.log(trip.id)
+        return trip.trip_id !== trip_id;
+      })
+    )
+  }
+
+  //   const editTrip = async (trip_id) => {
+  //   const response = await fetch(`${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`, {
+  //     method: 'PUT',
+  //     credentials: "include",
+  //     mode: "cors",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     }
+  //   })
+  //   const data = await response.json()
+  //   setTrips(
+  //     trips.filter((trip) => {
+  //       console.log(trip.id)
+  //       return trip.trip_id !== trip_id;
+  //     })
+  //   )
+  // }
 
   return (
     <div className="container">
@@ -50,6 +81,10 @@ function TripList() {
                 <td>
                   <img src={trip.picture_url} className="card-img-top" />
                 </td>
+                <td>
+                  <button onClick={() => deleteTrip(trip.id)}>Delete</button>
+                </td>
+                <Link to={`/trips/${trip.id}`} className="btn btn-primary btn-lg px-4 gap-3">View Trip</Link>
               </tr>
             );
           })}
@@ -58,4 +93,5 @@ function TripList() {
     </div>
   );
 }
+
 export default TripList;
