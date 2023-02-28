@@ -1,3 +1,16 @@
+### 2/27/2023
+
+Today we had a lot of struggles as a group. We were able to write 2 functioning unit tests at the beginning of the day. We then split into some pair programming. I worked with Khaliq and we were able to make a functioning delete button on the front end. We then started to work on an edit form and decided that we needed to be able to simply view one trip before we can edit it. It took a long time in the afternoon, and we had to ask several questions to instructors, but we were finally able to round off the day with a functioning "View One Trip" page.
+
+### 2/24/2023
+
+We started today off strong. Today we were able to display all of the trips associated with an account. We then decided that it might be a good idea to split into pairs to work on different aspects of the front end. I worked with Khaliq on trying to create a new trip on the front end. We ran into errors stating that we didn't have authorization to do this. We decided that the problem must be something to do with the token. We were unable to solve this today and will be asking for help on Monday.
+
+
+### 2/23/2023
+
+Today we were able to get a functioning log in, log out, and sign up button on the front end. We ran into a blocker that we were unable to resolve in regards to listing all of our trips. We first had an issue with authentication, which was resolved, but then we still had an issue with our trips being displayed. We will have to ask for more help with this matter tomorrow.
+
 ### 2/22/2023
 
 Today we started on front end authentication. We ran into some blockers as far as understanding how to apply the code that is in the cookbook. After asking for help, we were finally able to fix our errors. We got a very barebones login form made, and will be attempting to get it to work tomorrow.
