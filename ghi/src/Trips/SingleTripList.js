@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useAuthContext } from "../Accounts/auth";
 import {useParams} from 'react-router';
 
-function SingleTripList(props) {
+function SingleTripList() {
   const { token } = useAuthContext();
   const [trip, setTrip] = useState([]);
   const params = useParams()

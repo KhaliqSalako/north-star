@@ -11,6 +11,8 @@ import TripList from "./Trips/TripList";
 import CreateTripForm from "./Trips/CreateTripForm";
 import EditTripForm from "./Trips/EditTripForm";
 import SingleTripList from "./Trips/SingleTripList";
+import EventDetail from "./Events/EventDetail";
+import EditEventForm from "./Events/EditEvent";
 
 function App() {
   function GetToken() {
@@ -31,7 +33,15 @@ function App() {
           <Route path="/trips" element={<TripList />} />
           <Route path="/trips/create" element={<CreateTripForm />} />
           <Route path="/trips/edit/:id" element={<EditTripForm />} />
-          <Route path="/trips/detail/:id" element={<SingleTripList />} />
+          <Route path="/trips/:id" element={<SingleTripList />} />
+          <Route
+            path="/trips/:trip_id/events/:event_id"
+            element={<EventDetail />}
+          />
+          <Route
+            path="/trips/:trip_id/events/:event_id/edit"
+            element={<EditEventForm />}
+          />
           {/* <ErrorNotification error={error} /> */}
           {/* <Construct info={launch_info} /> */}
         </Routes>

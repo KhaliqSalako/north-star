@@ -53,7 +53,7 @@ function Nav() {
                 Trips
               </NavLink>
             </li>
-               <li className="nav-item dropdown">
+            <li className="nav-item dropdown">
               <NavLink
                 className="nav-link dropdown-toggle"
                 to="/trips/create"
@@ -63,8 +63,6 @@ function Nav() {
               >
                 Create a Trip
               </NavLink>
-              </li>
-              <li className="nav-item dropdown">
             </li>
           </ul>
         </div>
