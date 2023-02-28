@@ -27,6 +27,16 @@ class EventRepository(Queries):
             new_list.append(EventOut(**event))
         return new_list
 
+    def get_itinerary(self, account_id, trip_id, date) -> List[EventOut]:
+        result = self.collection.find(
+            {"account_id": account_id, "trip_id": trip_id, "date": date}
+        )
+        new_list = []
+        for event in result:
+            event["id"] = str(event["_id"])
+            new_list.append(EventOut(**event))
+        return new_list
+
     def get_event(self, event_id, trip_id) -> EventOut:
         event_dict = self.collection.find_one(
             {"_id": ObjectId(event_id), "trip_id": trip_id}

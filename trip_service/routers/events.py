@@ -31,6 +31,18 @@ def get_all_events(
     return repo.get_all_events(account_id=account_data["id"], trip_id=trip_id)
 
 
+@router.get("/api/trips/{trip_id}/{date}/events", response_model=dict)
+def get_itinerary(
+    trip_id: str,
+    date: str,
+    account_data: dict = Depends(authenticator.get_current_account_data),
+    repo: EventRepository = Depends(),
+):
+    events = repo.get_itinerary(account_id=account_data["id"], trip_id=trip_id, date=date)
+
+    return {"events": events}
+
+
 @router.get("/api/trips/{trip_id}/events/{event_id}", response_model=EventOut)
 def get_event(
     event_id: str,
