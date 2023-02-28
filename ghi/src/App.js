@@ -31,7 +31,7 @@ function App() {
           <Route path="/trips" element={<TripList />} />
           <Route path="/trips/create" element={<CreateTripForm />} />
           <Route path="/trips/edit" element={<EditTripForm />} />
-          <Route path="/trips/" element={<SingleTripList />} />
+          <Route path="/trips/detail/:id" element={<SingleTripList />} />
           {/* <ErrorNotification error={error} /> */}
           {/* <Construct info={launch_info} /> */}
         </Routes>

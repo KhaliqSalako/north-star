@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import { useAuthContext } from "../Accounts/auth";
+import {useParams} from 'react-router';
 
-function SingleTripList() {
+function SingleTripList(props) {
   const { token } = useAuthContext();
-  const [trips, setTrips] = useState([]);
+  const [trip, setTrip] = useState([]);
+  const params = useParams()
+  console.log(params)
+  const trip_id = params.id
 
-  const getSingleTripData = async (trip_id) => {
+  const getSingleTripData = async () => {
+      console.log(trip_id)
     const response = await fetch(
       `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`,
       {
@@ -16,13 +21,14 @@ function SingleTripList() {
     if (response.ok) {
       const data = await response.json();
       console.log(data)
-      setTrips(trips.data);
+      setTrip(data);
     }
   };
 
   useEffect(() => {
     getSingleTripData();
   }, []);
+
 
   return (
     <div className="container">
@@ -36,9 +42,7 @@ function SingleTripList() {
           </tr>
         </thead>
         <tbody>
-          {trips.map((trip) => {
-            return (
-              <tr key={trip.id}>
+              <tr>
                 <td>{trip.name}</td>
                 <td>{trip.start_date}</td>
                 <td>{trip.end_date}</td>
@@ -46,8 +50,6 @@ function SingleTripList() {
                   <img src={trip.picture_url} className="card-img-top" />
                 </td>
               </tr>
-            );
-          })}
         </tbody>
       </table>
     </div>
