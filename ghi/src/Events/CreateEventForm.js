@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { getToken, getTokenInternal, useAuthContext, useToken } from "../Accounts/auth";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router";
 
 function CreateEventForm() {
+    const params = useParams()
+    const trip_id = params.trip_id
+    const date = params.date
+
   const [formData, setFormData] = useState({
     event_name: "",
     location: {},
-    date: "",
+    date: date,
     start_time: "",
     details: "",
-    trip_id: "",
+    trip_id: trip_id,
   });
 
     const { token } = useAuthContext();
@@ -29,7 +34,7 @@ function CreateEventForm() {
       },
     });
     if (response.ok) {
-        navigate(`/trips/${trip_id}/events`);
+        navigate(`/trips/${trip_id}/events/${date}`);
     }
     return false;
   }
@@ -43,14 +48,14 @@ function CreateEventForm() {
       [inputName]: value,
     });
   };
-
+//   console.log(formData["event_name"])
   return (
     <div className="login-wrapper">
       <h1>Create an Event</h1>
       <form onSubmit={handleSubmit}>
         <label>
           <p>Event Name</p>
-          <input name="name" onChange={handleFormChange} type="text" />
+          <input name="event_name" onChange={handleFormChange} type="text" />
         </label>
         <label>
           <p>Location</p>
@@ -78,4 +83,4 @@ function CreateEventForm() {
 
 }
 
-export default CreateTripForm;
+export default CreateEventForm;

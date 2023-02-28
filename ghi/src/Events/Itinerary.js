@@ -12,7 +12,7 @@ function Itinerary() {
 
     const getEventData = async () => {
     const response = await fetch(
-      `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}/${date}/events`,
+      `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}/events/${date}`,
       {
         credentials: "include",
       }
@@ -31,11 +31,17 @@ function Itinerary() {
 return (
     <>
         <div className="container">
+            <Link
+                to={`/trips/${trip_id}/events/${date}/create`}
+                className="btn btn-primary btn-lg px-4 gap-3"
+              >
+                Create Event
+                </Link>
       <table className="table table-striped">
         <thead>
           <tr>
             <th>Name</th>
-            <th>Location</th>
+            {/* <th>Location</th> */}
             <th>Date</th>
             <th>Start Time</th>
             <th>Details</th>
