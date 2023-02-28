@@ -1,52 +1,68 @@
 import React, { useState, useEffect } from "react";
-import { getToken, getTokenInternal, useAuthContext, useToken } from "../Accounts/auth";
+import {
+  getToken,
+  getTokenInternal,
+  useAuthContext,
+  useToken,
+} from "../Accounts/auth";
+import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
+
 
 function EditTripForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    start_date: "",
-    end_date: "",
-    picture_url: "",
-  });
+  const navigate = useNavigate();
+  const { token } = useAuthContext();
+  const [trip, setTrip] = useState([]);
+  const params = useParams();
+  const trip_id = params.id
 
-    const { token } = useAuthContext();
 
-    async function createTrip(name, start_date, end_date, picture_url, trip_id) {
+  async function handleSubmit(e) {
+    e.preventDefault();
     const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`;
+    console.log(url)
     const response = await fetch(url, {
       method: "put",
-      body: JSON.stringify(
-        formData,
-      ),
+      body: JSON.stringify(trip),
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
     });
     if (response.ok) {
-        await getTokenInternal()
+      navigate("/trips");
     }
     return false;
   }
 
+  const getSingleTripData = async () => {
+    const response = await fetch(
+      `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`,
+      {
+        credentials: "include",
+      }
+    );
+
+    if (response.ok) {
+      const data = await response.json();
+      setTrip(data);
+    }
+  };
+
+  useEffect(() => {
+    getSingleTripData();
+  }, []);
+
   const handleFormChange = (e) => {
     const value = e.target.value;
     const inputName = e.target.name;
-    setFormData({
-      ...formData,
+    setTrip({
+      ...trip,
 
       [inputName]: value,
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const name = formData["name"];
-    const start_date = formData["start_date"];
-    const end_date = formData["end_state"];
-    const picture_url = formData["picture_url"];
-    await createTrip(name, start_date, end_date, picture_url);
-  };
 
   return (
     <div className="login-wrapper">
@@ -54,28 +70,49 @@ function EditTripForm() {
       <form onSubmit={handleSubmit}>
         <label>
           <p>Name</p>
-          <input name="name" onChange={handleFormChange} type="text" />
+          <input
+            name="name"
+            onChange={handleFormChange}
+            placeholder={trip.name}
+            value={trip.name}
+            type="text"
+          />
         </label>
         <label>
           <p>Start Date</p>
-          <input name="start_date" onChange={handleFormChange} type="text" />
+          <input
+            name="start_date"
+            onChange={handleFormChange}
+            placeholder={trip.start_date}
+            value={trip.start_date}
+            type="text"
+          />
         </label>
         <label>
           <p>End Date</p>
-          <input name="end_date" onChange={handleFormChange} type="text" />
+          <input
+            name="end_date"
+            onChange={handleFormChange}
+            placeholder={trip.end_date}
+            value={trip.end_date}
+            type="text"
+          />
         </label>
         <label>
           <p>Photo</p>
-          <input name="picture_url" onChange={handleFormChange} type="text" />
+          <input
+            name="picture_url"
+            onChange={handleFormChange}
+            placeholder={trip.picture_url}
+            type="text"
+          />
         </label>
         <div>
-          <button type="submit">Edit</button>
+          <button type="submit">Submit</button>
         </div>
       </form>
     </div>
   );
-
-
 }
 
 export default EditTripForm;
