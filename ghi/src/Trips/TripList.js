@@ -63,7 +63,7 @@ function TripList() {
 
   return (
     <>
-      <Tripsidebar trips={trips}/>,
+      <Tripsidebar trips={trips}/>
         <div className="container">
       <table className="table table-striped">
         <thead>
