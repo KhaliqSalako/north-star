@@ -70,7 +70,7 @@ function TripList() {
                   <button onClick={() => deleteTrip(trip.id)}>Delete</button>
                 </td>
                 <Link
-                  to={`/trips/detail/${trip.id}`}
+                  to={`/trips/${trip.id}`}
                   className="btn btn-primary btn-lg px-4 gap-3"
                 >
                   View Trip

@@ -8,36 +8,35 @@ import {
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 
-
-function EditTripForm() {
+function EditEventForm() {
   const navigate = useNavigate();
   const { token } = useAuthContext();
-  const [trip, setTrip] = useState([]);
+  const [event, setEvent] = useState({});
   const params = useParams();
-  const trip_id = params.id
-
+  const trip_id = params.trip_id;
+  const event_id = params.event_id
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`;
-    console.log(url)
+    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}/events/${event_id}`;
+    console.log(url);
     const response = await fetch(url, {
       method: "put",
-      body: JSON.stringify(trip),
+      body: JSON.stringify(event),
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
     });
     if (response.ok) {
-      navigate("/trips");
+      navigate(`/trips/${trip_id}/events/`);
     }
     return false;
   }
 
-  const getSingleTripData = async () => {
+  const getSingleEventData = async () => {
     const response = await fetch(
-      `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`,
+      `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}/events/${event_id}`,
       {
         credentials: "include",
       }
@@ -45,66 +44,75 @@ function EditTripForm() {
 
     if (response.ok) {
       const data = await response.json();
-      setTrip(data);
+      setEvent(data);
     }
   };
 
   useEffect(() => {
-    getSingleTripData();
+    getSingleEventData();
   }, []);
 
   const handleFormChange = (e) => {
     const value = e.target.value;
     const inputName = e.target.name;
-    setTrip({
-      ...trip,
+    setEvent({
+      ...event,
 
       [inputName]: value,
     });
   };
 
-
   return (
     <div className="login-wrapper">
-      <h1>Edit a Trip</h1>
+      <h1>Edit Event</h1>
       <form onSubmit={handleSubmit}>
         <label>
           <p>Name</p>
           <input
-            name="name"
+            name="event_name"
             onChange={handleFormChange}
-            placeholder={trip.name}
-            value={trip.name}
+            placeholder={event.event_name}
+            value={event.event_name}
+            type="text"
+          />
+        </label>
+        {/* <label>
+          <p>Location</p>
+          <input
+            name="location"
+            onChange={handleFormChange}
+            placeholder={event.location}
+            value={event.location}
+            type="text"
+          />
+        </label> */}
+        <label>
+          <p>Date</p>
+          <input
+            name="date"
+            onChange={handleFormChange}
+            placeholder={event.date}
+            value={event.date}
             type="text"
           />
         </label>
         <label>
-          <p>Start Date</p>
+          <p>Start Time</p>
           <input
-            name="start_date"
+            name="start_time"
             onChange={handleFormChange}
-            placeholder={trip.start_date}
-            value={trip.start_date}
+            placeholder={event.start_time}
+            value={event.start_time}
             type="text"
           />
         </label>
         <label>
-          <p>End Date</p>
+          <p>Details</p>
           <input
-            name="end_date"
+            name="details"
             onChange={handleFormChange}
-            placeholder={trip.end_date}
-            value={trip.end_date}
-            type="text"
-          />
-        </label>
-        <label>
-          <p>Photo</p>
-          <input
-            name="picture_url"
-            onChange={handleFormChange}
-            placeholder={trip.picture_url}
-            value={trip.picture_url}
+            placeholder={event.details}
+            value={event.details}
             type="text"
           />
         </label>
@@ -116,4 +124,4 @@ function EditTripForm() {
   );
 }
 
-export default EditTripForm;
+export default EditEventForm;
