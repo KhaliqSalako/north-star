@@ -12,7 +12,7 @@ function Itinerary() {
 
     const getEventData = async () => {
     const response = await fetch(
-      `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}/events/${date}`,
+      `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}/itinerary/${date}`,
       {
         credentials: "include",
       }
@@ -20,7 +20,6 @@ function Itinerary() {
     if (response.ok) {
       const data = await response.json();
       setEvents(data.events);
-      console.log(data.events)
     }
   };
 
@@ -28,6 +27,19 @@ function Itinerary() {
   useEffect(() => {
     getEventData();
   }, []);
+
+  const deleteEvent = async (event_id) => {
+    const response = await fetch(`${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}/events/${event_id}`, {
+      method: 'DELETE',
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    const data = await response.json()
+    getEventData()
+  }
+
 return (
     <>
         <div className="container">
@@ -56,6 +68,17 @@ return (
                 <td>{event.date}</td>
                 <td>{event.start_time}</td>
                 <td>{event.details}</td>
+                <td>
+                  <button onClick={() => deleteEvent(event.id)}>Delete</button>
+                </td>
+                <td>
+                <Link
+                to={`/trips/${trip_id}/events/detail/${event.id}`}
+                className="btn btn-primary btn-lg px-4 gap-3"
+              >
+                View Event
+                </Link>
+                </td>
               </tr>
             );
           })}

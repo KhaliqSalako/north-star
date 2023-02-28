@@ -23,7 +23,7 @@ function TripList() {
 
   useEffect(() => {
     getTripData();
-  }, [trips]);
+  }, []);
 
   const deleteTrip = async (trip_id) => {
     const response = await fetch(`${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`, {
@@ -35,12 +35,7 @@ function TripList() {
       }
     })
     const data = await response.json()
-    setTrips(
-      trips.filter((trip) => {
-        console.log(trip.id)
-        return trip.trip_id !== trip_id;
-      })
-    )
+    getTripData()
   }
 
   return (

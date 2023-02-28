@@ -36,13 +36,13 @@ function App() {
           <Route path="/trips/create" element={<CreateTripForm />} />
           <Route path="/trips/edit/:id" element={<EditTripForm />} />
           <Route path="/trips/:id" element={<SingleTripList />} />
-          <Route path="/trips/:id/events/:date" element={<Itinerary />} />
+          <Route path="/trips/:id/itinerary/:date" element={<Itinerary />} />
           <Route
-            path="/trips/:trip_id/events/:event_id"
+            path="/trips/:trip_id/events/detail/:event_id"
             element={<EventDetail />}
           />
           <Route
-            path="/trips/:trip_id/events/:event_id/edit"
+            path="/trips/:trip_id/events/detail/:event_id/edit"
             element={<EditEventForm />}
           />
           <Route

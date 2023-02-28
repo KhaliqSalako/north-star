@@ -29,7 +29,7 @@ function EditEventForm() {
       },
     });
     if (response.ok) {
-      navigate(`/trips/${trip_id}/events/`);
+      navigate(`/trips/${trip_id}/itinerary/${event.date}`);
     }
     return false;
   }

@@ -10,9 +10,8 @@ function EventDetail() {
   const [event, setEvent] = useState([]);
   const params = useParams();
   const trip_id = params.trip_id;
-  const event_id =params.event_id
+  const event_id = params.event_id
 
-console.log(params)
 
   const getEvent = async () => {
     const response = await fetch(
@@ -32,7 +31,6 @@ console.log(response)
   useEffect(() => {
     getEvent();
   }, []);
-
 
   return (
     <div className="container">
@@ -55,7 +53,7 @@ console.log(response)
             <td>{event.details}</td>
             <td>
               <Link
-                to={`/trips/${trip_id}/events/${event.id}/edit`}
+                to={`/trips/${trip_id}/events/detail/${event.id}/edit`}
                 className="btn btn-primary btn-lg px-4 gap-3"
               >
                 Edit Event

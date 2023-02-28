@@ -31,7 +31,7 @@ def get_all_events(
     return repo.get_all_events(account_id=account_data["id"], trip_id=trip_id)
 
 
-@router.get("/api/trips/{trip_id}/events/{date}", response_model=dict)
+@router.get("/api/trips/{trip_id}/itinerary/{date}", response_model=dict)
 def get_itinerary(
     trip_id: str,
     date: str,
