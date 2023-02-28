@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getToken, getTokenInternal, useAuthContext, useToken } from "../Accounts/auth";
+import { useNavigate } from "react-router-dom";
 
 function CreateTripForm() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ function CreateTripForm() {
   });
 
     const { token } = useAuthContext();
+    const navigate = useNavigate();
 
     async function createTrip(name, start_date, end_date, picture_url) {
     const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips`;
@@ -24,7 +26,7 @@ function CreateTripForm() {
       },
     });
     if (response.ok) {
-        await getTokenInternal()
+        navigate("/trips");
     }
     return false;
   }

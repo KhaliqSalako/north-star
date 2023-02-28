@@ -30,7 +30,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/trips" element={<TripList />} />
           <Route path="/trips/create" element={<CreateTripForm />} />
-          <Route path="/trips/edit" element={<EditTripForm />} />
+          <Route path="/trips/edit/:id" element={<EditTripForm />} />
           <Route path="/trips/detail/:id" element={<SingleTripList />} />
           {/* <ErrorNotification error={error} /> */}
           {/* <Construct info={launch_info} /> */}

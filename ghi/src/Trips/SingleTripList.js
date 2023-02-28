@@ -6,11 +6,9 @@ function SingleTripList(props) {
   const { token } = useAuthContext();
   const [trip, setTrip] = useState([]);
   const params = useParams()
-  console.log(params)
   const trip_id = params.id
 
   const getSingleTripData = async () => {
-      console.log(trip_id)
     const response = await fetch(
       `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`,
       {
@@ -20,7 +18,6 @@ function SingleTripList(props) {
 
     if (response.ok) {
       const data = await response.json();
-      console.log(data)
       setTrip(data);
     }
   };

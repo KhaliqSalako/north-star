@@ -23,7 +23,7 @@ function TripList() {
 
   useEffect(() => {
     getTripData();
-  }, []);
+  }, [trips]);
 
   const deleteTrip = async (trip_id) => {
     const response = await fetch(`${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`, {
@@ -42,24 +42,6 @@ function TripList() {
       })
     )
   }
-
-  //   const editTrip = async (trip_id) => {
-  //   const response = await fetch(`${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`, {
-  //     method: 'PUT',
-  //     credentials: "include",
-  //     mode: "cors",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     }
-  //   })
-  //   const data = await response.json()
-  //   setTrips(
-  //     trips.filter((trip) => {
-  //       console.log(trip.id)
-  //       return trip.trip_id !== trip_id;
-  //     })
-  //   )
-  // }
 
   return (
     <>
@@ -87,8 +69,18 @@ function TripList() {
                 <td>
                   <button onClick={() => deleteTrip(trip.id)}>Delete</button>
                 </td>
-                <Link to={`/trips/detail/${trip.id}`}
-                 className="btn btn-primary btn-lg px-4 gap-3">View Trip</Link>
+                <Link
+                  to={`/trips/detail/${trip.id}`}
+                  className="btn btn-primary btn-lg px-4 gap-3"
+                >
+                  View Trip
+                </Link>
+                <Link
+                  to={`/trips/edit/${trip.id}`}
+                  className="btn btn-primary btn-lg px-4 gap-3"
+                >
+                  Edit Trip
+                </Link>
               </tr>
             );
           })}
