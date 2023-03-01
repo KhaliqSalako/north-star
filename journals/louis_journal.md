@@ -1,5 +1,9 @@
 # Louis Journal
 
+1. 2/28/2022
+
+   - We had a good day today as far as productivity goes.  We split up into teams and Kalique and I were able to build out Events details and edit events pages.  The other team members build out itinerary and create events.  We got the majority of the pages list views, detail views, and forms completed today.  The skeleton of the project is complete.  we also got front end links working between all of these pages.  It is now in good working order.  
+
 1. 2/27/2022
 
    - We started the day breaking up into groups of 2 to try to cover more ground on the project. Anri and I continuted working on the navigation sidebar but ran into bugs because we were mapping subfunctions. This resulted in major issues that we were unable to solve. We later met back up with the whole group to work on the create trips page. This was another monumental lift that took us a solid 2 hours to figure out be we finally got it working.

@@ -30,7 +30,7 @@ function CreateTripForm() {
     }
     return false;
   }
-
+console.log(formData)
   const handleFormChange = (e) => {
     const value = e.target.value;
     const inputName = e.target.name;
@@ -44,9 +44,10 @@ function CreateTripForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const name = formData["name"];
-    const start_date = formData["start_date"];
-    const end_date = formData["end_state"];
+    const start_date = formData["start_date"].toString();
+    const end_date = formData["end_date"].toString();
     const picture_url = formData["picture_url"];
+    console.log(start_date)
     await createTrip(name, start_date, end_date, picture_url);
   };
 
@@ -56,15 +57,27 @@ function CreateTripForm() {
       <form onSubmit={handleSubmit}>
         <label>
           <p>Name</p>
-          <input name="name" onChange={handleFormChange} type="text" />
+          <input name="name" required onChange={handleFormChange} type="text" />
         </label>
         <label>
           <p>Start Date</p>
-          <input name="start_date" onChange={handleFormChange} type="text" />
+          <input
+            name="start_date"
+            required
+            onChange={handleFormChange}
+            type="date"
+            placeholder="YYYY/MM/DD"
+          />
         </label>
         <label>
           <p>End Date</p>
-          <input name="end_date" onChange={handleFormChange} type="text" />
+          <input
+            name="end_date"
+            required
+            onChange={handleFormChange}
+            type="date"
+            placeholder="YYYY/MM/DD"
+          />
         </label>
         <label>
           <p>Photo</p>
