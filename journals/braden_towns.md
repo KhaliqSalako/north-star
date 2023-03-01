@@ -1,3 +1,7 @@
+### 2/28/2023
+
+Today was a very productive day for our group. We were able to make a functioning delete, update, create, and view page for our events. This was done by working in pair programming. I worked with Anri today. With those functions now implemented, our project meets the basic functionality requirements for forms and pages in our project. We also were able to implement a side nav bar with drop down menu's for each trip.
+
 ### 2/27/2023
 
 Today we had a lot of struggles as a group. We were able to write 2 functioning unit tests at the beginning of the day. We then split into some pair programming. I worked with Khaliq and we were able to make a functioning delete button on the front end. We then started to work on an edit form and decided that we needed to be able to simply view one trip before we can edit it. It took a long time in the afternoon, and we had to ask several questions to instructors, but we were finally able to round off the day with a functioning "View One Trip" page.
