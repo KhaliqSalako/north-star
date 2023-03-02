@@ -41,20 +41,21 @@ function Itinerary() {
   }
 
 return (
-    <>
-        <div className="container">
-            <Link
-                to={`/trips/${trip_id}/events/${date}/create`}
-                className="btn btn-primary btn-lg px-4 gap-3"
-              >
-                Create Event
-                </Link>
+  <>
+    <h1> {date} </h1>
+    <div className="container">
+      <Link
+        to={`/trips/${trip_id}/events/${date}/create`}
+        className="btn btn-primary btn-lg px-4 gap-3"
+      >
+        Create Event
+      </Link>
       <table className="table table-striped">
         <thead>
           <tr>
             <th>Name</th>
-            {/* <th>Location</th> */}
-            <th>Date</th>
+            <th>Location Name</th>
+            <th>Location Address</th>
             <th>Start Time</th>
             <th>Details</th>
           </tr>
@@ -64,20 +65,20 @@ return (
             return (
               <tr key={event.id}>
                 <td>{event.event_name}</td>
-                {/* <td>{event.location}</td> */}
-                <td>{event.date}</td>
+                <td>{event.location.name}</td>
+                <td>{event.location.formatted_address}</td>
                 <td>{event.start_time}</td>
                 <td>{event.details}</td>
                 <td>
                   <button onClick={() => deleteEvent(event.id)}>Delete</button>
                 </td>
                 <td>
-                <Link
-                to={`/trips/${trip_id}/events/detail/${event.id}`}
-                className="btn btn-primary btn-lg px-4 gap-3"
-              >
-                View Event
-                </Link>
+                  <Link
+                    to={`/trips/${trip_id}/events/detail/${event.id}`}
+                    className="btn btn-primary btn-lg px-4 gap-3"
+                  >
+                    View Event
+                  </Link>
                 </td>
               </tr>
             );
@@ -85,8 +86,8 @@ return (
         </tbody>
       </table>
     </div>
-    </>
-  );
+  </>
+);
 
 }
 

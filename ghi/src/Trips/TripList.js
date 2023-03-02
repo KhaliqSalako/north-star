@@ -56,20 +56,34 @@ function TripList() {
             return (
               <tr key={trip.id}>
                 <td>{trip.name}</td>
-                <td>{trip.start_date}</td>
-                <td>{trip.end_date}</td>
+                <td>
+                  <Link
+                    to={`/trips/${trip.id}/itinerary/${trip.start_date}`}
+                    className="btn btn-primary btn-lg px-4 gap-3"
+                  >
+                    {trip.start_date}
+                  </Link>
+                </td>
+                <td>
+                  <Link
+                    to={`/trips/${trip.id}/itinerary/${trip.end_date}`}
+                    className="btn btn-primary btn-lg px-4 gap-3"
+                  >
+                    {trip.end_date}
+                  </Link>
+                </td>
                 <td>
                   <img src={trip.picture_url} className="card-img-top" />
                 </td>
                 <td>
                   <button onClick={() => deleteTrip(trip.id)}>Delete</button>
                 </td>
-                <Link
+                {/* <Link
                   to={`/trips/${trip.id}`}
                   className="btn btn-primary btn-lg px-4 gap-3"
                 >
                   View Trip
-                </Link>
+                </Link> */}
                 <Link
                   to={`/trips/edit/${trip.id}`}
                   className="btn btn-primary btn-lg px-4 gap-3"

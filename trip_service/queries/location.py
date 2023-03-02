@@ -47,7 +47,3 @@ class LocationQueries:
                 return None
         except IndexError:
             return "This location does not exist"
-
-
-# https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=Aap_uEA7vb0DDYVJWEaX3O-AtYp77AaswQKSGtDaimt3gt7QCNpdjp1BkdM6acJ96xTec3tsV_ZJNL_JP-lqsVxydG3nh739RE_hepOOL05tfJh2_ranjMadb3VoBYFvF0ma6S24qZ6QJUuV6sSRrhCskSBP5C1myCzsebztMfGvm7ij3gZT&key=YOUR_API_KEY
-# https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJLU7jZClu5kcR4PcOOO6p3I0&fields=editorial_summary%2Cname%2Crating%2Cformatted_phone_number&key=AIzaSyDyXSZ08UcMnS8zPEMZlbn3RUD-59fF4KM
