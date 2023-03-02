@@ -50,7 +50,6 @@ return (
       >
         Create Event
       </Link>
-
       <table className="table table-striped">
         <thead>
           <tr>

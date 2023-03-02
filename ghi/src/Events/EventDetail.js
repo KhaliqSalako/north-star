@@ -1,17 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useAuthContext } from "../Accounts/auth";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import GoogleMapReact from 'google-map-react'
+import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 
 
-function EventDetail() {
+export default function EventDetail() {
   const { token } = useAuthContext();
-//   const [trip, setTrip] = useState([]);
   const [event, setEvent] = useState([]);
   const params = useParams();
   const trip_id = params.trip_id;
   const event_id = params.event_id
-
+  const photo_reference = event?.location?.photo_reference;
+  const picture_url =
+  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference="
+  + photo_reference
+  + "&key="
+  + process.env.REACT_APP_GOOGLE_API_KEY;
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
+  });
 
   const getEvent = async () => {
     const response = await fetch(
@@ -20,10 +29,9 @@ function EventDetail() {
         credentials: "include",
       }
     );
-console.log(response)
+
     if (response.ok) {
       const data = await response.json();
-      console.log(data)
       setEvent(data);
     }
   };
@@ -32,13 +40,14 @@ console.log(response)
     getEvent();
   }, []);
 
+  if (!isLoaded) return <div>Loading...</div>;
   return (
     <div className="container">
       <table className="table table-striped">
         <thead>
           <tr>
             <th>Name</th>
-            {/* <th>Location</th> */}
+            <th>Location</th>
             <th>Date</th>
             <th>Start Time</th>
             <th>Details</th>
@@ -47,7 +56,7 @@ console.log(response)
         <tbody>
           <tr>
             <td>{event.event_name}</td>
-            {/* <td>{event.location}</td> */}
+            <td>{event.location?.name}</td>
             <td>{event.date}</td>
             <td>{event.start_time}</td>
             <td>{event.details}</td>
@@ -62,9 +71,25 @@ console.log(response)
           </tr>
         </tbody>
       </table>
+      <img src={picture_url} className="card-img-top" />
+      <Map event={event} />
     </div>
   );
 }
 
 
-export default EventDetail;
+function Map({event}) {
+
+  const center = useMemo(() => ( event?.location?.geo_location ), []);
+
+  return (
+    <GoogleMap
+      mapContainerStyle={{ width: "500px", height: "500px" }}
+      zoom={10}
+      center={center}
+      mapContainerClassName="map-container"
+    >
+      <MarkerF position={center} />
+    </GoogleMap>
+  );
+}
