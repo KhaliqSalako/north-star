@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from 'react-router-dom'
 
 function DropDownItems(props) {
     const [ toggle, setToggle ] = useState(true);
@@ -100,20 +101,20 @@ function DropDownItems(props) {
                     aria-labelledby={`trip-dropdown-button-${trip.id}`}
                 >
                     <li>
-                        <a
-                            href="#"
+                        <Link
+                            to={`/trips/${trip.id}/itinerary/${trip.start_date}`}
                             className="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                         >
                             Start: {trip.start_date}
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a
-                            href="#"
+                        <Link
+                            to={`/trips/${trip.id}/itinerary/${trip.end_date}`}
                             className="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                         >
                             End: {trip.end_date}
-                        </a>
+                        </Link>
                     </li>
                     <li>
                         <a

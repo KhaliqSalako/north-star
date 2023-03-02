@@ -3,6 +3,7 @@ import { useAuthContext } from "../Accounts/auth";
 import { Link } from 'react-router-dom';
 import {useParams} from 'react-router';
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
+import ItinerarySidebar from "./ItinerarySidebar";
 
 function Itinerary() {
     const { token } = useAuthContext();
@@ -48,7 +49,8 @@ function Itinerary() {
 if (!isLoaded || !isEventDataLoaded) return <div>Loading...</div>;
 return (
   <>
-    <h1> {date} </h1>
+  <ItinerarySidebar trip_id={trip_id}/>
+    <h1> Date {date} </h1>
     <div className="container">
       <Link
         to={`/trips/${trip_id}/events/${date}/create`}
@@ -118,8 +120,7 @@ function Map(props) {
   useEffect(() => {
     getAverage();
   }, []);
-  console.log(averageCenter)
-    // const map.fitBounds(bounds);
+
   if (!averageCenter) {
     return <div>Map is Loading</div>
   }
