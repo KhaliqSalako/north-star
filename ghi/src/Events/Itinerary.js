@@ -1,14 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useAuthContext } from "../Accounts/auth";
 import { Link } from 'react-router-dom';
 import {useParams} from 'react-router';
+import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 
 function Itinerary() {
     const { token } = useAuthContext();
     const [events, setEvents] = useState([])
+    const [isEventDataLoaded, setIsEventDataLoaded] = useState(false);
     const params = useParams()
     const trip_id = params.id
     const date = params.date
+    const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
+  });
 
     const getEventData = async () => {
     const response = await fetch(
@@ -20,6 +25,7 @@ function Itinerary() {
     if (response.ok) {
       const data = await response.json();
       setEvents(data.events);
+      setIsEventDataLoaded(true);
     }
   };
 
@@ -39,7 +45,7 @@ function Itinerary() {
     const data = await response.json()
     getEventData()
   }
-
+if (!isLoaded || !isEventDataLoaded) return <div>Loading...</div>;
 return (
   <>
     <h1> {date} </h1>
@@ -85,10 +91,53 @@ return (
           })}
         </tbody>
       </table>
+      <Map events={events} />
     </div>
   </>
 );
 
+}
+
+function Map(props) {
+  const center = useMemo(() => ( props.events[0]?.location?.geo_location ), []);
+  const [averageCenter, setAverageCenter] = useState({})
+
+  const getAverage = async() => {
+    let averageCenterLat = 0
+    let averageCenterLng = 0
+
+    props.events.forEach((event) => {
+      averageCenterLat += event.location.geo_location.lat
+      averageCenterLng += event.location.geo_location.lng
+    })
+    setAverageCenter({
+    "lat":averageCenterLat / props.events.length,
+    "lng":averageCenterLng/ props.events.length})
+    };
+
+  useEffect(() => {
+    getAverage();
+  }, []);
+  console.log(averageCenter)
+    // const map.fitBounds(bounds);
+  if (!averageCenter) {
+    return <div>Map is Loading</div>
+  }
+  return [
+    <GoogleMap
+      mapContainerStyle={{ width: "500px", height: "500px" }}
+      zoom={10}
+      center={averageCenter}
+      mapContainerClassName="map-container"
+    >
+      {props.events.map ((event)=> {
+        const position = event?.location?.geo_location
+        return(
+        <MarkerF position={position} />
+      )}
+      )}
+    </GoogleMap>
+  ];
 }
 
 export default Itinerary;

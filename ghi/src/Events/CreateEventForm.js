@@ -67,7 +67,6 @@ function CreateEventForm() {
 
         ["location"]: data,
       })
-        console.log(formData.location)
     }
   }
 
