@@ -1,3 +1,7 @@
+### 3/1/2023
+
+Today was yet again another really productive day for our group. We were able to implement our location API functionality the creation and editing of events. We were also able to embed a photo using our location api. Finally we were able to create a small map on our event page with a marker of the location of the event on it. We will work tomorrow to implement a map with all of the locations of all the events for a given day.
+
 ### 2/28/2023
 
 Today was a very productive day for our group. We were able to make a functioning delete, update, create, and view page for our events. This was done by working in pair programming. I worked with Anri today. With those functions now implemented, our project meets the basic functionality requirements for forms and pages in our project. We also were able to implement a side nav bar with drop down menu's for each trip.
