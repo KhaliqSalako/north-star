@@ -9,6 +9,7 @@ import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 export default function EventDetail() {
   const { token } = useAuthContext();
   const [event, setEvent] = useState([]);
+  const [isEventDataLoaded, setIsEventDataLoaded] = useState(false);
   const params = useParams();
   const trip_id = params.trip_id;
   const event_id = params.event_id
@@ -33,6 +34,7 @@ export default function EventDetail() {
     if (response.ok) {
       const data = await response.json();
       setEvent(data);
+      setIsEventDataLoaded(true);
     }
   };
 
@@ -40,7 +42,7 @@ export default function EventDetail() {
     getEvent();
   }, []);
 
-  if (!isLoaded) return <div>Loading...</div>;
+  if (!isLoaded || !isEventDataLoaded) return <div>Loading...</div>;
   return (
     <div className="container">
       <table className="table table-striped">
@@ -78,11 +80,12 @@ export default function EventDetail() {
 }
 
 
-function Map({event}) {
+function Map(props) {
+  const center = useMemo(() => ( props.event?.location?.geo_location ), []);
 
-  const center = useMemo(() => ( event?.location?.geo_location ), []);
 
-  return (
+  return [
+
     <GoogleMap
       mapContainerStyle={{ width: "500px", height: "500px" }}
       zoom={10}
@@ -91,5 +94,5 @@ function Map({event}) {
     >
       <MarkerF position={center} />
     </GoogleMap>
-  );
+  ];
 }

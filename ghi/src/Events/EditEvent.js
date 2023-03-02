@@ -91,7 +91,6 @@ function EditEventForm() {
 
         ["location"]: data,
       });
-      console.log(data);
     }
   };
 
