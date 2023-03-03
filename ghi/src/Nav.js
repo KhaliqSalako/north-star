@@ -6,10 +6,16 @@ function Nav() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-            <NavLink class="navbar-brand" to="/">
-      <img src="../public/north_star_logo.jpg" alt="Logo" width="30" height="24" className="d-inline-block align-text-top">
-      Bootstrap
-    </Navlink>
+        <NavLink className="navbar-brand" to="/">
+          <img
+            src="/docs/5.3/assets/brand/bootstrap-logo.svg"
+            alt="Logo"
+            width="30"
+            height="24"
+            className="d-inline-block align-text-top"
+          />
+          North Star
+        </NavLink>
         <div className="navbar-header">
           <NavLink className="nav-item text-3xl font-['Orbitron']" to="/">
             North Star
@@ -38,7 +44,6 @@ function Nav() {
         </ul>
       </div>
     </nav>
-
   );
 }
 

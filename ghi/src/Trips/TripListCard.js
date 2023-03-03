@@ -21,7 +21,7 @@ return (
       <div style={{ border: "1px solid green" }}>
         <Link
           className="text-self-right btn btn-success"
-          to={`/trips/edit/${trip.id}`}
+          to={`/trips/${trip.id}/itinerary/${trip.start_date}`}
         >
           <img
             max-width={"100px"}
