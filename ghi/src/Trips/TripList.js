@@ -40,12 +40,13 @@ function TripList() {
 
   return (
     <>
+    <h1>Your Trips</h1>
     <div className="container">
       <div className="row">
       {trips.map((trip) => {
         return (
-          <div className="col-4">
-          <TripListCard key={trip.id} trip={trip}/>
+          <div className="col-3 m-3">
+          <TripListCard getTripData={getTripData} trip={trip}/>
           </div>
         )
       })}

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 function TripListCard({trip, getTripData}) {
 
 const deleteTrip = async (trip_id) => {
@@ -14,22 +16,39 @@ const deleteTrip = async (trip_id) => {
   }
 
 return (
-<>
-<div>
-  <img max-width={"100px"} src={trip.picture_url} className="card-img-top" alt="..."/>
-  <div className="card-body">
-    <h5 className="card-title">{trip.name}</h5>
-    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div className="card-body">
-    <a href="#" className="card-link">Card link</a>
-    <button href="#" className="card-link">Another link</button>
-    <p>
-        <button onClick={() => deleteTrip(trip.id)}>Delete</button>
-    </p>
-  </div>
-</div>
-</>
+  <>
+    <div style={{height:"100%", border:"1px solid black"}}>
+      <div style={{border:"1px solid green"}}>
+        <img
+          max-width={"100px"}
+          src={trip.picture_url}
+          className="card-img-top"
+          alt="..."
+        />
+      </div>
+      <div className="card-body">
+        <h1 className="card-title">{trip.name}</h1>
+        <p className="card-text">{trip.start_date}</p>
+        <p className="card-text">{trip.end_date}</p>
+      </div>
+      <div className="d-flex card-body align-items-baseline">
+        <p>
+          <Link
+            className="text-self-right btn btn-success"
+            to={`/trips/edit/${trip.id}`}
+          >
+            Edit Trip
+          </Link>
+          <button
+            className="text-self-right btn btn-danger"
+            onClick={() => deleteTrip(trip.id)}
+          >
+            Delete
+          </button>
+        </p>
+      </div>
+    </div>
+  </>
 );
 
 }
