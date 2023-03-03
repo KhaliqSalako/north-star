@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuthContext } from "../Accounts/auth";
-import Tripsidebar from "./Tripsidebar";
+import TripListCard from "./TripListCard";
 import { Link } from 'react-router-dom'
 
 function TripList() {
@@ -40,64 +40,20 @@ function TripList() {
 
   return (
     <>
-      <Tripsidebar trips={trips}/>
-        <div className="container">
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Photo</th>
-          </tr>
-        </thead>
-        <tbody>
-          {trips.map((trip) => {
-            return (
-              <tr key={trip.id}>
-                <td>{trip.name}</td>
-                <td>
-                  <Link
-                    to={`/trips/${trip.id}/itinerary/${trip.start_date}`}
-                    className="btn btn-primary btn-lg px-4 gap-3"
-                  >
-                    {trip.start_date}
-                  </Link>
-                </td>
-                <td>
-                  <Link
-                    to={`/trips/${trip.id}/itinerary/${trip.end_date}`}
-                    className="btn btn-primary btn-lg px-4 gap-3"
-                  >
-                    {trip.end_date}
-                  </Link>
-                </td>
-                <td>
-                  <img src={trip.picture_url} className="card-img-top" />
-                </td>
-                <td>
-                  <button onClick={() => deleteTrip(trip.id)}>Delete</button>
-                </td>
-                {/* <Link
-                  to={`/trips/${trip.id}`}
-                  className="btn btn-primary btn-lg px-4 gap-3"
-                >
-                  View Trip
-                </Link> */}
-                <Link
-                  to={`/trips/edit/${trip.id}`}
-                  className="btn btn-primary btn-lg px-4 gap-3"
-                >
-                  Edit Trip
-                </Link>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
-        </>
-  );
+    <h1>Your Trips</h1>
+    <div className="container">
+      <div className="row">
+      {trips.map((trip) => {
+        return (
+          <div className="col-3 m-3">
+          <TripListCard getTripData={getTripData} trip={trip}/>
+          </div>
+        )
+      })}
+      </div>
+    </div>;
+    </>
+  )
 }
 
 export default TripList;

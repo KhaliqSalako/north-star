@@ -1,5 +1,9 @@
 # Louis Journal
 
+1. 3/2/2022
+
+   - Today we made a good amount of progress by first finishing up out Google API map views for both the itinerary page with multiple pins and the events page with one pin for each event.  We then split up and Braden and I set up the Trip cards on the main home page.  We got the photos and functionality working for the cards and it looks great.
+
 1. 3/1/2022
 
    - Today we had another very productive day of coding.  We got our entire external API working with Google.  We integrated Google search into our front end, and also integrated a map with our search results that displays the locations of the events for our customers. We added some navigation to the website and also added photos based on the location search.
