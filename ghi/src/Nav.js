@@ -1,8 +1,5 @@
 import { NavLink } from "react-router-dom";
 import LogOut from "./Accounts/LogOut";
-import Login from "./Accounts/Login";
-import SignUp from "./Accounts/SignUp";
-import { useToken, getToken } from "./Accounts/auth";
 
 function Nav() {
   return (
@@ -51,7 +48,7 @@ function Nav() {
               </NavLink>
             </li>
           </ul>
-          <ul 
+          <ul
             className="navbar-nav d-flex flex-row-reverse"
             style={{
               width:"90%"

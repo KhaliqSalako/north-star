@@ -17,7 +17,7 @@ const deleteTrip = async (trip_id) => {
 
 return (
   <>
-    <div style={{ height: "100%", border: "1px solid black" }}>
+    <div  style={{ height: "100%", border: "1px solid black", backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
       <div style={{ border: "1px solid green" }}>
         <Link
           className="text-self-right btn btn-success"
@@ -32,9 +32,9 @@ return (
         </Link>
       </div>
       <div className="card-body align-bottom">
-        <h1 className="card-title">{trip.name}</h1>
-        <p className="card-text">{trip.start_date}</p>
-        <p className="card-text">{trip.end_date}</p>
+        <h1 className="card-title text-white">{trip.name}</h1>
+        <p className="card-text text-white">{trip.start_date}</p>
+        <p className="card-text text-white">{trip.end_date}</p>
       </div>
       <div className="d-flex card-body justify-content-bottom">
         <p>

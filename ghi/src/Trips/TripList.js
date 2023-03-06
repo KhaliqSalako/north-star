@@ -42,7 +42,16 @@ function TripList() {
   };
 
   return (
-    <>
+
+    <div
+        className="text-center bg-black h-100 w-100"
+        style={{
+          backgroundImage:`url(background.jpg)`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed"
+        }}
+      >
       <Link
         className="text-self-right btn btn-primary"
         to={`/trips/create`}
@@ -62,8 +71,7 @@ function TripList() {
           })}
         </div>
       </div>
-      ;
-    </>
+      </div>
   );
 }
 
