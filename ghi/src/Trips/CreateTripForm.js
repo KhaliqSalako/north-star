@@ -30,7 +30,7 @@ function CreateTripForm() {
     }
     return false;
   }
-console.log(formData)
+
   const handleFormChange = (e) => {
     const value = e.target.value;
     const inputName = e.target.name;

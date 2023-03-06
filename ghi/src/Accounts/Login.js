@@ -1,8 +1,12 @@
 import { useToken } from "./auth";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 function Login() {
   const { login } = useToken();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     username: "",
@@ -11,6 +15,8 @@ function Login() {
 
   const handleFormChange = (e) => {
     const value = e.target.value;
+      console.log(e.target.value);
+      console.log(formData)
     const inputName = e.target.name;
     setFormData({
       ...formData,
@@ -23,27 +29,95 @@ function Login() {
     e.preventDefault();
     const username = formData["username"];
     const password = formData["password"];
+    console.log(formData);
     await login(username, password);
+    navigate("/trips")
+    console.log("handlesubmit called")
   };
 
   return (
-    <div className="login-wrapper">
-      <h1>Please Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <p>Username</p>
-          <input name="username" onChange={handleFormChange} type="text" />
-        </label>
-        <label>
-          <p>Password</p>
-          <input name="password" onChange={handleFormChange} type="password" />
-        </label>
-        <div>
-          <button type="submit">Submit</button>
+    <>
+    <button
+        type="button"
+        className="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop1"
+      >
+        Login
+      </button>
+
+      <div
+        className="modal fade"
+        id="staticBackdrop1"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabIndex="-1"
+        aria-labelledby="staticBackdropLabel1"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="staticBackdropLabel1">
+                Login
+              </h1>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <form onSubmit={handleSubmit}>
+                <label>
+                  <p>Username</p>
+                  <input
+                    name="username"
+                    onChange={handleFormChange}
+                    type="text"
+                  />
+                </label>
+                <label>
+                  <p>Password</p>
+                  <input
+                    name="password"
+                    onChange={handleFormChange}
+                    type="password"
+                  />
+                </label>
+                <div>
+                  <button
+                  data-bs-dismiss="modal"
+                  type="submit">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-      </form>
-    </div>
+      </div>
+    </>
   );
 }
 
 export default Login;
+
+
+
+
+    // <div className="login-wrapper">
+    //   <h1>Please Log In</h1>
+    //   <form onSubmit={handleSubmit}>
+    //     <label>
+    //       <p>Username</p>
+    //       <input name="username" onChange={handleFormChange} type="text" />
+    //     </label>
+    //     <label>
+    //       <p>Password</p>
+    //       <input name="password" onChange={handleFormChange} type="password" />
+    //     </label>
+    //     <div>
+    //       <button type="submit">Submit</button>
+    //     </div>
+    //   </form>
+    // </div>
