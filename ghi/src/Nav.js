@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 import LogOut from "./Accounts/LogOut";
+import Login from "./Accounts/Login";
+import SignUp from "./Accounts/SignUp";
 import { useToken, getToken } from "./Accounts/auth";
 
 function Nav() {
@@ -16,11 +18,7 @@ function Nav() {
           />
           North Star
         </NavLink>
-        <div className="navbar-header">
-          <NavLink className="nav-item text-3xl font-['Orbitron']" to="/">
-            North Star
-          </NavLink>
-        </div>
+        <div className="navbar-header"></div>
         <ul className="nav navbar-nav navbar-right">
           <li>
             <NavLink className="nav-item" to="/trips">
@@ -33,11 +31,25 @@ function Nav() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/login" className="nav-item">
-              Login
+            <NavLink
+              className="nav-item"
+              // data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              <Login />
             </NavLink>
           </li>
-
+          <li>
+            <button
+              type="button"
+              className="btn btn-primary"
+              // data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
+              Signup
+              <SignUp />
+            </button>
+          </li>
           <li className="nav-item">
             <LogOut />
           </li>
