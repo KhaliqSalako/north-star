@@ -74,7 +74,7 @@ function EditTripForm() {
             name="name"
             onChange={handleFormChange}
             placeholder={trip.name}
-            value={trip.name}
+            defaultValue={trip.name}
             type="text"
           />
         </label>
@@ -84,7 +84,7 @@ function EditTripForm() {
             name="start_date"
             onChange={handleFormChange}
             placeholder={trip.start_date}
-            value={trip.start_date}
+            defaultValue={trip.start_date}
             type="text"
           />
         </label>
@@ -94,7 +94,7 @@ function EditTripForm() {
             name="end_date"
             onChange={handleFormChange}
             placeholder={trip.end_date}
-            value={trip.end_date}
+            defaultValue={trip.end_date}
             type="text"
           />
         </label>
@@ -104,7 +104,7 @@ function EditTripForm() {
             name="picture_url"
             onChange={handleFormChange}
             placeholder={trip.picture_url}
-            value={trip.picture_url}
+            defaultValue={trip.picture_url}
             type="text"
           />
         </label>
