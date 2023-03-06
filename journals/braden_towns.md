@@ -1,3 +1,7 @@
+### 3/3/2023
+
+Today was a very frustrating day. We have finished all of our actual functional components for the front end and we have begun to do some of the styling. We split into pair programming again, and Louis and I were tasked with creating login and sign up modals for the website. We ran into a big wall at this point. We had error after error, but we finally go to the point where we had 1 functional sign up modal on the /signup page. Our original goal was to have this modal in the nav bar. Putting the button in the nav bar was the major contributor to most of our bugs. After a short team meeting we decided that we could put the button inside of the home page, and so we will be attempting to implement that first thing on Monday.
+
 ### 3/2/2023
 
 Today was very productive again. We were able to create a map with all of our event locations on it. We were also able to center that map based on the average lat and long of our coordinates. After we finished that portion of the project we had a team discussion about implementing a calendar on the front end, and decided that it was ultimately going to be too difficult for the scope of this project. We instead opted to show our trips in the form of cards. Louis and I split into pair programming and we were able to successfully implement the trip cards with all appropriate functionality. We ended the day trying to do some formatting for the cards with bootstrap and css, and will need to continue troubleshooting that tomorrow.

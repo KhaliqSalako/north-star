@@ -26,12 +26,12 @@ return (
           alt="..."
         />
       </div>
-      <div className="card-body">
+      <div className="card-body align-bottom">
         <h1 className="card-title">{trip.name}</h1>
         <p className="card-text">{trip.start_date}</p>
         <p className="card-text">{trip.end_date}</p>
       </div>
-      <div className="d-flex card-body align-items-baseline">
+      <div className="d-flex card-body justify-content-bottom">
         <p>
           <Link
             className="text-self-right btn btn-success"

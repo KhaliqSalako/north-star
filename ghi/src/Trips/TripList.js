@@ -45,7 +45,8 @@ function TripList() {
       <div className="row">
       {trips.map((trip) => {
         return (
-          <div className="col-3 m-3">
+          <div key={trip.id} className="col-3 m-3">
+          {/* added key={trip.id} to fix error */}
           <TripListCard getTripData={getTripData} trip={trip}/>
           </div>
         )
