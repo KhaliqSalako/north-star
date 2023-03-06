@@ -43,7 +43,7 @@ function SignUp() {
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
       >
-        Signup
+        Sign Up
       </button>
 
       <div
@@ -59,7 +59,7 @@ function SignUp() {
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="staticBackdropLabel">
-                Modal title
+                Sign Up
               </h1>
               <button
                 type="button"
@@ -95,7 +95,9 @@ function SignUp() {
                   />
                 </label>
                 <div>
-                  <button type="submit">Submit</button>
+                  <button
+                  data-bs-dismiss="modal"
+                  type="submit">Submit</button>
                 </div>
               </form>
             </div>

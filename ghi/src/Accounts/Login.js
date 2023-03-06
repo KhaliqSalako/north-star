@@ -15,8 +15,8 @@ function Login() {
 
   const handleFormChange = (e) => {
     const value = e.target.value;
-      // console.log(e.target.value);
-      // console.log(formData)
+      console.log(e.target.value);
+      console.log(formData)
     const inputName = e.target.name;
     setFormData({
       ...formData,
@@ -37,30 +37,30 @@ function Login() {
 
   return (
     <>
-      <p
+    <button
         type="button"
         className="btn btn-primary"
         data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
+        data-bs-target="#staticBackdrop1"
       >
         Login
-      </p>
+      </button>
 
       <div
         className="modal fade"
-        backdrop="static"
-        id="exampleModal"
-        tabIndex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
+        id="staticBackdrop1"
         data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabIndex="-1"
+        aria-labelledby="staticBackdropLabel1"
+        aria-hidden="true"
       >
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
+              <h1 className="modal-title fs-5" id="staticBackdropLabel1">
                 Login
-              </h5>
+              </h1>
               <button
                 type="button"
                 className="btn-close"
@@ -70,51 +70,26 @@ function Login() {
             </div>
             <div className="modal-body">
               <form onSubmit={handleSubmit}>
-                <div className="mb-3 mt-4">
-                  <label htmlFor="exampleInputEmail1">
-                    Username
-                    <input
-                      name="username"
-                      onChange={handleFormChange}
-                      type="text"
-                      className="form-control"
-                      id="exampleInputEmail2"
-                      aria-describedby="emailHelp"
-                    />
-                  </label>
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="exampleInputPassword1" className="form-label">
-                    Password
-                    <input
-                      name="password"
-                      onChange={handleFormChange}
-                      type="password"
-                      className="form-control"
-                      id="exampleInputPassword2"
-                    />
-                  </label>
-                </div>
-                <button type="submit" className="btn btn-light mt-3">
-                  LOGIN
-                </button>
-                {/* <p>
-                  Not a member?
-                  <Link href="#">
-                    Signup now
-                  </Link>
-                </p> */}
-                <div className="modal-footer">
+                <label>
+                  <p>Username</p>
+                  <input
+                    name="username"
+                    onChange={handleFormChange}
+                    type="text"
+                  />
+                </label>
+                <label>
+                  <p>Password</p>
+                  <input
+                    name="password"
+                    onChange={handleFormChange}
+                    type="password"
+                  />
+                </label>
+                <div>
                   <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="button" className="btn btn-primary">
-                    Save changes
-                  </button>
+                  data-bs-dismiss="modal"
+                  type="submit">Submit</button>
                 </div>
               </form>
             </div>

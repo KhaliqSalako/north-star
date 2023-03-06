@@ -1,35 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Tripsidebar from "./Trips/Tripsidebar";
+import SignUp from "./Accounts/SignUp";
+import Login from "./Accounts/Login";
 
 function MainPage() {
-  // const [token, setToken] = useState("");
-
-  // const getTokenData = async () => {
-  //   const request = await fetch(`http://localhost:8000/token`, {
-  //     headers: { Authorization: `Bearer ${token}` },
-  //     // Other fetch options, like method and body, if applicable
-  //   });
-  //     if (request.ok) {
-  //       const data = await request.json();
-  //       setToken(data);
-  //       console.log(data)
-  //     }
-
-  //   useEffect(() => {
-  //     getTokenData();
-  //   }, []);
-
-  //   var getToken = async () => {
-  //   const response = await fetch(
-  //     `http://localhost:8000/token`
-  //   );
-  //   if (response.ok) {
-  //     const data = await response.json();
-  //     setToken(data);
-  //     console.log(data)
-  //     console.log(token)
-  //   }
-  // };
 
   return (
     <>
@@ -38,13 +12,16 @@ function MainPage() {
         <div className="col-lg-6 mx-auto">
           <p className="lead mb-4"></p>
         </div>
+      <div>
+      < SignUp />
       </div>
-      {/* <div>
-        <Tripsidebar />
-      </div> */}
+      <div>
+        < Login />
+      </div>
+    </div>
+
     </>
   );
-  // }
 }
 
 export default MainPage;

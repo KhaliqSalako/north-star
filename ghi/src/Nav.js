@@ -25,12 +25,12 @@ function Nav() {
               Trips
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink className="nav-item" to="/signup">
               Sign Up
             </NavLink>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <NavLink
               className="nav-item"
               // data-bs-toggle="modal"
@@ -38,18 +38,18 @@ function Nav() {
             >
               <Login />
             </NavLink>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <button
               type="button"
               className="btn btn-primary"
               // data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
             >
-              Signup
+              Signup Nav
               <SignUp />
             </button>
-          </li>
+          </li> */}
           <li className="nav-item">
             <LogOut />
           </li>
