@@ -17,14 +17,19 @@ const deleteTrip = async (trip_id) => {
 
 return (
   <>
-    <div style={{height:"100%", border:"1px solid black"}}>
-      <div style={{border:"1px solid green"}}>
-        <img
-          max-width={"100px"}
-          src={trip.picture_url}
-          className="card-img-top"
-          alt="..."
-        />
+    <div style={{ height: "100%", border: "1px solid black" }}>
+      <div style={{ border: "1px solid green" }}>
+        <Link
+          className="text-self-right btn btn-success"
+          to={`/trips/${trip.id}/itinerary/${trip.start_date}`}
+        >
+          <img
+            max-width={"100px"}
+            src={trip.picture_url}
+            className="card-img-top"
+            alt="..."
+          ></img>
+        </Link>
       </div>
       <div className="card-body align-bottom">
         <h1 className="card-title">{trip.name}</h1>

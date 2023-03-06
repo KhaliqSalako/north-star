@@ -75,7 +75,6 @@ function EditTripForm() {
             onChange={handleFormChange}
             placeholder={trip.name}
             defaultValue={trip.name}
-            // changed ^ value to defaultValue for every field
             type="text"
           />
         </label>
