@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap');
+
 .App {
   text-align: center;
 }
@@ -55,4 +57,26 @@
 
 .trip-card:hover {
   transform: translateY(-5px);
+}
+
+
+.carousel-item-size {
+  width: 480px;
+  height: 270px;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  height: 30%;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.cursive {
+    font-family: 'Vujahday Script', cursive;
+    src: 'https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap';
+    font-size: 40px;
 }

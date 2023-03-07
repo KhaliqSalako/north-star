@@ -38,7 +38,7 @@ function Login() {
     <>
       <button
         type="button"
-        className="btn bg-blue rounded-pill text-white"
+        className="btn bg-dark glow-small text-white rounded-0"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop1"
       >
