@@ -42,7 +42,16 @@ function TripList() {
   };
 
   return (
-    <>
+
+    <div
+        className="text-center bg-black h-100 w-100"
+        style={{
+          backgroundImage:`url(background.jpg)`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed"
+        }}
+      >
       <Link
         className="text-self-right btn btn-primary"
         to={`/trips/create`}
@@ -50,7 +59,7 @@ function TripList() {
       >
         Create a Trip
       </Link>
-      <h1 className="text-3xl center" >Your Trips</h1>
+      <h1 className="text-3xl center text-white" >Your Trips</h1>
       <div className="container">
         <div className="row">
           {trips.map((trip) => {
@@ -62,8 +71,7 @@ function TripList() {
           })}
         </div>
       </div>
-      ;
-    </>
+      </div>
   );
 }
 

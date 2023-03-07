@@ -12,3 +12,35 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.bg-blue {
+  background-color:blueviolet
+}
+
+.bg-blue-translucent {
+  background-color:rgba(137, 43, 226, 0.5)
+}
+
+.bg-red-translucent {
+  background-color: rgba(117, 0, 0, 0.5)
+}
+
+.glow {
+  box-shadow: 0px 0px 20px gray;
+  transition: 0.3s;
+}
+
+.glow-small {
+  box-shadow: 0px 0px 5px gray;
+  transition: 0.3s;
+}
+
+.trip-card {
+  transition: 0.2s;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5)
+}
+
+.trip-card:hover {
+  transform: translateY(-5px);
+}
