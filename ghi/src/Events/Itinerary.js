@@ -51,15 +51,24 @@ function Itinerary() {
   };
   if (!isLoaded || !isEventDataLoaded) return <div>Loading...</div>;
   return [
-    <div className="container-fluid">
+    <div className="container-fluid"
+      >
       <div className="row flex-nowrap">
         <ItinerarySidebar trip_id={trip_id} />
-        <div className="col py-3">
-          <h1> Date {date} </h1>
-          <div className="container justify-content-center">
+        <div className="col py-3" 
+        style={{
+          backgroundImage:'url( ' + require('../images/background.jpg') + ')',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed"
+        }}
+        >
+          <h1 className="text-white"> Date {date} </h1>
+          <div className="container justify-content-center"
+          >
             <Link
               to={`/trips/${trip_id}/events/${date}/create`}
-              className="btn btn-primary btn-lg px-4 gap-3"
+              className="btn  btn-lg px-4 gap-3 bg-blue rounded-pill text-white"
             >
               Create Event
             </Link>
