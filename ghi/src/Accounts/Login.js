@@ -1,6 +1,5 @@
 import { useToken } from "./auth";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 
@@ -32,20 +31,19 @@ function Login() {
     console.log(formData);
     await login(username, password);
     navigate("/trips")
-    console.log("handlesubmit called")
+    // console.log("handlesubmit called")
   };
 
   return (
     <>
-    <button
+      <button
         type="button"
-        className="btn btn-primary"
+        className="btn bg-blue rounded-pill text-white"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop1"
       >
         Login
       </button>
-
       <div
         className="modal fade"
         id="staticBackdrop1"
@@ -56,22 +54,22 @@ function Login() {
         aria-hidden="true"
       >
         <div className="modal-dialog">
-          <div className="modal-content">
+          <div className="modal-content bg-dark">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="staticBackdropLabel1">
+              <h1 className="modal-title fs-5 text-white" id="staticBackdropLabel1">
                 Login
               </h1>
               <button
                 type="button"
-                className="btn-close"
+                className="btn-close bg-blue"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body">
+            <div className="modal-body bg-dark">
               <form onSubmit={handleSubmit}>
                 <label>
-                  <p>Username</p>
+                  <p className="text-white">Username</p>
                   <input
                     name="username"
                     onChange={handleFormChange}
@@ -79,16 +77,17 @@ function Login() {
                   />
                 </label>
                 <label>
-                  <p>Password</p>
+                  <p className="text-white">Password</p>
                   <input
                     name="password"
                     onChange={handleFormChange}
                     type="password"
                   />
                 </label>
-                <div>
+                <div className="mt-3">
                   <button
                   data-bs-dismiss="modal"
+                  className="btn rounded-pill text-white bg-blue"
                   type="submit">Submit</button>
                 </div>
               </form>

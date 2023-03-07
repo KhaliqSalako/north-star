@@ -1,8 +1,5 @@
 import { NavLink } from "react-router-dom";
 import LogOut from "./Accounts/LogOut";
-import Login from "./Accounts/Login";
-import SignUp from "./Accounts/SignUp";
-import { useToken, getToken } from "./Accounts/auth";
 
 function Nav() {
   return (
@@ -60,7 +57,7 @@ function Nav() {
             <li className="nav-item d-flex align-items-center">
               <LogOut />
             </li>
-            <li
+            {/* <li
               className="nav-item "
             >
               <NavLink
@@ -79,7 +76,7 @@ function Nav() {
               >
                 Login
               </NavLink>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
