@@ -65,7 +65,7 @@ function TripList() {
           {trips.map((trip) => {
             return (
               <div key={trip.id} className="col-3 m-3">
-                <TripListCard getTripData={getTripData} trip={trip} />
+                <TripListCard getTripData={getTripData} trip={trip} name={trip.name} />
               </div>
             );
           })}

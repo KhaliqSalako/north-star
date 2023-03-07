@@ -7,6 +7,7 @@ import ItinerarySidebar from "./ItinerarySidebar";
 
 function Itinerary() {
   const { token } = useAuthContext();
+  const [tripName, setTripName] = useState("");
   const [events, setEvents] = useState([]);
   const [isEventDataLoaded, setIsEventDataLoaded] = useState(false);
   const params = useParams();
@@ -16,6 +17,19 @@ function Itinerary() {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   });
+
+  const getTripName = async () => {
+    const response = await fetch(
+      `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`,
+      {
+        credentials: "include",
+      }
+    );
+    if (response.ok) {
+      const data = await response.json();
+      setTripName(data.name);
+  }
+}
 
   const getEventData = async () => {
     const response = await fetch(
@@ -33,6 +47,7 @@ function Itinerary() {
 
   useEffect(() => {
     getEventData();
+    getTripName();
   }, [location]);
 
   const deleteEvent = async (event_id) => {
@@ -49,30 +64,41 @@ function Itinerary() {
     const data = await response.json();
     getEventData();
   };
+
   if (!isLoaded || !isEventDataLoaded) return <div>Loading...</div>;
   return [
-    <div className="container-fluid"
-      >
+    <div className="container-fluid">
       <div className="row flex-nowrap">
-        <ItinerarySidebar trip_id={trip_id} />
-        <div className="col py-3"
-        style={{
-          backgroundImage:'url( ' + require('../images/background.jpg') + ')',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: "cover",
-          backgroundAttachment: "fixed"
-        }}
+        <ItinerarySidebar currentdate={date} trip_id={trip_id} />
+        <div
+          className="col py-3"
+          style={{
+            backgroundImage:
+              "url( " + require("../images/background.jpg") + ")",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundAttachment: "fixed",
+          }}
         >
-          <h1 className="text-white"> Date {date} </h1>
-          <div className="container justify-content-center"
-          >
-            <Link
-              to={`/trips/${trip_id}/events/${date}/create`}
-              className="btn  btn-lg px-4 gap-3 bg-blue rounded-pill text-white glow"
-            >
-              Create Event
-            </Link>
-            <table className="table table-striped text-white">
+          <div>
+            <h1 className="d-flex text-white justify-content-center">
+              {tripName}
+            </h1>
+          </div>
+          <div className="row mt-4">
+            <h3 className="text-white col"> Date {date} </h3>
+            <div className="d-flex col"
+            style={{paddingLeft:'0px'}}>
+              <Link
+                to={`/trips/${trip_id}/events/${date}/create`}
+                className="btn btn-lg bg-blue rounded-pill text-white glow"
+              >
+                Create Event
+              </Link>
+            </div>
+          </div>
+          <div className="row">
+            <table className="table table-striped text-white col">
               <thead>
                 <tr>
                   <th>Name</th>
@@ -116,7 +142,9 @@ function Itinerary() {
                 })}
               </tbody>
             </table>
-            <Map update={getEventData} location={location} events={events} />
+            <div className="col mt-4">
+              <Map update={getEventData} location={location} events={events} />
+            </div>
           </div>
         </div>
       </div>
@@ -152,7 +180,6 @@ function Map(props) {
       getAverage();
     }
   }, [props.events]);
-  console.log(averageCenter);
 
   return [
     <GoogleMap

@@ -44,37 +44,60 @@ export default function EventDetail() {
 
   if (!isLoaded || !isEventDataLoaded) return <div>Loading...</div>;
   return (
-    <div className="container">
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Location</th>
-            <th>Date</th>
-            <th>Start Time</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{event.event_name}</td>
-            <td>{event.location?.name}</td>
-            <td>{event.date}</td>
-            <td>{event.start_time}</td>
-            <td>{event.details}</td>
-            <td>
-              <Link
-                to={`/trips/${trip_id}/events/detail/${event.id}/edit`}
-                className="btn btn-primary btn-lg px-4 gap-3"
-              >
-                Edit Event
-              </Link>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <img src={picture_url} className="card-img-top" />
-      <Map event={event} />
+    <div
+      className="row h-100 w-100 d-flex justify-items-center"
+      style={{
+        backgroundImage: "url( " + require("../images/background.jpg") + ")",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      <div
+        className="border col ml-5"
+        style={{ width: "80%", paddingLeft: "12%", paddingRight: "5%" }}
+      >
+        <table className="table table-striped text-white">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Location</th>
+              <th>Date</th>
+              <th>Start Time</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="text-white">{event.event_name}</td>
+              <td className="text-white">{event.location?.name}</td>
+              <td className="text-white">{event.date}</td>
+              <td className="text-white">{event.start_time}</td>
+              <td className="text-white">{event.details}</td>
+              <div>
+                <Link
+                  to={`/trips/${trip_id}/events/detail/${event.id}/edit`}
+                  className="btn bg-blue-translucent glow btn-lg rounded-pill px-4 gap-3 text-white"
+                >
+                  Edit Event
+                </Link>
+              </div>
+            </tr>
+          </tbody>
+        </table>
+        <div className="row">
+          <div className="col-md-auto">
+            <Map event={event} />
+          </div>
+          <div className="col-md-auto" style={{}}>
+            <img
+              src={picture_url}
+              className="glow d-flex"
+              style={{ resizeMode: "cover", height: "422px" }}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -87,7 +110,7 @@ function Map(props) {
   return [
 
     <GoogleMap
-      mapContainerStyle={{ width: "500px", height: "500px" }}
+      mapContainerStyle={{ width: "450px", height: "422px" }}
       zoom={10}
       center={center}
       mapContainerClassName="map-container"

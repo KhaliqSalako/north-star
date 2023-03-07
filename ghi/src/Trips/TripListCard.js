@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-function TripListCard({trip, getTripData}) {
+function TripListCard({trip, getTripData, name}) {
 
 const deleteTrip = async (trip_id) => {
     const response = await fetch(`${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`, {
@@ -14,6 +14,7 @@ const deleteTrip = async (trip_id) => {
     const data = await response.json()
     getTripData()
   }
+  console.log(name)
 
 return (
     <div className='glow trip-card h-100'>
@@ -42,6 +43,7 @@ return (
           <Link
             className="col btn bg-blue-translucent text-white rounded-0 glow-small h-100"
             to={`/trips/edit/${trip.id}`}
+            state={{name:"name"}}
           >
             Edit
           </Link>
