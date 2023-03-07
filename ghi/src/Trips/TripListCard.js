@@ -16,14 +16,14 @@ const deleteTrip = async (trip_id) => {
   }
 
 return (
-  <>
-    <div style={{ height: "100%", border: "1px solid black" }}>
-      <div style={{ border: "1px solid green" }}>
+    <div className='glow trip-card h-100'>
+      <div style={{height: "50%"}}>
         <Link
-          className="text-self-right btn btn-success"
+          className="text-self-right"
           to={`/trips/${trip.id}/itinerary/${trip.start_date}`}
         >
           <img
+            height={"100%"}
             max-width={"100px"}
             src={trip.picture_url}
             className="card-img-top"
@@ -31,29 +31,28 @@ return (
           ></img>
         </Link>
       </div>
-      <div className="card-body align-bottom">
-        <h1 className="card-title">{trip.name}</h1>
-        <p className="card-text">{trip.start_date}</p>
-        <p className="card-text">{trip.end_date}</p>
+      <div className="card-body" style={{height: "42%"}}>
+        <div className="border d-flex h-100 ">
+        <h1 className="card-title border w-100 align-self-start text-white">{trip.name}</h1>
+        <p className="card-text border w-100 align-self-center text-white">{trip.start_date}</p>
+        <p className="card-text border w-100 align-self-end text-white">{trip.end_date}</p>
+        </div>
       </div>
-      <div className="d-flex card-body justify-content-bottom">
-        <p>
+        <div class="row-cols-2" style={{height: "8%"}}>
           <Link
-            className="text-self-right btn btn-success"
+            className="col btn bg-blue-translucent text-white rounded-0 glow-small h-100"
             to={`/trips/edit/${trip.id}`}
           >
-            Edit Trip
+            Edit
           </Link>
           <button
-            className="text-self-right btn btn-danger"
+            className="col btn bg-red-translucent text-white rounded-0 glow-small square h-100"
             onClick={() => deleteTrip(trip.id)}
           >
             Delete
           </button>
-        </p>
+        </div>
       </div>
-    </div>
-  </>
 );
 
 }

@@ -48,7 +48,7 @@ function Nav() {
               </NavLink>
             </li>
           </ul>
-          <ul 
+          <ul
             className="navbar-nav d-flex flex-row-reverse"
             style={{
               width:"90%"

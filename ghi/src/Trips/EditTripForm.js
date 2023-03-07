@@ -109,7 +109,7 @@ function EditTripForm() {
           />
         </label>
         <div>
-          <button type="submit">Submit</button>
+          <button className="shadow-lg p-3 mb-5 bg-body"type="submit">Submit</button>
         </div>
       </form>
     </div>
