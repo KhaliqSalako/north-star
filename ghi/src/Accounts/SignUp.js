@@ -39,12 +39,13 @@ function SignUp() {
     <>
       <button
         type="button"
-        className="btn btn-primary"
+        className="btn bg-blue rounded-pill text-white"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
       >
         Sign Up
       </button>
+      
 
       <div
         className="modal fade"
@@ -56,30 +57,30 @@ function SignUp() {
         aria-hidden="true"
       >
         <div className="modal-dialog">
-          <div className="modal-content">
+          <div className="modal-content bg-dark">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="staticBackdropLabel">
+              <h1 className="modal-title fs-5 text-white" id="staticBackdropLabel">
                 Sign Up
               </h1>
               <button
                 type="button"
-                className="btn-close"
+                className="btn-close bg-blue"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body">
+            <div className="modal-body bg-dark">
               <form onSubmit={handleSubmit}>
                 <label>
-                  <p>Name</p>
+                  <p className="text-white">Name</p>
                   <input name="name" onChange={handleFormChange} type="text" />
                 </label>
                 <label>
-                  <p>Email</p>
+                  <p className="text-white">Email</p>
                   <input name="email" onChange={handleFormChange} type="text" />
                 </label>
                 <label>
-                  <p>Username</p>
+                  <p className="text-white">Username</p>
                   <input
                     name="username"
                     onChange={handleFormChange}
@@ -87,17 +88,21 @@ function SignUp() {
                   />
                 </label>
                 <label>
-                  <p>Password</p>
+                  <p className="text-white">Password</p>
                   <input
                     name="password"
                     onChange={handleFormChange}
                     type="password"
                   />
                 </label>
-                <div>
+                <div className="mt-3">
                   <button
-                  data-bs-dismiss="modal"
-                  type="submit">Submit</button>
+                    data-bs-dismiss="modal"
+                    type="submit"
+                    className="btn rounded-pill text-white bg-blue "
+                  >
+                    Submit
+                  </button>
                 </div>
               </form>
             </div>

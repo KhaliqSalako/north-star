@@ -12,16 +12,30 @@ function MainPage() {
           backgroundSize: "cover"
         }}
       >
-        <h1 className="pt-5 fw-bold font-['Orbitron']">North Star</h1>
-        <div className="col-lg-6 mx-auto">
-          <p className="lead mb-4"></p>
+        <h1 
+          className="pt-5 fw-bold font-['Orbitron'] text-white"
+        >
+          North Star
+        </h1>
+        <div className="d-flex justify-content-center"
+          style={{
+          }}
+        >
+          <div className="row"
+          style={{
+            width:"12%"
+          }}
+
+          >
+            <div className="col m-1">
+              < SignUp />
+            </div>
+            <div className="col m-1">
+              < Login />
+            </div>
+          </div>
         </div>
-      <div>
-      < SignUp />
-      </div>
-      <div>
-        < Login />
-      </div>
+       
     </div>
   );
 }

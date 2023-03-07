@@ -1,5 +1,4 @@
 import { useToken } from "./auth";
-import React, { useState } from "react";
 
 function LogOut() {
   const { token, logout } = useToken();
@@ -12,7 +11,12 @@ function LogOut() {
 
   return (
     <div>
-      <button onClick={handleLogout}>Logout</button>
+      <button 
+        onClick={handleLogout}
+        className="btn bg-blue rounded-pill text-white"
+        style={{
+        }}
+      >Logout</button>
     </div>
   );
 }

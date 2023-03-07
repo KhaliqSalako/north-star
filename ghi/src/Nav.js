@@ -57,7 +57,7 @@ function Nav() {
             <li className="nav-item d-flex align-items-center">
               <LogOut />
             </li>
-            <li
+            {/* <li
               className="nav-item "
             >
               <NavLink
@@ -76,7 +76,7 @@ function Nav() {
               >
                 Login
               </NavLink>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
