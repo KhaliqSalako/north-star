@@ -9,16 +9,20 @@ function LogOut() {
     console.log("token-----", token);
   };
 
-  return (
-    <div>
-      <button 
-        onClick={handleLogout}
-        className="btn bg-blue rounded-pill text-white"
-        style={{
-        }}
-      >Logout</button>
-    </div>
-  );
+  if (!token) {
+    return <></>
+  } else{
+    return (
+      <div>
+        <button
+          onClick={handleLogout}
+          className="btn btn-outline-dark glow-small text-white rounded-0"
+        >
+          Logout
+        </button>
+      </div>
+    );
+  }
 }
 
 export default LogOut;

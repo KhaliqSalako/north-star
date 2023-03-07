@@ -39,7 +39,7 @@ return (
         <p className="card-text border w-100 align-self-end text-white">{trip.end_date}</p>
         </div>
       </div>
-        <div class="row-cols-2" style={{height: "8%"}}>
+        <div className="row-cols-2" style={{height: "8%"}}>
           <Link
             className="col btn bg-blue-translucent text-white rounded-0 glow-small h-100"
             to={`/trips/edit/${trip.id}`}
