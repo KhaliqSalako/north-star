@@ -32,10 +32,10 @@ return (
         </Link>
       </div>
       <div className="card-body" style={{height: "42%"}}>
-        <div className="border d-flex h-100 ">
-        <h1 className="card-title border w-100 align-self-start text-white">{trip.name}</h1>
-        <p className="card-text border w-100 align-self-center text-white">{trip.start_date}</p>
-        <p className="card-text border w-100 align-self-end text-white">{trip.end_date}</p>
+        <div className=" h-100 ">
+        <h1 className="card-title  text-white">{trip.name}</h1>
+        <p className="card-text   text-white">{trip.start_date}</p>
+        <p className="card-text  text-white">{trip.end_date}</p>
         </div>
       </div>
         <div class="row-cols-2" style={{height: "8%"}}>

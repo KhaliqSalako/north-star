@@ -1,3 +1,7 @@
+### 3/6/2023
+
+Today was a very productive day for our group. We worked in pair programming again, and finished the feature that we were stuck on last Friday. We were able to successfully get our login and sign up modals working. I have a much better understanding of importing jsx components now. After this we met up again as a group and talked about styling. Louis and I worked on styling the trip cards while Khaliq and Anri worked on the background colors and nav bar. Tomorrow we are going to continue with CSS and bootstrap styling.
+
 ### 3/3/2023
 
 Today was a very frustrating day. We have finished all of our actual functional components for the front end and we have begun to do some of the styling. We split into pair programming again, and Louis and I were tasked with creating login and sign up modals for the website. We ran into a big wall at this point. We had error after error, but we finally go to the point where we had 1 functional sign up modal on the /signup page. Our original goal was to have this modal in the nav bar. Putting the button in the nav bar was the major contributor to most of our bugs. After a short team meeting we decided that we could put the button inside of the home page, and so we will be attempting to implement that first thing on Monday.
