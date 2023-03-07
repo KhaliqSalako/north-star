@@ -4,7 +4,7 @@ import Login from "./Accounts/Login";
 function MainPage() {
 
   return (
-      <div 
+      <div
         className="text-center bg-black vh-100 vw-100"
         style={{
           backgroundImage:`url(background.jpg)`,
@@ -12,7 +12,7 @@ function MainPage() {
           backgroundSize: "cover"
         }}
       >
-        <h1 
+        <h1
           className="pt-5 fw-bold font-['Orbitron'] text-white"
         >
           North Star
@@ -21,21 +21,21 @@ function MainPage() {
           style={{
           }}
         >
-          <div className="row"
+          <div className="d-flex flex-row justify-content-center"
           style={{
             width:"12%"
           }}
 
           >
-            <div className="col m-1">
+            <div className="m-1">
               < SignUp />
             </div>
-            <div className="col m-1">
+            <div className="m-1">
               < Login />
             </div>
           </div>
         </div>
-       
+
     </div>
   );
 }

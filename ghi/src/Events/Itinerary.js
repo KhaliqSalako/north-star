@@ -51,27 +51,28 @@ function Itinerary() {
   };
   if (!isLoaded || !isEventDataLoaded) return <div>Loading...</div>;
   return [
-    <div
-      className="container-fluid bg-image"
-      style={{
-        backgroundImage:'url( ' + require('./background.jpg') + ')',
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-      }}
-    >
+    <div className="container-fluid"
+      >
       <div className="row flex-nowrap">
         <ItinerarySidebar trip_id={trip_id} />
-        <div className="col py-3">
-          <h1> Date {date} </h1>
-          <div className="container justify-content-center">
+        <div className="col py-3"
+        style={{
+          backgroundImage:'url( ' + require('../images/background.jpg') + ')',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed"
+        }}
+        >
+          <h1 className="text-white"> Date {date} </h1>
+          <div className="container justify-content-center"
+          >
             <Link
               to={`/trips/${trip_id}/events/${date}/create`}
-              className="btn btn-primary btn-lg px-4 gap-3"
+              className="btn  btn-lg px-4 gap-3 bg-blue rounded-pill text-white glow"
             >
               Create Event
             </Link>
-            <table className="table table-striped">
+            <table className="table table-striped text-white">
               <thead>
                 <tr>
                   <th>Name</th>
@@ -85,24 +86,31 @@ function Itinerary() {
                 {events.map((event) => {
                   return (
                     <tr key={event.id}>
-                      <td>{event.event_name}</td>
-                      <td>{event.location.name}</td>
-                      <td>{event.location.formatted_address}</td>
-                      <td>{event.start_time}</td>
-                      <td>{event.details}</td>
-                      <td>
-                        <button onClick={() => deleteEvent(event.id)}>
-                          Delete
-                        </button>
+                      <td className="text-white">{event.event_name}</td>
+                      <td className="text-white">{event.location.name}</td>
+                      <td className="text-white">
+                        {event.location.formatted_address}
                       </td>
-                      <td>
-                        <Link
-                          to={`/trips/${trip_id}/events/detail/${event.id}`}
-                          className="btn btn-primary btn-lg px-4 gap-3"
-                        >
-                          View Event
-                        </Link>
-                      </td>
+                      <td className="text-white">{event.start_time}</td>
+                      <td className="text-white">{event.details}</td>
+                      <div className="d-flex flex-row">
+                        <div className="text-white d-flex rounded-0">
+                          <button
+                            onClick={() => deleteEvent(event.id)}
+                            className="btn bg-red-translucent glow btn-lg px-4 gap-3 text-white"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                        <div className="d-flex rounded-0">
+                          <Link
+                            to={`/trips/${trip_id}/events/detail/${event.id}`}
+                            className="btn bg-blue-translucent glow btn-lg px-4 gap-3 text-white"
+                          >
+                            View Event
+                          </Link>
+                        </div>
+                      </div>
                     </tr>
                   );
                 })}

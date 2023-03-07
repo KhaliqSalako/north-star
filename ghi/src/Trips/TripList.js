@@ -44,7 +44,7 @@ function TripList() {
   return (
 
     <div
-        className="text-center bg-black h-100 w-100"
+        className="text-center bg-black vh-100 w-100"
         style={{
           backgroundImage:`url(background.jpg)`,
           backgroundRepeat: 'no-repeat',
