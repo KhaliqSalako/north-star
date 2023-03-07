@@ -52,6 +52,15 @@ function CreateTripForm() {
   };
 
   return (
+    <div
+        className="text-center bg-black h-100 w-100"
+        style={{
+          backgroundImage:'url( ' + require('./background.jpg') + ')',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed"
+        }}
+      >
     <div className="login-wrapper">
       <h1>Create a Trip</h1>
       <form onSubmit={handleSubmit}>
@@ -88,6 +97,7 @@ function CreateTripForm() {
         </div>
       </form>
     </div>
+  </div>
   );
 
 
