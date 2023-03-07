@@ -59,7 +59,7 @@ function TripList() {
       >
         Create a Trip
       </Link>
-      <h1 className="text-3xl center" >Your Trips</h1>
+      <h1 className="text-3xl center text-white" >Your Trips</h1>
       <div className="container">
         <div className="row">
           {trips.map((trip) => {
