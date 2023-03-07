@@ -75,7 +75,7 @@ function EditTripForm() {
       }}
     >
       <div className="container login-wrapper col-4 glow bg-form-translucent">
-        <h1 className="pt-3 text-white">Edit a Trip</h1>
+        <h1 className="pt-3 text-white title-font">Edit a Trip</h1>
         <form onSubmit={handleSubmit}>
           <label className="row m-4">
             <p className="text-white">Name</p>

@@ -17,7 +17,7 @@ const deleteTrip = async (trip_id) => {
 
 return (
     <div className='glow trip-card h-100'>
-      <div style={{height: "50%"}}>
+      <div style={{height: "65%"}}>
         <Link
           className="text-self-right"
           to={`/trips/${trip.id}/itinerary/${trip.start_date}`}
@@ -31,9 +31,9 @@ return (
           ></img>
         </Link>
       </div>
-      <div className="card-body" style={{height: "42%"}}>
+      <div className="card-body" style={{height: "27%"}}>
         <div className=" h-100 ">
-        <h1 className="card-title  text-white">{trip.name}</h1>
+        <h1 className="trip-card-title  text-white">{trip.name}</h1>
         <p className="card-text   text-white">{trip.start_date}</p>
         <p className="card-text  text-white">{trip.end_date}</p>
         </div>

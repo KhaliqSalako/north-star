@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
 
 .App {
   text-align: center;
@@ -71,6 +72,12 @@
   height: 30%;
 }
 
+.center-trip-list {
+  margin: auto;
+  width: 75%;
+  height: 30%;
+}
+
 .italic {
   font-style: italic;
 }
@@ -79,4 +86,18 @@
     font-family: 'Vujahday Script', cursive;
     src: 'https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap';
     font-size: 40px;
+}
+
+.title-font {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 60px;
+}
+
+.logo-font {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 15px;
+}
+
+.trip-card-title {
+  font-size: calc(10px + 1vw);
 }

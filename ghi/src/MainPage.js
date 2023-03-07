@@ -14,30 +14,32 @@ function MainPage() {
         }}
       >
         <h1
-          className="pt-5 fw-bold font-['Orbitron'] text-white"
+          className="pt-5 title-font text-white"
         >
           North Star
         </h1>
         <h3 className="text-white italic cursive">
-          We know where you're headed...
+          You know where you're headed...
         </h3>
         <div id="carouselExampleAutoplaying" className="carousel slide container" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        </div>
   <div className="carousel-inner carousel-item-size center border glow">
-    <div className="carousel-item active">
-      <img src="https://c4.wallpaperflare.com/wallpaper/134/234/391/photography-mountains-snow-landscape-wallpaper-preview.jpg" className="d-block w-100" alt="..."/>
+    <div className="carousel-item active data-bs-interval=3000">
+      <img src="https://c4.wallpaperflare.com/wallpaper/134/234/391/photography-mountains-snow-landscape-wallpaper-preview.jpg" className="d-block w-100" alt="..." data-bs-slide="0"/>
+        <div class="carousel-caption d-none d-md-block">
+        <h5>Mount Everest, Nepal</h5>
+      </div>
     </div>
-    <div className="carousel-item">
+    <div className="carousel-item data-bs-interval=3000">
       <img src="https://www.outsideonline.com/wp-content/uploads/2018/11/20/outside-guide-grand-canyon_h.jpg" className="d-block w-100" alt="..."/>
+        <div class="carousel-caption d-none d-md-block">
+        <h5>The Grand Canyon, Arizona, USA</h5>
+      </div>
     </div>
   </div>
-  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Previous</span>
-  </button>
-  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Next</span>
-  </button>
 </div>
         <div className="d-flex justify-content-center"
           style={{
