@@ -1,11 +1,15 @@
 import { NavLink } from "react-router-dom";
 import LogOut from "./Accounts/LogOut";
+import { useToken } from "./Accounts/auth";
 
 function Nav() {
+  const { token } = useToken();
+
   return (
     <nav className="navbar navbar-expand-lg bg-nav-translucent sticky-top">
       <div className="container-fluid ">
-        <NavLink className="container me-4 ms-1 text-white nav-link" to="/">
+        <NavLink className="container me-4 ms-1 text-white nav-link"
+        to={ token ? "/trips" : "/" }>
           <img
             src={require("./north_star_logo.png")}
             alt="Logo"
@@ -25,16 +29,6 @@ function Nav() {
               width: "10%",
             }}
           >
-            {/* <li className="nav-item">
-              <NavLink to="/" className="text-white nav-link">
-                North Star
-              </NavLink>
-            </li> */}
-            {/* <li className="nav-item">
-              <NavLink to="/trips" className="text-white nav-link">
-                Trips
-              </NavLink>
-            </li> */}
           </ul>
           <ul
             className="navbar-nav d-flex flex-row-reverse"

@@ -56,3 +56,9 @@
 .trip-card:hover {
   transform: translateY(-5px);
 }
+
+.center {
+  margin: auto;
+  width: 50%;
+  height: 30%;
+}
