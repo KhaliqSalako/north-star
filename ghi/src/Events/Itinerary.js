@@ -51,7 +51,15 @@ function Itinerary() {
   };
   if (!isLoaded || !isEventDataLoaded) return <div>Loading...</div>;
   return [
-    <div className="container-fluid">
+    <div
+      className="container-fluid bg-image"
+      style={{
+        backgroundImage:'url( ' + require('./background.jpg') + ')',
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+      }}
+    >
       <div className="row flex-nowrap">
         <ItinerarySidebar trip_id={trip_id} />
         <div className="col py-3">
