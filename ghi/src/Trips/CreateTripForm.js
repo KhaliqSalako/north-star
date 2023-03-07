@@ -63,7 +63,7 @@ function CreateTripForm() {
       }}
     >
       <div className="bg-form-translucent container login-wrapper col-4 glow">
-        <h1 className="text-white">Create a Trip</h1>
+        <h1 className="text-white pt-3">Create a Trip</h1>
         <form onSubmit={handleSubmit}>
           <label className="row m-4">
             <p className="text-white">Name</p>

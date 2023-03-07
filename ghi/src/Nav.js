@@ -5,17 +5,18 @@ function Nav() {
   return (
     <nav className="navbar navbar-expand-lg bg-nav-translucent sticky-top">
       <div className="container-fluid ">
-        <NavLink className="me-4 ms-1" to="/">
+        <NavLink className="container me-4 ms-1 text-white nav-link" to="/">
           <img
             src={require("./north_star_logo.png")}
             alt="Logo"
             width="50"
             height="45"
-            className="d-flex align-content-center"
+            className="d-flex align-content-center glow"
             style={{
               border: "1px solid white",
             }}
           />
+          <div className="row">North Star</div>
         </NavLink>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul
@@ -24,19 +25,16 @@ function Nav() {
               width: "10%",
             }}
           >
-            <li className="nav-item">
-              <NavLink
-                to="/"
-                className="text-white nav-link bg-blue rounded-pill"
-              >
+            {/* <li className="nav-item">
+              <NavLink to="/" className="text-white nav-link">
                 North Star
               </NavLink>
-            </li>
-            <li className="nav-item">
+            </li> */}
+            {/* <li className="nav-item">
               <NavLink to="/trips" className="text-white nav-link">
                 Trips
               </NavLink>
-            </li>
+            </li> */}
           </ul>
           <ul
             className="navbar-nav d-flex flex-row-reverse"
@@ -47,26 +45,6 @@ function Nav() {
             <li className="nav-item d-flex align-items-center">
               <LogOut />
             </li>
-            {/* <li
-              className="nav-item "
-            >
-              <NavLink
-                to="/signup"
-                className="text-white nav-link"
-              >
-                Sign Up
-              </NavLink>
-            </li>
-            <li
-              className="nav-item "
-            >
-              <NavLink
-                to="/login"
-                className="text-white nav-link"
-              >
-                Login
-              </NavLink>
-            </li> */}
           </ul>
         </div>
       </div>
