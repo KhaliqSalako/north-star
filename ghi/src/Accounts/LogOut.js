@@ -11,9 +11,9 @@ function LogOut() {
 
   return (
     <div>
-      <button 
+      <button
         onClick={handleLogout}
-        className="btn bg-blue rounded-pill text-white"
+        className="btn btn-outline-dark glow-small text-white rounded-0"
         style={{
         }}
       >Logout</button>

@@ -1,16 +1,24 @@
 # Louis Journal
 
+1. 3/6/2022
+
+   - At this point, the functionality on our website is essentially complete. We broke up into pairs today and Braden and I finished up the signup and login modals. The rest of the day was spent working on styling. We got the main cards styled in a nice manner and we also got hte background for the main page and trips page working.
+
+1. 3/3/2022
+
+   - Today we had a tough day because we could not get our nav bar working. We also could not get our login modal working. We spent the whole day on these and did not make any progress. It was very frustrating. Luckily we came up with a plan that could potentially get us through this difficult challenge on monday.
+
 1. 3/2/2022
 
-   - Today we made a good amount of progress by first finishing up out Google API map views for both the itinerary page with multiple pins and the events page with one pin for each event.  We then split up and Braden and I set up the Trip cards on the main home page.  We got the photos and functionality working for the cards and it looks great.
+   - Today we made a good amount of progress by first finishing up out Google API map views for both the itinerary page with multiple pins and the events page with one pin for each event. We then split up and Braden and I set up the Trip cards on the main home page. We got the photos and functionality working for the cards and it looks great.
 
 1. 3/1/2022
 
-   - Today we had another very productive day of coding.  We got our entire external API working with Google.  We integrated Google search into our front end, and also integrated a map with our search results that displays the locations of the events for our customers. We added some navigation to the website and also added photos based on the location search.
+   - Today we had another very productive day of coding. We got our entire external API working with Google. We integrated Google search into our front end, and also integrated a map with our segarch results that displays the locations of the events for our customers. We added some navigation to the website and also added photos based on the location search.
 
 1. 2/28/2022
 
-   - We had a good day today as far as productivity goes.  We split up into teams and Kalique and I were able to build out Events details and edit events pages.  The other team members build out itinerary and create events.  We got the majority of the pages list views, detail views, and forms completed today.  The skeleton of the project is complete.  we also got front end links working between all of these pages.  It is now in good working order.
+   - We had a good day today as far as productivity goes. We split up into teams and Kalique and I were able to build out Events details and edit events pages. The other team members build out itinerary and create events. We got the majority of the pages list views, detail views, and forms completed today. The skeleton of the project is complete. we also got front end links working between all of these pages. It is now in good working order.
 
 1. 2/27/2022
 

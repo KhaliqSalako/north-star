@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getToken, getTokenInternal, useAuthContext, useToken } from "../Accounts/auth";
 import { useNavigate } from "react-router-dom";
 
+
 function CreateTripForm() {
   const [formData, setFormData] = useState({
     name: "",
