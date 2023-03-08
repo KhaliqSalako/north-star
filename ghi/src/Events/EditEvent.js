@@ -95,65 +95,78 @@ function EditEventForm() {
   };
 
   return (
-    <div className="login-wrapper">
-      <h1>Edit Event</h1>
-      <form>
-        <label>
-          <p>Name</p>
-          <input
-            name="event_name"
-            onChange={handleFormChange}
-            placeholder={event.event_name}
-            value={formData.event_name}
-            type="text"
-          />
-        </label>
-        <label>
-          <p>Location</p>
-          <input
-            name="location"
-            placeholder={event.location?.name}
-            type="text"
-          />
-          <button onClick={handleSearch}>Search</button>
-        </label>
-        <div>{locationDetail}</div>
-        <label>
-          <p>Date</p>
-          <input
-            name="date"
-            onChange={handleFormChange}
-            placeholder={event.date}
-            value={formData.date}
-            type="text"
-          />
-        </label>
-        <label>
-          <p>Start Time</p>
-          <input
-            name="start_time"
-            onChange={handleFormChange}
-            placeholder={event.start_time}
-            value={formData.start_time}
-            type="text"
-          />
-        </label>
-        <label>
-          <p>Details</p>
-          <input
-            name="details"
-            onChange={handleFormChange}
-            placeholder={event.details}
-            value={formData.details}
-            type="text"
-          />
-        </label>
-        <div>
-          <button onClick={handleSubmit} type="submit">
-            Submit
-          </button>
-        </div>
-      </form>
+    <div
+      className="text-center bg-black vh-100 vw-100 pt-4"
+      style={{
+        backgroundImage: "url( " + require("./background.jpg") + ")",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      <div className="bg-form-translucent container login-wrapper col-3 glow pt-3">
+        <h1 className="text-white title-font">Edit Event</h1>
+        <form>
+          <label className="row m-4">
+            <div className="text-white text-start">Event Name:</div>
+            <input
+              className="form-control"
+              name="event_name"
+              onChange={handleFormChange}
+              placeholder={event.event_name}
+              value={formData.event_name}
+              type="text"
+            />
+          </label>
+          <label className="row m-4">
+            <div className="text-white text-start">Location Search:</div>
+            <input
+              className="form-control"
+              name="location"
+              placeholder={event.location?.name}
+              type="text"
+            />
+            <button
+              className="mt-2 btn bg-blue-translucent text-white rounded-0 glow-small h-100"
+              onClick={handleSearch}
+            >
+              Search
+            </button>
+          </label>
+          <div className="text-white">{locationDetail}</div>
+          <label className="row m-4">
+            <div className="text-white text-start">Start Time:</div>
+            <input
+              className="form-control"
+              name="start_time"
+              onChange={handleFormChange}
+              placeholder={event.start_time}
+              value={formData.start_time}
+              type="time"
+            />
+          </label>
+          <label className="row m-4">
+            <div className="text-white text-start">Event Details:</div>
+            <input
+              className="form-control"
+              name="details"
+              onChange={handleFormChange}
+              placeholder={event.details}
+              value={formData.details}
+              type="text"
+            />
+          </label>
+          <div>
+            <button
+              className="mb-4 btn bg-blue-translucent text-white rounded-0 glow-small h-100"
+              onClick={handleSubmit}
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

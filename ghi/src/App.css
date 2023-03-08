@@ -76,6 +76,11 @@
   height: 30%;
 }
 
+.center-form {
+  margin: auto;
+  width: 25%;
+}
+
 .center-trip-list {
   margin: auto;
   width: 75%;

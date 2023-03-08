@@ -87,28 +87,28 @@ function Itinerary() {
           </div>
           <div className="row mt-4">
             <h3 className="text-white col"> Date {date} </h3>
-            <div className="d-flex col"
-            style={{paddingLeft:'0px'}}>
+            <div className="mr-4  d-flex justify-content-end"
+            style={{paddingLeft:'0px', paddingRight:'10%', marginBottom:'1%'}}>
               <Link
                 to={`/trips/${trip_id}/events/${date}/create`}
-                className="btn btn-lg bg-blue rounded-pill text-white glow"
+                className="btn btn-lg bg-blue-translucent rounded-0 text-white glow"
               >
                 Create Event
               </Link>
             </div>
           </div>
           <div className="row">
-            <table className="table table-striped text-white col">
+            <table className="table h-100 table-striped text-white"
+            style={{width:'73%'}}>
               <thead>
                 <tr>
                   <th>Name</th>
                   <th>Location Name</th>
                   <th>Location Address</th>
                   <th>Start Time</th>
-                  <th>Details</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody style={{width:'100px'}}>
                 {events.map((event) => {
                   return (
                     <tr key={event.id}>
@@ -118,12 +118,12 @@ function Itinerary() {
                         {event.location.formatted_address}
                       </td>
                       <td className="text-white">{event.start_time}</td>
-                      <td className="text-white">{event.details}</td>
-                      <div className="d-flex flex-row">
+                      <div className="d-flex flew-row justify-content-end p-0"
+                      style={{width:'80%'}}>
                         <div className="text-white d-flex rounded-0">
                           <button
                             onClick={() => deleteEvent(event.id)}
-                            className="btn bg-red-translucent glow btn-lg px-4 gap-3 text-white"
+                            className="btn bg-red-translucent glow btn-lg px-4 text-white"
                           >
                             Delete
                           </button>
@@ -131,7 +131,7 @@ function Itinerary() {
                         <div className="d-flex rounded-0">
                           <Link
                             to={`/trips/${trip_id}/events/detail/${event.id}`}
-                            className="btn bg-blue-translucent glow btn-lg px-4 gap-3 text-white"
+                            className="btn bg-blue-translucent glow btn-lg px-4 text-white"
                           >
                             View Event
                           </Link>
@@ -142,7 +142,7 @@ function Itinerary() {
                 })}
               </tbody>
             </table>
-            <div className="col mt-4">
+            <div className="col">
               <Map update={getEventData} location={location} events={events} />
             </div>
           </div>
