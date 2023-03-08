@@ -30,7 +30,6 @@ function EditEventForm() {
   async function handleSubmit(e) {
     e.preventDefault();
     const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}/events/${event_id}`;
-    console.log(url);
     const response = await fetch(url, {
       method: "put",
       body: JSON.stringify(formData),

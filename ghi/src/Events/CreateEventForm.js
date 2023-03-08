@@ -50,7 +50,6 @@ function CreateEventForm() {
       [inputName]: value,
     });
   };
-  console.log(formData.location);
 
   const handleSearch = async (e) => {
     e.preventDefault();

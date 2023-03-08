@@ -41,7 +41,6 @@ function CreateTripForm() {
     const start_date = formData["start_date"].toString();
     const end_date = formData["end_date"].toString();
     const picture_url = formData["picture_url"];
-    console.log(start_date)
     await createTrip(name, start_date, end_date, picture_url);
   };
   return (

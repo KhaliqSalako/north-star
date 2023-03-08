@@ -4,7 +4,6 @@ from typing import List
 from models import EventOut
 from authenticator import authenticator
 from fastapi import FastAPI, HTTPException
-# from datetime import date
 
 router = APIRouter()
 

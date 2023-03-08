@@ -14,7 +14,6 @@ const deleteTrip = async (trip_id) => {
     const data = await response.json()
     getTripData()
   }
-  console.log(name)
 
 return (
     <div className='glow trip-card h-100'>

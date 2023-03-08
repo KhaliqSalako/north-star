@@ -25,7 +25,6 @@ def get_all_trips(
     repo: TripRepository = Depends(),
 ):
     trips = repo.get_all_trips(account_id=account_data["id"])
-    print("trips print----",trips)
     return {"trips": trips}
 
 

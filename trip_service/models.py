@@ -1,7 +1,6 @@
 from bson.objectid import ObjectId
 from pydantic import BaseModel
 from typing import List, Optional
-# from datetime import datetime, date, time
 
 
 class Error(BaseModel):
