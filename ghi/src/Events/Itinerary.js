@@ -13,10 +13,15 @@ function Itinerary() {
   const params = useParams();
   const trip_id = params.id;
   const date = params.date;
+  const dateArr = date.split("-")
+  let  wordDate = new Date(dateArr[0],dateArr[1],dateArr[2])
+  wordDate = wordDate.toDateString()
   const location = useLocation();
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   });
+
+  console.log(wordDate)
 
   const getTripName = async () => {
     const response = await fetch(
@@ -86,7 +91,7 @@ function Itinerary() {
             </h1>
           </div>
           <div className="row mt-4">
-            <h3 className="text-white col"> Date {date} </h3>
+            <h3 className="text-white col"> Date: {wordDate} </h3>
             <div className="mr-4  d-flex justify-content-end"
             style={{paddingLeft:'0px', paddingRight:'10%', marginBottom:'1%'}}>
               <Link
@@ -98,8 +103,8 @@ function Itinerary() {
             </div>
           </div>
           <div className="row">
-            <table className="table h-100 table-striped text-white"
-            style={{width:'73%'}}>
+            <table className="table h-100 table-striped text-white  col col-9"
+            style={{width:'70%'}}>
               <thead>
                 <tr>
                   <th>Name</th>
@@ -142,7 +147,7 @@ function Itinerary() {
                 })}
               </tbody>
             </table>
-            <div className="col">
+            <div className="col-sm">
               <Map update={getEventData} location={location} events={events} />
             </div>
           </div>
