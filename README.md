@@ -153,16 +153,13 @@ North Star is a web application that allows users to easily plan trips, events, 
 ## Table of contents
 
 - Requirements
-- Recommended modules
 - Installation
 - Configuration
-- Troubleshooting
-- FAQ
 - Maintainers
 
 ## Requirements
 
-This project requires the following modules and dependencies (npm):
+This project requires the following dependencies to install:
 
 - React Router DOM (https://www.npmjs.com/package/react-router-dom)
 - React (https://www.npmjs.com/package/react)
@@ -172,7 +169,7 @@ This project requires the following modules and dependencies (npm):
 
 ## Installation
 
-Install as you would normally install a dependencies using "npm i 'dependency'" by copying the top right text one each website. Here's how if more info is needed: (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+Install as you would normally install a dependency using "npm i 'dependency'" by copying the top right text one each website. Here's how if more info is needed: (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 ## Configuration
 
