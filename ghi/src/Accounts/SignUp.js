@@ -46,8 +46,6 @@ function SignUp() {
         Sign Up
       </button>
 
-
-
       <div
         className="modal fade"
         id="staticBackdrop"

@@ -8,19 +8,17 @@ import {
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 
-
 function EditTripForm() {
   const navigate = useNavigate();
   const { token } = useAuthContext();
   const [trip, setTrip] = useState([]);
   const params = useParams();
-  const trip_id = params.id
-
+  const trip_id = params.id;
 
   async function handleSubmit(e) {
     e.preventDefault();
     const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`;
-    console.log(url)
+    console.log(url);
     const response = await fetch(url, {
       method: "put",
       body: JSON.stringify(trip),
@@ -63,7 +61,6 @@ function EditTripForm() {
     });
   };
 
-
   return (
     <div
       className="text-center bg-black vh-100 vw-100 pt-4"
@@ -74,12 +71,13 @@ function EditTripForm() {
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="container login-wrapper col-4 glow bg-form-translucent">
+      <div className="container login-wrapper col-3 glow bg-form-translucent">
         <h1 className="pt-3 text-white title-font">Edit a Trip</h1>
         <form onSubmit={handleSubmit}>
           <label className="row m-4">
-            <p className="text-white">Name</p>
+            <div className="text-white text-start">Name:</div>
             <input
+              className="form-control"
               name="name"
               onChange={handleFormChange}
               placeholder={trip.name}
@@ -88,28 +86,31 @@ function EditTripForm() {
             />
           </label>
           <label className="row m-4">
-            <p className="text-white">Start Date</p>
+            <div className="text-white text-start">Start Date:</div>
             <input
+              className="form-control"
               name="start_date"
               onChange={handleFormChange}
               placeholder={trip.start_date}
               defaultValue={trip.start_date}
-              type="text"
+              type="date"
             />
           </label>
           <label className="row m-4">
-            <p className="text-white">End Date</p>
+            <div className="text-white text-start">End Date:</div>
             <input
+              className="form-control"
               name="end_date"
               onChange={handleFormChange}
               placeholder={trip.end_date}
               defaultValue={trip.end_date}
-              type="text"
+              type="date"
             />
           </label>
           <label className="row m-4">
-            <p className="text-white">Photo</p>
+            <div className="text-white text-start">Your Trip Photo:</div>
             <input
+              className="form-control"
               name="picture_url"
               onChange={handleFormChange}
               placeholder={trip.picture_url}
