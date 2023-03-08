@@ -68,7 +68,7 @@ function Itinerary() {
           >
             <Link
               to={`/trips/${trip_id}/events/${date}/create`}
-              className="btn  btn-lg px-4 gap-3 bg-blue rounded-pill text-white"
+              className="btn  btn-lg px-4 gap-3 bg-blue rounded-pill text-white glow"
             >
               Create Event
             </Link>
