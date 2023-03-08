@@ -45,7 +45,7 @@ export default function EventDetail() {
   if (!isLoaded || !isEventDataLoaded) return <div>Loading...</div>;
   return (
     <div
-      className="row h-100 w-100 d-flex justify-items-center"
+      className="row vh-100 w-100 d-flex justify-items-center"
       style={{
         backgroundImage: "url( " + require("../images/background.jpg") + ")",
         backgroundRepeat: "no-repeat",
