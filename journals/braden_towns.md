@@ -1,3 +1,7 @@
+### 3/7/2023
+
+Today was productive again. We spent most of the day working as pairs. I worked with Louis again today. We spent the day implementing a carousel for the front page, as well as formatting our forms and making sure they were consistent throughout. We also fixed formatting with our trip list page, and were able to center our cards.
+
 ### 3/6/2023
 
 Today was a very productive day for our group. We worked in pair programming again, and finished the feature that we were stuck on last Friday. We were able to successfully get our login and sign up modals working. I have a much better understanding of importing jsx components now. After this we met up again as a group and talked about styling. Louis and I worked on styling the trip cards while Khaliq and Anri worked on the background colors and nav bar. Tomorrow we are going to continue with CSS and bootstrap styling.

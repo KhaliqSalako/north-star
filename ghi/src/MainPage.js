@@ -36,7 +36,7 @@ function MainPage() {
     <div className="carousel-item data-bs-interval=3000">
       <img src="https://www.outsideonline.com/wp-content/uploads/2018/11/20/outside-guide-grand-canyon_h.jpg" className="d-block w-100" alt="..."/>
         <div class="carousel-caption d-none d-md-block">
-        <h5>The Grand Canyon, Arizona, USA</h5>
+        <h5 className="outline">The Grand Canyon, Arizona, USA</h5>
       </div>
     </div>
   </div>

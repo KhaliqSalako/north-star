@@ -110,3 +110,8 @@
 .trip-card-title {
   font-size: calc(10px + 1vw);
 }
+
+/* .outline {
+  color: white;
+  -webkit-text-stroke: 2px black;
+} */

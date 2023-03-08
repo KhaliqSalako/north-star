@@ -32,13 +32,46 @@ class FakeTripRepository:
         }
         return TripOut(**trip)
 
-    def create_trip(self, trip: TripIn, account_id):
-        trip_dict = TripIn.dict()
+    def create_trip(self, trip: TripIn, account_id: str):
+        trip_dict = trip.dict()
         trip_dict["id"] = "83f502a99fe9690cdf31e21e"
         trip_dict["name"] = "Mexico"
-        trip_dict["start_date"] = "3/27/2024"
-        trip_dict["end_date"] = "3/27/2024"
+        trip_dict["start_date"] = "2024-03-12"
+        trip_dict["end_date"] = "2024-03-14"
+        trip_dict["account_id"] = account_id
         return trip_dict
+
+    def update_trip(self, trip: TripIn, trip_id: str, account_id: str):
+        trip_dict = trip.dict()
+        trip_dict["id"] = trip_id
+        trip_dict["name"] = "Mexico"
+        trip_dict["start_date"] = "2024-03-12"
+        trip_dict["end_date"] = "2024-03-14"
+        trip_dict["account_id"] = account_id
+        return trip_dict
+
+
+def test_update_trip():
+    # Arrange
+    app.dependency_overrides[TripRepository] = FakeTripRepository
+    app.dependency_overrides[
+        authenticator.get_current_account_data
+    ] = fake_get_current_account_data
+
+    # Act
+    trip = {
+        "name": "Disneyland",
+        "start_date": "2023-03-11",
+        "end_date": "2023-03-14",
+        "picture_url": "example.com/picture.png",
+    }
+    res = client.put("/api/trips/83f502a99fe9690cdf31e21f", json=trip)
+    data = res.json()
+
+    # Assert
+    assert res.status_code == 200
+    assert data["id"] == "83f502a99fe9690cdf31e21f"
+    assert data["account_id"] == "73ee9d459fd6e053687c6de5"
 
 
 def test_get_all_trips():
@@ -50,9 +83,7 @@ def test_get_all_trips():
 
     # Act
     res = client.get("/api/trips")
-    print("RES-----------> /n", res)
     data = res.json()
-    print("DATA-----------> /n", data)
 
     # Assert
     assert data["trips"] == []
@@ -68,9 +99,7 @@ def test_get_trip():
 
     # Act
     res = client.get("/api/trips/73f502a99fe9690cdf31e21e")
-    print("RES-----------> /n", res)
     data = res.json()
-    print("DATA-----------> /n", data)
 
     # Assert
     assert data["id"] == "73f502a99fe9690cdf31e21e"
@@ -86,13 +115,15 @@ def test_create_trip():
 
     # Act
     trip = {
-        "name": "Disneyland",
+        "name": "Disney World",
+        "start_date": "2023-03-11",
+        "end_date": "2023-03-14",
+        "picture_url": "example.com/picture.png",
     }
-
-    res = client.post("./api/trips/2", json=trips)
+    res = client.post("/api/trips", json=trip)
     data = res.json()
 
     # Assert
     assert res.status_code == 200
     assert data["id"] == "83f502a99fe9690cdf31e21e"
-    assert data["user"] == 8989
+    assert data["account_id"] == "73ee9d459fd6e053687c6de5"
