@@ -6,7 +6,6 @@ import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import ItinerarySidebar from "./ItinerarySidebar";
 
 function Itinerary() {
-  const { token } = useAuthContext();
   const [tripName, setTripName] = useState("");
   const [events, setEvents] = useState([]);
   const [isEventDataLoaded, setIsEventDataLoaded] = useState(false);
@@ -101,45 +100,58 @@ function Itinerary() {
             </div>
           </div>
           <div className="row">
-            <table className="table h-100 table-striped text-white  col col-9"
+            <table className="table h-100 table-striped text-white  col col-9 m-1"
             style={{width:'70%'}}>
               <thead>
                 <tr>
                   <th>Name</th>
                   <th>Location Name</th>
                   <th>Location Address</th>
-                  <th>Start Time</th>
+                  <th>Time</th>
+                  <th></th>
                 </tr>
               </thead>
-              <tbody style={{width:'100px'}}>
+              <tbody style={{}}
+              className="">
                 {events.map((event) => {
+                  const randKey = `${event.id}:${Math.floor(Math.random() * 100)}`
                   return (
-                    <tr key={event.id}>
-                      <td className="text-white">{event.event_name}</td>
-                      <td className="text-white">{event.location.name}</td>
-                      <td className="text-white">
+                    <tr key={randKey}>
+                      <td className="text-white" style={{width:"15%"}}>{event.event_name}</td>
+                      <td className="text-white" style={{width:"15%"}}>{event.location.name}</td>
+                      <td className="text-white"
+                      style={{width:"55%",height:"auto"}}>
                         {event.location.formatted_address}
                       </td>
-                      <td className="text-white">{event.start_time}</td>
-                      <div className="d-flex flew-row justify-content-end p-0"
-                      style={{width:'80%'}}>
-                        <div className="text-white d-flex rounded-0">
+                      <td className="text-white"
+                      style={{width:"5%"}}>
+                        {event.start_time}</td>
+                      <td className=" p-0 w-100  h-100"
+                      style={{height:"100%", display:"inline-grid", gridTemplateColumns:"auto auto auto", boxSizing:"content-box"}}>
+                        <div className="text-white rounded-0 "
+                        style={{
+                          boxSizing:"content-box"
+                        }}>
                           <button
                             onClick={() => deleteEvent(event.id)}
-                            className="btn bg-red-translucent glow btn-lg px-4 text-white"
+                            className="btn bg-red-translucent glow btn-lg text-white h-100 py-0"
+                            style={{ boxSizing:"content-box"}}
                           >
                             Delete
                           </button>
                         </div>
-                        <div className="d-flex rounded-0">
+                        <div className=" rounded-0 h-100"
+                        style={{width:"145px", boxSizing:"content-box"}}>
                           <Link
                             to={`/trips/${trip_id}/events/detail/${event.id}`}
-                            className="btn bg-blue-translucent glow btn-lg px-4 text-white"
+                            className="btn bg-blue-translucent glow btn-lg text-white h-100 py-auto"
+                            style={{width:"auto", boxSizing:"border-box"}}
+                            
                           >
                             View Event
                           </Link>
                         </div>
-                      </div>
+                      </td>
                     </tr>
                   );
                 })}
@@ -153,104 +165,17 @@ function Itinerary() {
       </div>
     </div>,
   ];
-
-  // return [
-  //   <div className="container-fluid">
-  //     <div className="row flex-nowrap">
-  //       <ItinerarySidebar currentdate={date} trip_id={trip_id} />
-  //       <div
-  //         className="col py-3"
-  //         style={{
-  //           backgroundImage:
-  //             "url( " + require("../images/background.jpg") + ")",
-  //           backgroundRepeat: "no-repeat",
-  //           backgroundSize: "cover",
-  //           backgroundAttachment: "fixed",
-  //         }}
-  //       >
-  //         <div>
-  //           <h1 className="d-flex text-white justify-content-center">
-  //             {tripName}
-  //           </h1>
-  //         </div>
-  //         <div className="row mt-4">
-  //           <h3 className="text-white col"> Date: {wordDate} </h3>
-  //           <div className="mr-4  d-flex justify-content-end"
-  //           style={{paddingLeft:'0px', paddingRight:'10%', marginBottom:'1%'}}>
-  //             <Link
-  //               to={`/trips/${trip_id}/events/${date}/create`}
-  //               className="btn btn-lg bg-blue-translucent rounded-0 text-white glow"
-  //             >
-  //               Create Event
-  //             </Link>
-  //           </div>
-  //         </div>
-  //         <div className="row">
-  //           <table className="table h-100 table-striped text-white  col col-9"
-  //           style={{width:'70%'}}>
-  //             <thead>
-  //               <tr>
-  //                 <th>Name</th>
-  //                 <th>Location Name</th>
-  //                 <th>Location Address</th>
-  //                 <th>Start Time</th>
-  //               </tr>
-  //             </thead>
-  //             <tbody style={{width:'100px'}}>
-  //               {events.map((event) => {
-  //                 return (
-  //                   <tr key={event.id}>
-  //                     <td className="text-white">{event.event_name}</td>
-  //                     <td className="text-white">{event.location.name}</td>
-  //                     <td className="text-white">
-  //                       {event.location.formatted_address}
-  //                     </td>
-  //                     <td className="text-white">{event.start_time}</td>
-  //                     <td className="d-flex flew-row justify-content-end p-0"
-  //                     style={{width:'80%'}}>
-  //                       <div className="text-white d-flex rounded-0">
-  //                         <button
-  //                           onClick={() => deleteEvent(event.id)}
-  //                           className="btn bg-red-translucent glow btn-lg px-4 text-white"
-  //                         >
-  //                           Delete
-  //                         </button>
-  //                       </div>
-  //                       <div className="d-flex rounded-0">
-  //                         <Link
-  //                           to={`/trips/${trip_id}/events/detail/${event.id}`}
-  //                           className="btn bg-blue-translucent glow btn-lg px-4 text-white"
-  //                         >
-  //                           View Event
-  //                         </Link>
-  //                       </div>
-  //                     </td>
-  //                   </tr>
-  //                 );
-  //               })}
-  //             </tbody>
-  //           </table>
-  //           <div className="col-sm">
-  //             <Map update={getEventData} location={location} events={events} />
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>,
-  // ];
+ 
 }
 
 function Map(props) {
-  const [averageCenter, setAverageCenter] = useState({});
+ 
   const [prevEventData, setprevEventData] = useState();
-  const [map, setMap] = useState(null);
 
-  const center = props.events[0].location.geo_location
-
-  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  const center = props.events[0]?.location.geo_location
+  const [averageCenter, setAverageCenter] = useState(center);
 
   const getAverage = async () => {
-    console.log(props.events)
     let averageCenterLat = 0;
     let averageCenterLng = 0;
 
@@ -262,39 +187,23 @@ function Map(props) {
     setprevEventData(props.events);
 
     setAverageCenter({
-      lat: (averageCenterLat / props.events.length).toFixed(5),
-      lng: (averageCenterLng / props.events.length).toFixed(5),
+      lat: parseFloat((averageCenterLat / props.events.length).toFixed(5)),
+      lng: parseFloat((averageCenterLng / props.events.length).toFixed(5)),
     });
   };
 
-  // const onLoad = useCallback(function callback(map) {
-  //   // This is just an example of getting and using the map instance!!! don't just blindly copy!
-  //   const bounds = new window.google.maps.LatLngBounds(center);
-  //   map.fitBounds(bounds);
-
-  //   setMap(map)
-  // }, [])
-
-  // const onUnmount = useCallback(function callback(map) {
-  //   setMap(null)
-  // }, [])
 
   useEffect(() => {
-    if (props.events != prevEventData) {
+    if (props.events !== prevEventData) {
       getAverage();
     }
   }, [props.events]);
-    if (averageCenter === {}) {
-      return <div>Loading Map...</div>
-    }
-    console.log(averageCenter)
+  
   return [
     <GoogleMap
       mapContainerStyle={{ width: "500px", height: "500px" }}
       zoom={10}
-      center={center}
-      // onLoad={onLoad}
-      // onUnmount={onUnmount}
+      center={averageCenter}
       mapContainerClassName="map-container"
     >
       {props.events.map((event) => {

@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
-import { useAuthContext } from "../Accounts/auth";
 import TripListCard from "./TripListCard";
 import { Link } from "react-router-dom";
 
 function TripList() {
-  const { token } = useAuthContext();
+  //const { token } = useAuthContext();
   const [trips, setTrips] = useState([]);
-
   const getTripData = async () => {
     const response = await fetch(
       `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips`,
@@ -14,33 +12,14 @@ function TripList() {
         credentials: "include",
       }
     );
-
     if (response.ok) {
       const data = await response.json();
       setTrips(data.trips);
     }
   };
-
   useEffect(() => {
     getTripData();
-  }, []);
-
-  const deleteTrip = async (trip_id) => {
-    const response = await fetch(
-      `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`,
-      {
-        method: "DELETE",
-        credentials: "include",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = await response.json();
-    getTripData();
-  };
-
+  }, [])
   return (
     <div
       className="text-center bg-black h-100 w-100"
@@ -75,5 +54,4 @@ function TripList() {
     </div>
   );
 }
-
 export default TripList;

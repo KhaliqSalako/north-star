@@ -1,6 +1,14 @@
 import { Link } from 'react-router-dom'
-
 function TripListCard({trip, getTripData, name}) {
+
+let  dateArr = trip.start_date.split("-")
+let  wordDateStart = new Date(dateArr[0],dateArr[1],dateArr[2])
+wordDateStart = wordDateStart.toDateString()
+
+dateArr = trip.end_date.split("-")
+let  wordDateEnd = new Date(dateArr[0],dateArr[1],dateArr[2])
+wordDateEnd = wordDateEnd.toDateString()
+
 
 const deleteTrip = async (trip_id) => {
     const response = await fetch(`${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`, {
@@ -14,7 +22,6 @@ const deleteTrip = async (trip_id) => {
     const data = await response.json()
     getTripData()
   }
-
 return (
     <div className='glow trip-card h-100'>
       <div style={{height: "65%"}}>
@@ -34,8 +41,8 @@ return (
       <div className="card-body" style={{height: "27%"}}>
         <div className=" h-100 ">
         <h1 className="trip-card-title  text-white">{trip.name}</h1>
-        <p className="card-text   text-white">{trip.start_date}</p>
-        <p className="card-text  text-white">{trip.end_date}</p>
+        <p className="card-text   text-white">{wordDateStart}</p>
+        <p className="card-text  text-white">{wordDateEnd}</p>
         </div>
       </div>
         <div className="row-cols-2" style={{height: "8%"}}>
@@ -55,7 +62,5 @@ return (
         </div>
       </div>
 );
-
 }
-
 export default TripListCard

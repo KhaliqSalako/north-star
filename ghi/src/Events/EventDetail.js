@@ -77,7 +77,7 @@ export default function EventDetail() {
               <div>
                 <Link
                   to={`/trips/${trip_id}/events/detail/${event.id}/edit`}
-                  className="btn bg-blue-translucent glow btn-lg rounded-pill px-4 gap-3 text-white"
+                  className="btn bg-blue-translucent glow btn-lg rounded-0 px-4 gap-3 text-white"
                 >
                   Edit Event
                 </Link>
