@@ -65,53 +65,68 @@ function EditTripForm() {
 
 
   return (
-    <div className="login-wrapper">
-      <h1>Edit a Trip</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <p>Name</p>
-          <input
-            name="name"
-            onChange={handleFormChange}
-            placeholder={trip.name}
-            defaultValue={trip.name}
-            type="text"
-          />
-        </label>
-        <label>
-          <p>Start Date</p>
-          <input
-            name="start_date"
-            onChange={handleFormChange}
-            placeholder={trip.start_date}
-            defaultValue={trip.start_date}
-            type="text"
-          />
-        </label>
-        <label>
-          <p>End Date</p>
-          <input
-            name="end_date"
-            onChange={handleFormChange}
-            placeholder={trip.end_date}
-            defaultValue={trip.end_date}
-            type="text"
-          />
-        </label>
-        <label>
-          <p>Photo</p>
-          <input
-            name="picture_url"
-            onChange={handleFormChange}
-            placeholder={trip.picture_url}
-            defaultValue={trip.picture_url}
-            type="text"
-          />
-        </label>
-        <div>
-          <button className="shadow-lg p-3 mb-5 bg-body"type="submit">Submit</button>
-        </div>
-      </form>
+    <div
+      className="text-center bg-black vh-100 vw-100 pt-4"
+      style={{
+        backgroundImage: "url( " + require("./background.jpg") + ")",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      <div className="container login-wrapper col-4 glow bg-form-translucent">
+        <h1 className="pt-3 text-white title-font">Edit a Trip</h1>
+        <form onSubmit={handleSubmit}>
+          <label className="row m-4">
+            <p className="text-white">Name</p>
+            <input
+              name="name"
+              onChange={handleFormChange}
+              placeholder={trip.name}
+              defaultValue={trip.name}
+              type="text"
+            />
+          </label>
+          <label className="row m-4">
+            <p className="text-white">Start Date</p>
+            <input
+              name="start_date"
+              onChange={handleFormChange}
+              placeholder={trip.start_date}
+              defaultValue={trip.start_date}
+              type="text"
+            />
+          </label>
+          <label className="row m-4">
+            <p className="text-white">End Date</p>
+            <input
+              name="end_date"
+              onChange={handleFormChange}
+              placeholder={trip.end_date}
+              defaultValue={trip.end_date}
+              type="text"
+            />
+          </label>
+          <label className="row m-4">
+            <p className="text-white">Photo</p>
+            <input
+              name="picture_url"
+              onChange={handleFormChange}
+              placeholder={trip.picture_url}
+              defaultValue={trip.picture_url}
+              type="text"
+            />
+          </label>
+          <div>
+            <button
+              className="mb-4 btn bg-blue-translucent text-white rounded-0 glow-small h-100"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

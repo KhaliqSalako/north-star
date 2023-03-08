@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
 .App {
   text-align: center;
 }
@@ -19,6 +22,18 @@
 
 .bg-blue-translucent {
   background-color:rgba(137, 43, 226, 0.5)
+}
+
+.bg-nav-translucent {
+  background-color:rgba(17, 22, 22, 1.0)
+}
+
+.bg-form-translucent {
+  background-color:rgba(17, 22, 22, 0.666)
+}
+
+.bg-white-translucent {
+  background-color:rgba(157, 246, 209, 0.5)
 }
 
 .bg-red-translucent {
@@ -43,4 +58,50 @@
 
 .trip-card:hover {
   transform: translateY(-5px);
+}
+
+.text-glow {
+  text-shadow: 0px 0px 5px white;
+}
+
+
+.carousel-item-size {
+  width: 480px;
+  height: 270px;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  height: 30%;
+}
+
+.center-trip-list {
+  margin: auto;
+  width: 75%;
+  height: 30%;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.cursive {
+    font-family: 'Vujahday Script', cursive;
+    src: 'https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap';
+    font-size: 40px;
+}
+
+.title-font {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 60px;
+}
+
+.logo-font {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 15px;
+}
+
+.trip-card-title {
+  font-size: calc(10px + 1vw);
 }

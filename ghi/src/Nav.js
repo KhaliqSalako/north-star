@@ -1,82 +1,44 @@
 import { NavLink } from "react-router-dom";
 import LogOut from "./Accounts/LogOut";
+import { useToken } from "./Accounts/auth";
 
 function Nav() {
+  const { token } = useToken();
+
   return (
-    <nav className="navbar navbar-expand-lg bg-dark">
+    <nav className="navbar navbar-expand-lg bg-nav-translucent sticky-top">
       <div className="container-fluid ">
-        <NavLink className="me-4 ms-1" to="/">
+        <NavLink className="container me-4 ms-1 text-white nav-link"
+        to={ token ? "/trips" : "/" }>
           <img
             src={require("./north_star_logo.png")}
             alt="Logo"
             width="50"
             height="45"
-            className="d-flex align-content-center"
+            className="d-flex align-content-center glow"
             style={{
-              border:"1px solid white"
+              border: "1px solid white",
             }}
           />
+          <div className="row logo-font">North Star</div>
         </NavLink>
-        <div
-          className="collapse navbar-collapse"
-          id="navbarNav"
-        >
+        <div className="collapse navbar-collapse" id="navbarNav">
           <ul
             className="navbar-nav"
             style={{
-              width:"10%"
+              width: "10%",
             }}
           >
-            <li
-              className="nav-item"
-            >
-              <NavLink
-                to="/"
-                className="text-white nav-link bg-blue rounded-pill"
-              >
-                North Star
-              </NavLink>
-            </li>
-            <li
-              className="nav-item"
-            >
-              <NavLink
-                to="/trips"
-                className="text-white nav-link"
-              >
-                Trips
-              </NavLink>
-            </li>
           </ul>
           <ul
             className="navbar-nav d-flex flex-row-reverse"
             style={{
-              width:"90%"
+              width: "90%",
             }}
           >
             <li className="nav-item d-flex align-items-center">
               <LogOut />
             </li>
-            {/* <li
-              className="nav-item "
-            >
-              <NavLink
-                to="/signup"
-                className="text-white nav-link"
-              >
-                Sign Up
-              </NavLink>
-            </li>
-            <li
-              className="nav-item "
-            >
-              <NavLink
-                to="/login"
-                className="text-white nav-link"
-              >
-                Login
-              </NavLink>
-            </li> */}
           </ul>
         </div>
       </div>

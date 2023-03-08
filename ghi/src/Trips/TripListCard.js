@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-function TripListCard({trip, getTripData}) {
+function TripListCard({trip, getTripData, name}) {
 
 const deleteTrip = async (trip_id) => {
     const response = await fetch(`${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`, {
@@ -14,10 +14,11 @@ const deleteTrip = async (trip_id) => {
     const data = await response.json()
     getTripData()
   }
+  console.log(name)
 
 return (
     <div className='glow trip-card h-100'>
-      <div style={{height: "50%"}}>
+      <div style={{height: "65%"}}>
         <Link
           className="text-self-right"
           to={`/trips/${trip.id}/itinerary/${trip.start_date}`}
@@ -31,17 +32,18 @@ return (
           ></img>
         </Link>
       </div>
-      <div className="card-body" style={{height: "42%"}}>
-        <div className="border d-flex h-100 ">
-        <h1 className="card-title border w-100 align-self-start text-white">{trip.name}</h1>
-        <p className="card-text border w-100 align-self-center text-white">{trip.start_date}</p>
-        <p className="card-text border w-100 align-self-end text-white">{trip.end_date}</p>
+      <div className="card-body" style={{height: "27%"}}>
+        <div className=" h-100 ">
+        <h1 className="trip-card-title  text-white">{trip.name}</h1>
+        <p className="card-text   text-white">{trip.start_date}</p>
+        <p className="card-text  text-white">{trip.end_date}</p>
         </div>
       </div>
-        <div class="row-cols-2" style={{height: "8%"}}>
+        <div className="row-cols-2" style={{height: "8%"}}>
           <Link
             className="col btn bg-blue-translucent text-white rounded-0 glow-small h-100"
             to={`/trips/edit/${trip.id}`}
+            state={{name:"name"}}
           >
             Edit
           </Link>

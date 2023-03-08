@@ -39,13 +39,14 @@ function SignUp() {
     <>
       <button
         type="button"
-        className="btn bg-blue rounded-pill text-white"
+        className="btn bg-dark glow-small text-white rounded-0"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
       >
         Sign Up
       </button>
-      
+
+
 
       <div
         className="modal fade"
@@ -57,49 +58,74 @@ function SignUp() {
         aria-hidden="true"
       >
         <div className="modal-dialog">
-          <div className="modal-content bg-dark">
+          <div className="modal-content bg-dark glow-small">
             <div className="modal-header">
-              <h1 className="modal-title fs-5 text-white" id="staticBackdropLabel">
-                Sign Up
+              <img
+                src={require("../north_star_logo.png")}
+                alt="Logo"
+                width="50"
+                height="45"
+                className="d-flex align-content-center glow-small"
+                style={{
+                  border: "1px solid white",
+                }}
+              />
+              <h1
+                className="modal-title fs-5 text-white center"
+                id="staticBackdropLabel"
+              >
+                Create a New Account
               </h1>
               <button
                 type="button"
-                className="btn-close bg-blue"
+                className="btn-close bg-dark glow-small border"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body bg-dark">
+            <div className="container modal-body bg-dark col-6">
               <form onSubmit={handleSubmit}>
-                <label>
-                  <p className="text-white">Name</p>
-                  <input name="name" onChange={handleFormChange} type="text" />
-                </label>
-                <label>
-                  <p className="text-white">Email</p>
-                  <input name="email" onChange={handleFormChange} type="text" />
-                </label>
-                <label>
-                  <p className="text-white">Username</p>
+                <p>
                   <input
-                    name="username"
+                    className="form-control"
+                    name="name"
+                    placeholder="Name"
                     onChange={handleFormChange}
                     type="text"
                   />
-                </label>
-                <label>
-                  <p className="text-white">Password</p>
+                </p>
+                <p>
                   <input
+                    className="form-control"
+                    name="email"
+                    placeholder="Email Address"
+                    onChange={handleFormChange}
+                    type="text"
+                  />
+                </p>
+                <p>
+                  <input
+                    className="form-control"
+                    name="username"
+                    placeholder="Username"
+                    onChange={handleFormChange}
+                    type="text"
+                  />
+                </p>
+                <p>
+                  <input
+                    className="form-control"
                     name="password"
+                    placeholder="Password"
                     onChange={handleFormChange}
                     type="password"
                   />
-                </label>
+                </p>
                 <div className="mt-3">
                   <button
                     data-bs-dismiss="modal"
                     type="submit"
-                    className="btn rounded-pill text-white bg-blue "
+                    className="btn btn-outline-secondary glow-small text-white rounded-0"
                   >
                     Submit
                   </button>

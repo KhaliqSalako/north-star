@@ -7,6 +7,7 @@ function ItinerarySidebar(props) {
     const [tripData, setTripData] = useState({});
     const [days, setDays] = useState([]);
     const [isTripDataLoaded, setIsTripDataLoaded] = useState(false);
+    const currentdate = props.currentdate
     const getTripData = async () => {
     const response = await fetch(
       `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${props.trip_id}`,
@@ -45,6 +46,19 @@ function ItinerarySidebar(props) {
                 <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="dates">
                   {days.map((day,i) => {
                 const date = day.toISOString().slice(0, 10)
+                if (date === currentdate) {
+                                return (
+                                  <li key={i} className="">
+                                    <Link
+                                      state={{ state_date: "date" }}
+                                      to={`/trips/${props.trip_id}/itinerary/${date}`}
+                                      className="nav-link align-middle px-0 text-white text-glow"
+                                    >
+                                      {date}
+                                    </Link>
+                                  </li>
+                                );
+                }
               return (
                 <li key={i} className="">
                   <Link state={{state_date:"date"}}
