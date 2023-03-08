@@ -9,16 +9,16 @@ tasks for this week.
 
 ## Install Extensions
 
-* Prettier: <https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode>
-* Black Formatter: <https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter>
+- Prettier: <https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode>
+- Black Formatter: <https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter>
 
 ## Deliverables
 
-* [ ] Wire-frame diagrams
-* [ ] API documentation
-* [ ] Project is deployed to Render.com/GitLab-pages
-* [ ] GitLab issue board is setup and in use
-* [ ] Journals
+- [ ] Wire-frame diagrams
+- [ ] API documentation
+- [ ] Project is deployed to Render.com/GitLab-pages
+- [ ] GitLab issue board is setup and in use
+- [ ] Journals
 
 ## Project layout
 
@@ -71,17 +71,17 @@ The following project files have been created as a minimal
 starting point. Please follow the guidance for each one for
 a most successful project.
 
-* `docker-compose.yaml`: there isn't much in here, just a
+- `docker-compose.yaml`: there isn't much in here, just a
   **really** simple UI and FastAPI service. Add services
   (like a database) to this file as you did with previous
   projects in module #2.
-* `.gitlab-ci.yml`: This is your "ci/cd" file where you will
+- `.gitlab-ci.yml`: This is your "ci/cd" file where you will
   configure automated unit tests, code quality checks, and
   the building and deployment of your production system.
   Currently, all it does is deploy an "under construction"
   page to your production UI on GitLab and a sample backend
   to Render.com. We will learn much more about this file.
-* `.gitignore`: This is a file that prevents unwanted files
+- `.gitignore`: This is a file that prevents unwanted files
   from getting added to your repository, files like
   `pyc` files, `__pycache__`, etc. We've set it up so that
   it has a good default configuration for Python projects.
@@ -93,15 +93,15 @@ deployment, but it just consists of these steps:
 
 ### Setup GitLab repo/project
 
-* make sure this project is in a group. If it isn't, stop
+- make sure this project is in a group. If it isn't, stop
   now and move it to a GitLab group
-* remove the fork relationship: In GitLab go to:
-  
+- remove the fork relationship: In GitLab go to:
+
   Settings -> General -> Advanced -> Remove fork relationship
 
-* add these GitLab CI/CD variables:
-  * PUBLIC_URL : this is your gitlab pages URL
-  * SAMPLE_SERVICE_API_HOST: enter "blank" for now
+- add these GitLab CI/CD variables:
+  - PUBLIC_URL : this is your gitlab pages URL
+  - SAMPLE_SERVICE_API_HOST: enter "blank" for now
 
 #### Your GitLab pages URL
 
@@ -118,20 +118,20 @@ https://GROUP_NAME.gitlab.io/PROJECT_NAME
 
 ### Create render.com account and application
 
-* create account on render.com
-* one person create a group and invite all other members
-* create a new "Web Service"
-  * authenticate with GitLab and choose your project
-  * Enter fields:
-    * Name: name of your service
-    * Root Directory: the directory of your service in your git repo.
+- create account on render.com
+- one person create a group and invite all other members
+- create a new "Web Service"
+  - authenticate with GitLab and choose your project
+  - Enter fields:
+    - Name: name of your service
+    - Root Directory: the directory of your service in your git repo.
       For this example use "sample_service".
-    * Environment: Docker
-    * Plan Type: Free
-  * click the "Create Web Service" button to create it
-  * the build will succeed and it will look like the server is running,
+    - Environment: Docker
+    - Plan Type: Free
+  - click the "Create Web Service" button to create it
+  - the build will succeed and it will look like the server is running,
     most likely, in 6-10 minutes, it will fail.
-  * click "Manual Deploy" -> "Deploy latest commit" and the service
+  - click "Manual Deploy" -> "Deploy latest commit" and the service
     should deploy successfully.
 
 ### Update GitLab CI/CD variables
@@ -145,3 +145,42 @@ in GitLab.
 Merge a change into main to kick off the initial deploy. Once the build pipeline
 finishes you should be able to see an "under construction" page on your GitLab
 pages site.
+
+## North Star
+
+North Star is a web application that allows users to easily plan trips, events, and dates using Google API. With North Star, users can create and organize their itineraries, add locations and activities, and share their plans with friends and family. The application leverages Google's powerful mapping and search capabilities to help users discover new places and attractions, and provides useful information such as directions. North Star aims to simplify the process of planning and sharing travel experiences, making it easy and fun to explore new destinations. North Star features an intuitive user interface that makes it easy to create and edit trips, events, and dates. Users can customize their itineraries by selecting different activities and destinations, and can view their plans on a map or as a list. The application uses Google's Map API to search for places of interest, such as restaurants, museums, and landmarks, based on user preferences and location.
+
+## Table of contents
+
+- Requirements
+- Recommended modules
+- Installation
+- Configuration
+- Troubleshooting
+- FAQ
+- Maintainers
+
+## Requirements
+
+This project requires the following modules and dependencies (npm):
+
+- React Router DOM (https://www.npmjs.com/package/react-router-dom)
+- React (https://www.npmjs.com/package/react)
+- Google Maps React (https://www.npmjs.com/package/google-maps-react)
+- Google Maps API (https://www.npmjs.com/package/@react-google-maps/api)
+- Bootstrap (https://getbootstrap.com/docs/3.4/getting-started/)
+
+## Installation
+
+Install as you would normally install a dependencies using "npm i 'dependency'" by copying the top right text one each website. Here's how if more info is needed: (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
+## Configuration
+
+North Star has no modifiable settings. There is no configuration needed.
+
+## Maintainers
+
+- Braden Towns - https://gitlab.com/bst10a
+- Louis P - https://gitlab.com/Pandapanda796959
+- Anri Bordone - https://gitlab.com/anri.astora1001
+- Khaliq Salako - https://gitlab.com/KhaliqSalako
