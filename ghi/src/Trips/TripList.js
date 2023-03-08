@@ -60,7 +60,7 @@ function TripList() {
         Create a Trip
       </Link>
       <div className="d-flex justify-items-center">
-        <div className="row m-5 p-5">
+        <div className="row m-1 p-5">
           {trips.map((trip) => {
             return (
               <div key={trip.id}
