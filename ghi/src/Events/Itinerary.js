@@ -154,90 +154,7 @@ function Itinerary() {
     </div>,
   ];
 
-  // return [
-  //   <div className="container-fluid">
-  //     <div className="row flex-nowrap">
-  //       <ItinerarySidebar currentdate={date} trip_id={trip_id} />
-  //       <div
-  //         className="col py-3"
-  //         style={{
-  //           backgroundImage:
-  //             "url( " + require("../images/background.jpg") + ")",
-  //           backgroundRepeat: "no-repeat",
-  //           backgroundSize: "cover",
-  //           backgroundAttachment: "fixed",
-  //         }}
-  //       >
-  //         <div>
-  //           <h1 className="d-flex text-white justify-content-center">
-  //             {tripName}
-  //           </h1>
-  //         </div>
-  //         <div className="row mt-4">
-  //           <h3 className="text-white col"> Date: {wordDate} </h3>
-  //           <div className="mr-4  d-flex justify-content-end"
-  //           style={{paddingLeft:'0px', paddingRight:'10%', marginBottom:'1%'}}>
-  //             <Link
-  //               to={`/trips/${trip_id}/events/${date}/create`}
-  //               className="btn btn-lg bg-blue-translucent rounded-0 text-white glow"
-  //             >
-  //               Create Event
-  //             </Link>
-  //           </div>
-  //         </div>
-  //         <div className="row">
-  //           <table className="table h-100 table-striped text-white  col col-9"
-  //           style={{width:'70%'}}>
-  //             <thead>
-  //               <tr>
-  //                 <th>Name</th>
-  //                 <th>Location Name</th>
-  //                 <th>Location Address</th>
-  //                 <th>Start Time</th>
-  //               </tr>
-  //             </thead>
-  //             <tbody style={{width:'100px'}}>
-  //               {events.map((event) => {
-  //                 return (
-  //                   <tr key={event.id}>
-  //                     <td className="text-white">{event.event_name}</td>
-  //                     <td className="text-white">{event.location.name}</td>
-  //                     <td className="text-white">
-  //                       {event.location.formatted_address}
-  //                     </td>
-  //                     <td className="text-white">{event.start_time}</td>
-  //                     <td className="d-flex flew-row justify-content-end p-0"
-  //                     style={{width:'80%'}}>
-  //                       <div className="text-white d-flex rounded-0">
-  //                         <button
-  //                           onClick={() => deleteEvent(event.id)}
-  //                           className="btn bg-red-translucent glow btn-lg px-4 text-white"
-  //                         >
-  //                           Delete
-  //                         </button>
-  //                       </div>
-  //                       <div className="d-flex rounded-0">
-  //                         <Link
-  //                           to={`/trips/${trip_id}/events/detail/${event.id}`}
-  //                           className="btn bg-blue-translucent glow btn-lg px-4 text-white"
-  //                         >
-  //                           View Event
-  //                         </Link>
-  //                       </div>
-  //                     </td>
-  //                   </tr>
-  //                 );
-  //               })}
-  //             </tbody>
-  //           </table>
-  //           <div className="col-sm">
-  //             <Map update={getEventData} location={location} events={events} />
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>,
-  // ];
+
 }
 
 function Map(props) {
@@ -245,7 +162,7 @@ function Map(props) {
   const [prevEventData, setprevEventData] = useState();
   const [map, setMap] = useState(null);
 
-  const center = props.events[0].location.geo_location
+  const center = props.events[0]?.location.geo_location
 
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
