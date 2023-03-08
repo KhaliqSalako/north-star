@@ -59,7 +59,6 @@ class EventRepository(Queries):
         return EventOut(**props)
 
     def delete_event(self, event_id, trip_id):
-        print("event_id: ", event_id)
         event_dict = self.collection.find_one(
             {"_id": ObjectId(event_id), "trip_id": trip_id}
         )

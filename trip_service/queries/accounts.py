@@ -1,6 +1,6 @@
 from .client import Queries
 from models import AccountIn, AccountOutWithPassword
-# from pymongo.errors import DuplicateKeyError
+from pymongo.errors import DuplicateKeyError
 
 
 class DuplicateAccountError(ValueError):

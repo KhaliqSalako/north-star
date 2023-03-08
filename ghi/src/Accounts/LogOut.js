@@ -6,7 +6,6 @@ function LogOut() {
   const handleLogout = async (e) => {
     e.preventDefault();
     await logout();
-    console.log("token-----", token);
   };
 
   if (!token) {

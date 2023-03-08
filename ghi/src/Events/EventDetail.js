@@ -111,7 +111,7 @@ function Map(props) {
 
     <GoogleMap
       mapContainerStyle={{ width: "450px", height: "422px" }}
-      zoom={10}
+      zoom={12}
       center={center}
       mapContainerClassName="map-container"
     >

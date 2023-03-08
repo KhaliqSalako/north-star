@@ -138,30 +138,3 @@ function SignUp() {
 }
 
 export default SignUp;
-
-
-
-    // <div className="login-wrapper">
-    //   <h1>Sign Up</h1>
-    //   <form onSubmit={handleSubmit}>
-    //     <label>
-    //       <p>Name</p>
-    //       <input name="name" onChange={handleFormChange} type="text" />
-    //     </label>
-    //     <label>
-    //       <p>Email</p>
-    //       <input name="email" onChange={handleFormChange} type="text" />
-    //     </label>
-    //     <label>
-    //       <p>Username</p>
-    //       <input name="username" onChange={handleFormChange} type="text" />
-    //     </label>
-    //     <label>
-    //       <p>Password</p>
-    //       <input name="password" onChange={handleFormChange} type="password" />
-    //     </label>
-    //     <div>
-    //       <button type="submit">Submit</button>
-    //     </div>
-    //   </form>
-    // </div>

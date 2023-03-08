@@ -1,4 +1,3 @@
-// import DropDownItems from "./DropdownItems";
 import { useState, useEffect, useMemo } from "react";
 import getDaysPls from "./getdaysArray.js";
 import { Link } from 'react-router-dom'
