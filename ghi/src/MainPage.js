@@ -22,20 +22,76 @@ function MainPage() {
           You know where you're headed...
         </h3>
         <div id="carouselExampleAutoplaying" className="carousel slide container" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <div className="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="5" aria-label="Slide 6"></button>
+          <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="6" aria-label="Slide 7"></button>
+          <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="7" aria-label="Slide 8"></button>
+          <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="8" aria-label="Slide 9"></button>
+          <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="9" aria-label="Slide 10"></button>
         </div>
   <div className="carousel-inner carousel-item-size center border glow">
     <div className="carousel-item active data-bs-interval=3000">
       <img src="https://c4.wallpaperflare.com/wallpaper/134/234/391/photography-mountains-snow-landscape-wallpaper-preview.jpg" className="d-block w-100" alt="..." data-bs-slide="0"/>
-        <div class="carousel-caption d-none d-md-block">
+        <div className="carousel-caption d-none d-md-block">
         <h5>Mount Everest, Nepal</h5>
+      </div>
+    </div>
+    <div className="carousel-item active data-bs-interval=3000">
+      <img src={require("./images/hawaii-photo.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
+        <div className="carousel-caption d-none d-md-block">
+        <h5>Hawaii, USA</h5>
+      </div>
+    </div>
+    <div className="carousel-item active data-bs-interval=3000">
+      <img src={require("./images/santorini.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
+        <div className="carousel-caption d-none d-md-block">
+        <h5>Santorini, Greece</h5>
+      </div>
+    </div>
+    <div className="carousel-item active data-bs-interval=3000">
+      <img src={require("./images/waterfall.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
+        <div className="carousel-caption d-none d-md-block">
+        <h5>Waterfall</h5>
+      </div>
+    </div>
+    <div className="carousel-item active data-bs-interval=3000">
+      <img src="https://c4.wallpaperflare.com/wallpaper/134/234/391/photography-mountains-snow-landscape-wallpaper-preview.jpg" className="d-block w-100" alt="..." data-bs-slide="0"/>
+        <div className="carousel-caption d-none d-md-block">
+        <h5>Test 4</h5>
+      </div>
+    </div>
+    <div className="carousel-item active data-bs-interval=3000">
+      <img src="https://c4.wallpaperflare.com/wallpaper/134/234/391/photography-mountains-snow-landscape-wallpaper-preview.jpg" className="d-block w-100" alt="..." data-bs-slide="0"/>
+        <div className="carousel-caption d-none d-md-block">
+        <h5>Test 5</h5>
+      </div>
+    </div>
+    <div className="carousel-item active data-bs-interval=3000">
+      <img src="https://c4.wallpaperflare.com/wallpaper/134/234/391/photography-mountains-snow-landscape-wallpaper-preview.jpg" className="d-block w-100" alt="..." data-bs-slide="0"/>
+        <div className="carousel-caption d-none d-md-block">
+        <h5>Test 6</h5>
+      </div>
+    </div>
+    <div className="carousel-item active data-bs-interval=3000">
+      <img src="https://c4.wallpaperflare.com/wallpaper/134/234/391/photography-mountains-snow-landscape-wallpaper-preview.jpg" className="d-block w-100" alt="..." data-bs-slide="0"/>
+        <div className="carousel-caption d-none d-md-block">
+        <h5>Test 7</h5>
+      </div>
+    </div>
+    <div className="carousel-item active data-bs-interval=3000">
+      <img src="https://c4.wallpaperflare.com/wallpaper/134/234/391/photography-mountains-snow-landscape-wallpaper-preview.jpg" className="d-block w-100" alt="..." data-bs-slide="0"/>
+        <div className="carousel-caption d-none d-md-block">
+        <h5>Test 8</h5>
       </div>
     </div>
     <div className="carousel-item data-bs-interval=3000">
       <img src="https://www.outsideonline.com/wp-content/uploads/2018/11/20/outside-guide-grand-canyon_h.jpg" className="d-block w-100" alt="..."/>
-        <div class="carousel-caption d-none d-md-block">
+        <div className="carousel-caption d-none d-md-block">
         <h5 className="outline">The Grand Canyon, Arizona, USA</h5>
       </div>
     </div>

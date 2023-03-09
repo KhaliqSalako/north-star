@@ -16,7 +16,7 @@ function Itinerary() {
   const date = params.date;
   const wordDate = toDateFormat(date)
 
-  
+
   const location = useLocation();
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
@@ -162,7 +162,8 @@ function Itinerary() {
                           <Link
                             to={`/trips/${trip_id}/events/detail/${event.id}`}
                             className="btn bg-blue-translucent glow btn-lg text-white h-100 py-auto"
-                            style={{ width: "auto", boxSizing: "border-box" }}
+                            style={{width:"auto", boxSizing:"border-box"}}
+
                           >
                             View Event
                           </Link>
@@ -181,11 +182,11 @@ function Itinerary() {
       </div>
     </div>,
   ];
- 
+
 }
 
 function Map(props) {
- 
+
   const [prevEventData, setprevEventData] = useState();
 
   const center = props.events[0]?.location.geo_location
@@ -214,6 +215,7 @@ function Map(props) {
       getAverage();
     }
   }, [props.events]);
+
 
   if(props.events.length === 0) return [<div className="text-white"></div>]
   return [

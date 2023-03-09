@@ -19,7 +19,7 @@ function TripList() {
       setTrips(data.trips);
     }
   };
-  
+
   useEffect(() => {
     getTripData();
   }, []);
