@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useAuthContext } from "../Accounts/auth";
 import TripListCard from "./TripListCard";
 import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 function TripList() {
   const { token } = useAuthContext();
@@ -45,7 +46,7 @@ function TripList() {
         <div className="row p-5">
           {trips.map((trip) => {
             return (
-              <div key={trip.id} className="col-sm-12 col-md-6 col-lg-4 gx-0 mt-5">
+              <div key={uuidv4()} className="col-sm-12 col-md-6 col-lg-4 gx-0 mt-5">
                 <TripListCard getTripData={getTripData} trip={trip} />
               </div>
             );
