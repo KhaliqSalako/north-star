@@ -4,6 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 import { useParams } from "react-router";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import ItinerarySidebar from "./ItinerarySidebar";
+import { v4 as uuidv4 } from "uuid";
+import toDateFormat from "../common/date";
 
 function Itinerary() {
   const [tripName, setTripName] = useState("");
@@ -12,11 +14,7 @@ function Itinerary() {
   const params = useParams();
   const trip_id = params.id;
   const date = params.date;
-  const dateArr = date.split("-")
-  let  wordDate = new Date(dateArr[0],dateArr[1],dateArr[2])
-  wordDate = wordDate.toDateString().split(" ")
-  wordDate[2] = wordDate[2] + ","
-  wordDate = wordDate.join(" ")
+  const wordDate = toDateFormat(date)
 
 
   const location = useLocation();
@@ -24,18 +22,7 @@ function Itinerary() {
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   });
 
-  const getTripName = async () => {
-    const response = await fetch(
-      `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`,
-      {
-        credentials: "include",
-      }
-    );
-    if (response.ok) {
-      const data = await response.json();
-      setTripName(data.name);
-  }
-}
+
 
   const getEventData = async () => {
     const response = await fetch(
@@ -49,11 +36,21 @@ function Itinerary() {
       setEvents(data.events);
       setIsEventDataLoaded(true);
     }
+    const trip_response = await fetch(
+      `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`,
+      {
+        credentials: "include",
+      }
+    );
+    if (trip_response.ok) {
+      const trip_data = await trip_response.json();
+      setTripName(trip_data.name);
+    }
   };
 
   useEffect(() => {
     getEventData();
-    getTripName();
+    // getTripName();
   }, [location]);
 
   const deleteEvent = async (event_id) => {
@@ -117,35 +114,51 @@ function Itinerary() {
               </thead>
               <tbody style={{}}
               className="">
-                {events.map((event) => {
-                  const randKey = `${event.id}:${Math.floor(Math.random() * 100)}`
+                {events.map((event,i) => {
                   return (
-                    <tr key={randKey}>
-                      <td className="text-white" style={{width:"15%"}}>{event.event_name}</td>
-                      <td className="text-white" style={{width:"15%"}}>{event.location.name}</td>
-                      <td className="text-white"
-                      style={{width:"55%",height:"auto"}}>
+                    <tr key={uuidv4()}>
+                      <td className="text-white" style={{ width: "15%" }}>
+                        {event.event_name}
+                      </td>
+                      <td className="text-white" style={{ width: "15%" }}>
+                        {event.location.name}
+                      </td>
+                      <td
+                        className="text-white"
+                        style={{ width: "55%", height: "auto" }}
+                      >
                         {event.location.formatted_address}
                       </td>
-                      <td className="text-white"
-                      style={{width:"5%"}}>
-                        {event.start_time}</td>
-                      <td className=" p-0 w-100  h-100"
-                      style={{height:"100%", display:"inline-grid", gridTemplateColumns:"auto auto auto", boxSizing:"content-box"}}>
-                        <div className="text-white rounded-0 "
+                      <td className="text-white" style={{ width: "5%" }}>
+                        {event.start_time}
+                      </td>
+                      <td
+                        className=" p-0 w-100  h-100"
                         style={{
-                          boxSizing:"content-box"
-                        }}>
+                          height: "100%",
+                          display: "inline-grid",
+                          gridTemplateColumns: "auto auto auto",
+                          boxSizing: "content-box",
+                        }}
+                      >
+                        <div
+                          className="text-white rounded-0 "
+                          style={{
+                            boxSizing: "content-box",
+                          }}
+                        >
                           <button
                             onClick={() => deleteEvent(event.id)}
                             className="btn bg-red-translucent glow btn-lg text-white h-100 py-0"
-                            style={{ boxSizing:"content-box"}}
+                            style={{ boxSizing: "content-box" }}
                           >
                             Delete
                           </button>
                         </div>
-                        <div className=" rounded-0 h-100"
-                        style={{width:"145px", boxSizing:"content-box"}}>
+                        <div
+                          className=" rounded-0 h-100"
+                          style={{ width: "145px", boxSizing: "content-box" }}
+                        >
                           <Link
                             to={`/trips/${trip_id}/events/detail/${event.id}`}
                             className="btn bg-blue-translucent glow btn-lg text-white h-100 py-auto"
@@ -205,7 +218,6 @@ function Map(props) {
 
 
   if(props.events.length === 0) return [<div className="text-white"></div>]
-
   return [
     <GoogleMap
       mapContainerStyle={{ width: "500px", height: "500px" }}
@@ -213,10 +225,10 @@ function Map(props) {
       center={averageCenter}
       mapContainerClassName="map-container"
     >
-      {props.events.map((event) => {
-        const position = event?.location?.geo_location;
-        return <MarkerF position={position} />;
-      })}
+      {props.events.map((event,i) => {
+          const position = event?.location?.geo_location;
+          return <MarkerF key={uuidv4()} position={position} />;
+        })}
     </GoogleMap>,
   ];
 }
