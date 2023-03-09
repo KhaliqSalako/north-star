@@ -112,17 +112,16 @@ export default function EventDetail() {
 function Map(props) {
   const center = useMemo(() => ( props.event?.location?.geo_location ), []);
 
-
-  return [
-
-    <GoogleMap
-      mapContainerStyle={{ width: "450px", height: "422px" }}
-      zoom={12}
-      center={center}
-      mapContainerClassName="map-container"
-      key={uuidv4()}
-    >
-      <MarkerF position={center} />
-    </GoogleMap>
-  ];
+  if (props.event?.location?.geo_location === undefined) { return }
+    return [
+      <GoogleMap
+        mapContainerStyle={{ width: "450px", height: "422px" }}
+        zoom={12}
+        center={center}
+        mapContainerClassName="map-container"
+        key={uuidv4()}
+      >
+        <MarkerF position={center} />
+      </GoogleMap>,
+    ];
 }

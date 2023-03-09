@@ -1,4 +1,9 @@
 # Louis Journal
+1. 3/8/2022
+
+   - Mostly finished with the project but just continued cleaning up a few errors, and fine tuning the styling.  We are mostly working on adding photos to the website and formatting them on the pages.  The project is almost complete and we should be done by tomorrow.  
+
+
 1. 3/7/2022
 
    - We are at the point in the project where we are working on styling and bug fixing.  We set up the forms the way we wanted to and were working on divising containers for our main page.  We also discussed adding some error handling to the code which we hope to implement tomorrow.
