@@ -1,7 +1,7 @@
-import { useState, useEffect, useCallback, React } from "react";
-import { useAuthContext } from "../Accounts/auth";
+import { useState, useEffect, React } from "react";
+
 import { Link, useLocation } from "react-router-dom";
-import { Outlet, useParams } from "react-router";
+import { useParams } from "react-router";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import ItinerarySidebar from "./ItinerarySidebar";
 

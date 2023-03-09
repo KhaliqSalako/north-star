@@ -27,7 +27,6 @@ function Login() {
     const username = formData["username"];
     const password = formData["password"];
     await login(username, password);
-    navigate("/trips")
   };
 
   return (
@@ -76,10 +75,11 @@ function Login() {
               ></button>
             </div>
             <div className="container modal-body bg-dark col-6">
-              <form onSubmit={handleSubmit}>
+              <form id="login-form" onSubmit={handleSubmit}>
                 <p>
                   <label className="text-white glow-small">
                     <input
+                      required
                       className="form-control "
                       name="username"
                       placeholder="Username"
@@ -90,6 +90,7 @@ function Login() {
                 </p>
                 <label className="text-white glow-small">
                   <input
+                    required
                     className="form-control"
                     name="password"
                     placeholder="Password"
