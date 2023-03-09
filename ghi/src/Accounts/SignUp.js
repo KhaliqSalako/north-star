@@ -39,7 +39,7 @@ function SignUp() {
     <>
       <button
         type="button"
-        className="btn bg-dark btn-lg mt-3 mx-3 glow-small text-white rounded-0"
+        className="custom-font btn bg-dark btn-lg mt-3 mx-3 glow-small text-white rounded-0"
         style={{ width:"115px" }}
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
@@ -70,7 +70,7 @@ function SignUp() {
                 }}
               />
               <h1
-                className="modal-title fs-5 text-white center"
+                className="custom-font modal-title fs-5 text-white center"
                 id="staticBackdropLabel"
               >
                 Create a New Account
@@ -128,7 +128,7 @@ function SignUp() {
                   <button
                     data-bs-dismiss="modal"
                     type="submit"
-                    className="btn btn-outline-secondary glow-small text-white rounded-0"
+                    className="custom-font btn btn-outline-secondary glow-small text-white rounded-0"
                   >
                     Submit
                   </button>

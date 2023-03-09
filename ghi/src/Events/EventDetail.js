@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import GoogleMapReact from 'google-map-react'
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import toDateFormat from "../common/date";
+import { v4 as uuidv4 } from "uuid";
 
 
 export default function EventDetail() {
@@ -55,7 +56,7 @@ export default function EventDetail() {
       }}
     >
       <div
-        className="border col ml-5"
+        className="col ml-5"
         style={{ width: "80%", paddingLeft: "12%", paddingRight: "5%" }}
       >
         <table className="table table-striped text-white">
@@ -66,6 +67,7 @@ export default function EventDetail() {
               <th>Date</th>
               <th>Start Time</th>
               <th>Details</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -75,14 +77,14 @@ export default function EventDetail() {
               <td className="text-white">{toDateFormat(event.date)}</td>
               <td className="text-white">{event.start_time}</td>
               <td className="text-white">{event.details}</td>
-              <div>
+              <td>
                 <Link
                   to={`/trips/${trip_id}/events/detail/${event.id}/edit`}
-                  className="btn bg-blue-translucent glow btn-lg rounded-0 px-4 gap-3 text-white"
+                  className="custom-font btn bg-blue-translucent glow btn-lg rounded-0 px-4 gap-3 text-white"
                 >
                   Edit Event
                 </Link>
-              </div>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -93,7 +95,7 @@ export default function EventDetail() {
           <div className="col-md-auto" style={{}}>
             <img
               src={picture_url}
-              className="glow d-flex"
+              className="glow-small d-flex"
               style={{ resizeMode: "cover", height: "422px" }}
             />
           </div>
@@ -115,6 +117,7 @@ function Map(props) {
       zoom={12}
       center={center}
       mapContainerClassName="map-container"
+      key={uuidv4()}
     >
       <MarkerF position={center} />
     </GoogleMap>

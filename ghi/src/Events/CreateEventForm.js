@@ -95,7 +95,7 @@ function CreateEventForm() {
             <div className="text-white text-start">Location Search:</div>
             <input className="form-control" name="location" type="text" />
             <button
-              className="mt-2 btn bg-blue-translucent text-white rounded-0 glow-small h-100"
+              className="custom-font mt-2 btn bg-blue-translucent text-white rounded-0 glow-small h-100"
               onClick={handleSearch}
             >
               Search
@@ -122,7 +122,7 @@ function CreateEventForm() {
           </label>
           <div>
             <button
-              className="mb-4 btn bg-blue-translucent text-white rounded-0 glow-small h-100"
+              className="custom-font mb-4 btn bg-blue-translucent text-white rounded-0 glow-small h-100"
               type="submit"
               onClick={handleSubmit}
             >

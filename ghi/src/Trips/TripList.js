@@ -36,7 +36,7 @@ function TripList() {
     >
       <h1 className="text-3xl text-white title-font pt-5">Your Trips</h1>
       <Link
-        className="btn btn-lg bg-blue-translucent text-white rounded-0 glow-small"
+        className="custom-font btn btn-lg bg-blue-translucent text-white rounded-0 glow-small"
         to={`/trips/create`}
         role="button"
       >

@@ -50,7 +50,6 @@ function Itinerary() {
 
   useEffect(() => {
     getEventData();
-    // getTripName();
   }, [location]);
 
   const deleteEvent = async (event_id) => {
@@ -70,7 +69,7 @@ function Itinerary() {
 
   if (!isLoaded || !isEventDataLoaded) return <div>Loading...</div>;
   return [
-    <div className="container-fluid">
+    <div key={uuidv4()} className="container-fluid">
       <div className="row flex-nowrap">
         <ItinerarySidebar currentdate={date} trip_id={trip_id} />
         <div
@@ -217,9 +216,10 @@ function Map(props) {
   }, [props.events]);
 
 
-  if(props.events.length === 0) return [<div className="text-white"></div>]
+  if(props.events.length === 0) return [<div key={uuidv4()} className="text-white"></div>]
   return [
     <GoogleMap
+      key={uuidv4()}
       mapContainerStyle={{ width: "500px", height: "500px" }}
       zoom={10}
       center={averageCenter}

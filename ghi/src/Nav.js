@@ -25,12 +25,6 @@ function Nav() {
   useEffect(() => {
     getName();
   }, [location]);
-  console.log(name)
-
-  //  useEffect(() => {
-  //    const fetchedUserName = "account.name";
-  //    setUserName(fetchedUserName);
-  //  }, []);
 
   return (
     <nav
@@ -69,7 +63,7 @@ function Nav() {
                 </div>
               ) : null}
               </div>
-              <div className="nav-item bd-highlight ms-auto">
+              <div className="nav-item bd-highlight ms-auto custom-font">
                 <LogOut />
               </div>
         </div>

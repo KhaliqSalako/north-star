@@ -33,7 +33,7 @@ function Login() {
     <>
       <button
         type="button"
-        className="btn bg-dark btn-lg mt-3 mx-3 glow-small text-white rounded-0"
+        className="custom-font btn bg-dark btn-lg mt-3 mx-3 glow-small text-white rounded-0"
         style={{ width:"115px" }}
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop1"
@@ -63,7 +63,7 @@ function Login() {
                 }}
               />
               <h1
-                className="modal-title fs-5 text-white center"
+                className="custom-font modal-title fs-5 text-white center"
                 id="staticBackdropLabel1"
               >
                 Log into North Star
@@ -102,7 +102,7 @@ function Login() {
                 <div className="mt-3">
                   <button
                     data-bs-dismiss="modal"
-                    className="btn btn-outline-secondary glow-small text-white rounded-0"
+                    className="custom-font btn btn-outline-secondary glow-small text-white rounded-0"
                     type="submit"
                   >
                     Submit

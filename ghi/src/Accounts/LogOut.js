@@ -15,7 +15,7 @@ function LogOut() {
       <div>
         <button
           onClick={handleLogout}
-          className="btn btn-outline-dark glow-small text-white rounded-0"
+          className="btn btn-lg btn-outline-dark glow-small text-white rounded-0"
         >
           Logout
         </button>

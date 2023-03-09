@@ -126,7 +126,7 @@ function EditEventForm() {
               type="text"
             />
             <button
-              className="mt-2 btn bg-blue-translucent text-white rounded-0 glow-small h-100"
+              className="custom-font mt-2 btn bg-blue-translucent text-white rounded-0 glow-small h-100"
               onClick={handleSearch}
             >
               Search
@@ -157,7 +157,7 @@ function EditEventForm() {
           </label>
           <div>
             <button
-              className="mb-4 btn bg-blue-translucent text-white rounded-0 glow-small h-100"
+              className="custom-font mb-4 btn bg-blue-translucent text-white rounded-0 glow-small h-100"
               onClick={handleSubmit}
               type="submit"
             >
