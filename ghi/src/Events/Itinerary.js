@@ -245,7 +245,7 @@ function Map(props) {
   const [prevEventData, setprevEventData] = useState();
   const [map, setMap] = useState(null);
 
-  const center = props.events[0].location.geo_location
+  const center = props.events[0]?.location.geo_location
 
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 

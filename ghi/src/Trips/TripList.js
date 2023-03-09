@@ -51,16 +51,16 @@ function TripList() {
         backgroundAttachment: "fixed",
       }}
     >
-      <h1 className="text-3xl center-trip-list text-white title-font">Your Trips</h1>
+      <h1 className="text-3xl border text-white title-font">Your Trips</h1>
       <Link
-        className="mb-4 btn bg-blue-translucent text-white rounded-0 glow-small h-100"
+        className="mb-4 btn bg-blue-translucent text-white rounded-0 glow-small"
         to={`/trips/create`}
         role="button"
       >
         Create a Trip
       </Link>
-      <div className="d-flex justify-items-center">
-        <div className="row m-1 p-5">
+      <div className="border vh-100 justify-items-center">
+        <div className="row border mx-auto p-5">
           {trips.map((trip) => {
             return (
               <div key={trip.id}
