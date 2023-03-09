@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+
 function TripListCard({trip, getTripData, name}) {
 
 let  dateArr = trip.start_date.split("-")
@@ -22,6 +23,7 @@ const deleteTrip = async (trip_id) => {
     const data = await response.json()
     getTripData()
   }
+
 return (
   <div
     className="glow trip-card h-100 mx-auto"
@@ -45,7 +47,7 @@ return (
       <div>
         <h1 className=" text-white">{trip.name}</h1>
         <p className="card-text text-white">{wordDateStart}</p>
-        <p className="card-text text-white">{wordDateStart}</p>
+        <p className="card-text text-white">{wordDateEnd}</p>
       </div>
     </div>
     <div className="row-cols-2">
@@ -65,5 +67,7 @@ return (
     </div>
   </div>
 );
+
 }
+
 export default TripListCard

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { useAuthContext } from "../Accounts/auth";
 import TripListCard from "./TripListCard";
 import { Link } from "react-router-dom";
 
 function TripList() {
-  //const { token } = useAuthContext();
+  const { token } = useAuthContext();
   const [trips, setTrips] = useState([]);
   const getTripData = async () => {
     const response = await fetch(
@@ -17,9 +18,11 @@ function TripList() {
       setTrips(data.trips);
     }
   };
+  
   useEffect(() => {
     getTripData();
-  }, [])
+  }, []);
+
   return (
     <div
       className={`text-center w-100 ${trips.length > 3 ? "h-100" : "vh-100"}`}
