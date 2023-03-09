@@ -31,7 +31,7 @@ function SignUp() {
     const name = formData["name"];
     const email = formData["email"];
     await signup(username, password, email, name);
-    navigate("/trips");
+    // navigate("/trips");
 
   };
 
@@ -90,16 +90,18 @@ function SignUp() {
                     placeholder="Name"
                     onChange={handleFormChange}
                     type="text"
+                    required
                   />
                 </p>
                 <p>
-                  <input
-                    className="form-control"
-                    name="email"
-                    placeholder="Email Address"
-                    onChange={handleFormChange}
-                    type="text"
-                  />
+                    <input
+                      className="form-control"
+                      name="email"
+                      placeholder="Email Address"
+                      onChange={handleFormChange}
+                      type="text"
+                      required
+                    />
                 </p>
                 <p>
                   <input
@@ -108,6 +110,7 @@ function SignUp() {
                     placeholder="Username"
                     onChange={handleFormChange}
                     type="text"
+                    required
                   />
                 </p>
                 <p>
@@ -117,6 +120,7 @@ function SignUp() {
                     placeholder="Password"
                     onChange={handleFormChange}
                     type="password"
+                    required
                   />
                 </p>
                 <div className="mt-3">

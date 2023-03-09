@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 function TripList() {
   const { token } = useAuthContext();
   const [trips, setTrips] = useState([]);
-
   const getTripData = async () => {
     const response = await fetch(
       `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips`,
@@ -14,58 +13,39 @@ function TripList() {
         credentials: "include",
       }
     );
-
     if (response.ok) {
       const data = await response.json();
       setTrips(data.trips);
     }
   };
-
+  
   useEffect(() => {
     getTripData();
   }, []);
 
-  const deleteTrip = async (trip_id) => {
-    const response = await fetch(
-      `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`,
-      {
-        method: "DELETE",
-        credentials: "include",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = await response.json();
-    getTripData();
-  };
-
   return (
     <div
-      className="text-center bg-black h-100 w-100"
+      className={`text-center w-100 ${trips.length > 3 ? "h-100" : "vh-100"}`}
       style={{
         backgroundImage: `url(background.jpg)`,
-        backgroundRepeat: 'no-repeat',
+        backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
       }}
     >
-      <h1 className="text-3xl center-trip-list text-white title-font">Your Trips</h1>
+      <h1 className="text-3xl text-white title-font pt-5">Your Trips</h1>
       <Link
-        className="mb-4 btn bg-blue-translucent text-white rounded-0 glow-small h-100"
+        className="btn btn-lg bg-blue-translucent text-white rounded-0 glow-small"
         to={`/trips/create`}
         role="button"
       >
         Create a Trip
       </Link>
-      <div className="d-flex justify-items-center">
-        <div className="row m-1 p-5">
+      <div>
+        <div className="row p-5">
           {trips.map((trip) => {
             return (
-              <div key={trip.id}
-                className="col-4 p-5"
-                >
+              <div key={trip.id} className="col-sm-12 col-md-6 col-lg-4 gx-0 mt-5">
                 <TripListCard getTripData={getTripData} trip={trip} />
               </div>
             );
@@ -75,5 +55,4 @@ function TripList() {
     </div>
   );
 }
-
 export default TripList;
