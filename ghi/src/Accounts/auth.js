@@ -91,12 +91,12 @@ export function useToken() {
     const response = await fetch(url, {
       method: "post",
       credentials: "include",
-      body: form
+      body: form,
     });
     if (response.ok) {
       const token = await getTokenInternal();
       setToken(token);
-      navigate('/')
+      navigate("/trips");
       return;
     }
     let error = await response.json();
@@ -119,6 +119,7 @@ export function useToken() {
     });
     if (response.ok) {
       await login(username, password);
+      navigate("/trips");
     }
     return false;
   }
@@ -141,7 +142,7 @@ export function useToken() {
     if (response.ok) {
       await login(username, password);
     }
-    return false
+    return false;
   }
 
   return { token, login, logout, signup, update };
@@ -165,7 +166,6 @@ export const useUser = (token) => {
         setUser(newUser);
       }
     }
-
 
     getUser();
   }, [token]);
