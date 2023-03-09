@@ -41,7 +41,7 @@ function Login() {
         Login
       </button>
       <div
-        className="modal fade"
+        className="modal fade custom-body-font"
         id="staticBackdrop1"
         data-bs-backdrop="static"
         data-bs-keyboard="false"

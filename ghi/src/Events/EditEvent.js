@@ -95,7 +95,7 @@ function EditEventForm() {
 
   return (
     <div
-      className="text-center bg-black vh-100 vw-100 pt-4"
+      className="text-center bg-black vh-100 vw-100 pt-4 custom-body-font"
       style={{
         backgroundImage: "url( " + require("./background.jpg") + ")",
         backgroundRepeat: "no-repeat",

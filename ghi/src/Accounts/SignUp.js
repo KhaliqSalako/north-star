@@ -31,7 +31,6 @@ function SignUp() {
     const name = formData["name"];
     const email = formData["email"];
     await signup(username, password, email, name);
-    // navigate("/trips");
 
   };
 
@@ -48,7 +47,7 @@ function SignUp() {
       </button>
 
       <div
-        className="modal fade"
+        className="modal fade custom-body-font"
         id="staticBackdrop"
         data-bs-backdrop="static"
         data-bs-keyboard="false"

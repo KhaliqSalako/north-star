@@ -26,7 +26,9 @@ function TripList() {
 
   return (
     <div
-      className={`text-center w-100 ${trips.length > 3 ? "h-100" : "vh-100"}`}
+      className={`custom-body-font text-center w-100 ${
+        trips.length > 3 ? "h-100" : "vh-100"
+      }`}
       style={{
         backgroundImage: `url(background.jpg)`,
         backgroundRepeat: "no-repeat",
@@ -46,7 +48,11 @@ function TripList() {
         <div className="row p-5">
           {trips.map((trip) => {
             return (
-              <div key={uuidv4()} className="col-sm-12 col-md-6 col-lg-4 gx-0 mb-5" style= {{minHeight: "475px"}}>
+              <div
+                key={uuidv4()}
+                className="col-sm-12 col-md-6 col-lg-4 gx-0 mb-5"
+                style={{ minHeight: "475px" }}
+              >
                 <TripListCard getTripData={getTripData} trip={trip} />
               </div>
             );

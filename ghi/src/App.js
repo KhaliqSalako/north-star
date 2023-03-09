@@ -49,8 +49,6 @@ function App() {
             path="/trips/:trip_id/events/:date/create"
             element={<CreateEventForm />}
           />
-          {/* <ErrorNotification error={error} /> */}
-          {/* <Construct info={launch_info} /> */}
         </Routes>
       </AuthProvider>
     </BrowserRouter>

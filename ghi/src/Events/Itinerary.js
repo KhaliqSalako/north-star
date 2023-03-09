@@ -89,8 +89,14 @@ function Itinerary() {
           </div>
           <div className="row mt-4">
             <h3 className="text-white col custom-font"> Date: {wordDate} </h3>
-            <div className="mr-4  d-flex justify-content-end"
-            style={{paddingLeft:'0px', paddingRight:'10%', marginBottom:'1%'}}>
+            <div
+              className="mr-4  d-flex justify-content-end"
+              style={{
+                paddingLeft: "0px",
+                paddingRight: "10%",
+                marginBottom: "1%",
+              }}
+            >
               <Link
                 to={`/trips/${trip_id}/events/${date}/create`}
                 className="btn btn-lg bg-blue-translucent rounded-0 text-white glow-small custom-font"
@@ -100,8 +106,10 @@ function Itinerary() {
             </div>
           </div>
           <div className="row">
-            <table className="table h-100 table-striped text-white  col col-9 m-1"
-            style={{width:'70%'}}>
+            <table
+              className="custom-body-font table h-100 table-striped text-white  col col-9 m-1"
+              style={{ width: "69%" }}
+            >
               <thead>
                 <tr>
                   <th>Name</th>
@@ -111,9 +119,8 @@ function Itinerary() {
                   <th></th>
                 </tr>
               </thead>
-              <tbody style={{}}
-              className="">
-                {events.map((event,i) => {
+              <tbody style={{}} className="">
+                {events.map((event, i) => {
                   return (
                     <tr key={uuidv4()}>
                       <td className="text-white" style={{ width: "15%" }}>
@@ -161,8 +168,7 @@ function Itinerary() {
                           <Link
                             to={`/trips/${trip_id}/events/detail/${event.id}`}
                             className="btn bg-blue-translucent glow-small btn-lg text-white h-100 d-flex align-items-center py-auto custom-font"
-                            style={{width:"auto", boxSizing:"border-box"}}
-
+                            style={{ width: "auto", boxSizing: "border-box" }}
                           >
                             View Event
                           </Link>

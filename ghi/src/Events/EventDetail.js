@@ -47,7 +47,7 @@ export default function EventDetail() {
   if (!isLoaded || !isEventDataLoaded) return <div>Loading...</div>;
   return (
     <div
-      className="row vh-100 w-100 d-flex justify-items-center"
+      className="row vh-100 w-100 d-flex justify-items-center custom-body-font"
       style={{
         backgroundImage: "url( " + require("../images/background.jpg") + ")",
         backgroundRepeat: "no-repeat",
@@ -89,10 +89,13 @@ export default function EventDetail() {
           </tbody>
         </table>
         <div className="row">
-          <div className="col-md-auto">
+          <div className="col-md-6 d-flex align-item-center justify-content-center">
             <Map event={event} />
           </div>
-          <div className="col-md-auto" style={{}}>
+          <div
+            className="col-md-6 d-flex align-item-center justify-content-center"
+            style={{}}
+          >
             <img
               src={picture_url}
               className="glow-small d-flex"

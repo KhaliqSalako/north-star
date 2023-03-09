@@ -38,42 +38,44 @@ function ItinerarySidebar(props) {
 
 
   return (
-    <div className="col-auto col px-sm-2 px-0 bg-dark">
+    <div className="custom-body-font fw-bold col-auto col px-sm-2 px-0 bg-dark">
       <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
         <a className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-          <span className="fs-5 d-none d-sm-inline">Dates</span>
+          <span className="custom-font d-none d-sm-inline">
+            Trip Dates:
+          </span>
         </a>
         <ul
           className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
           id="dates"
         >
-          {days.map((day,i) => {
-                const date = day.toISOString().slice(0, 10)
-                if (date === currentdate) {
-                                return (
-                                  <li key={uuidv4()} className="">
-                                    <Link
-                                      state={{ state_date: "date" }}
-                                      to={`/trips/${props.trip_id}/itinerary/${date}`}
-                                      className="nav-link align-middle px-0 text-white text-glow"
-                                    >
-                                      {date}
-                                    </Link>
-                                  </li>
-                                );
-                }
+          {days.map((day, i) => {
+            const date = day.toISOString().slice(0, 10);
+            if (date === currentdate) {
               return (
                 <li key={uuidv4()} className="">
                   <Link
                     state={{ state_date: "date" }}
                     to={`/trips/${props.trip_id}/itinerary/${date}`}
-                    className="nav-link align-middle px-0 text-white"
+                    className="nav-link align-middle px-0 text-white text-glow"
                   >
                     {date}
                   </Link>
                 </li>
               );
-            })}
+            }
+            return (
+              <li key={uuidv4()} className="">
+                <Link
+                  state={{ state_date: "date" }}
+                  to={`/trips/${props.trip_id}/itinerary/${date}`}
+                  className="nav-link align-middle px-0 text-white"
+                >
+                  {date}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>

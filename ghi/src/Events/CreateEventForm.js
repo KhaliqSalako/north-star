@@ -71,7 +71,7 @@ function CreateEventForm() {
 
   return (
     <div
-      className="text-center bg-black vh-100 vw-100 pt-4"
+      className="custom-body-font text-center bg-black vh-100 vw-100 pt-4"
       style={{
         backgroundImage: "url( " + require("./background.jpg") + ")",
         backgroundRepeat: "no-repeat",
