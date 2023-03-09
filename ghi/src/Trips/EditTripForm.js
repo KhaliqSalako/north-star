@@ -26,7 +26,10 @@ function EditTripForm() {
         "Content-Type": "application/json",
       },
     });
-    if (response.ok) {
+    if (trip.end_date < trip.start_date) {
+      alert("Date inputs is invalid!");
+    }
+    else if (response.ok) {
       navigate("/trips");
     }
     return false;

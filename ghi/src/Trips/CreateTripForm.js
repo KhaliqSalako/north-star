@@ -41,8 +41,16 @@ function CreateTripForm() {
     const start_date = formData["start_date"].toString();
     const end_date = formData["end_date"].toString();
     const picture_url = formData["picture_url"];
+    if (end_date < start_date) {
+      alert("Date inputs is invalid!");
+    }
+    else {
     await createTrip(name, start_date, end_date, picture_url);
+    }
+
   };
+
+
   return (
     <div
       className="text-center bg-black vh-100 vw-100 pt-4"
