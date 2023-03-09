@@ -21,9 +21,9 @@ const deleteTrip = async (trip_id) => {
 return (
   <div
     className="glow trip-card h-100 mx-auto"
-    style={{ width: "360px" }}
+    style={{ height: "150px", width: "475px", position: "relative" }}
   >
-    <div style={{ height: "300px", width: "100%" }}>
+    <div style={{ height: "437px", width: "100%" }}>
       <Link
         className="text-self-right"
         to={`/trips/${trip.id}/itinerary/${trip.start_date}`}
@@ -37,23 +37,22 @@ return (
         ></img>
       </Link>
     </div>
-    <div className="card-body">
-      <div>
-        <h1 className=" text-white">{trip.name}</h1>
-        <p className="card-text text-white">{wordDateStart}</p>
-        <p className="card-text text-white">{wordDateEnd}</p>
+    <div className="card-body w-100 h-25 d-flex justify-content-center align-items-center" style= {{ position: "absolute", top:"300px"}}>
+      <div className=''>
+        <h1 className="text-white pt-2 text-wrap custom-font text-shadow">{trip.name}</h1>
       </div>
     </div>
-    <div className="row-cols-2">
+    <p className="card-text text-white fw-bold text-shadow w-100" style= {{ position: "absolute", bottom:"35px"}}>{wordDateStart} - {wordDateEnd}</p>
+    <div className="row-cols-2 align-content-end w-100" style= {{ position: "absolute", bottom:"0px"}}>
       <Link
-        className="col btn bg-blue-translucent text-white rounded-0 glow-small h-100"
+        className="col btn bg-blue-translucent text-white custom-font rounded-0 glow-small h-100"
         to={`/trips/edit/${trip.id}`}
         state={{ name: "name" }}
       >
         Edit
       </Link>
       <button
-        className="col btn bg-red-translucent text-white rounded-0 glow-small square h-100"
+        className="col btn bg-red-translucent text-white custom-font rounded-0 glow-small square h-100"
         onClick={() => deleteTrip(trip.id)}
       >
         Delete
