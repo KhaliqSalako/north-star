@@ -54,45 +54,45 @@ function MainPage() {
       </div>
     </div>
     <div className="carousel-item active data-bs-interval=3000">
-      <img src={require("./images/waterfall.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
+      <img src={require("./images/niagara-falls.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
         <div className="carousel-caption d-none d-md-block">
-        <h5>Waterfall</h5>
+        <h5>Niagara Falls, USA</h5>
       </div>
     </div>
     <div className="carousel-item active data-bs-interval=3000">
-      <img src="https://c4.wallpaperflare.com/wallpaper/134/234/391/photography-mountains-snow-landscape-wallpaper-preview.jpg" className="d-block w-100" alt="..." data-bs-slide="0"/>
+      <img src={require("./images/alexandria.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
         <div className="carousel-caption d-none d-md-block">
-        <h5>Test 4</h5>
+        <h5>Alexandria, Egypt</h5>
       </div>
     </div>
     <div className="carousel-item active data-bs-interval=3000">
-      <img src="https://c4.wallpaperflare.com/wallpaper/134/234/391/photography-mountains-snow-landscape-wallpaper-preview.jpg" className="d-block w-100" alt="..." data-bs-slide="0"/>
+      <img src={require("./images/rio-jesus.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
         <div className="carousel-caption d-none d-md-block">
-        <h5>Test 5</h5>
+        <h5>Rio De Janeiro, Brazil</h5>
       </div>
     </div>
     <div className="carousel-item active data-bs-interval=3000">
-      <img src="https://c4.wallpaperflare.com/wallpaper/134/234/391/photography-mountains-snow-landscape-wallpaper-preview.jpg" className="d-block w-100" alt="..." data-bs-slide="0"/>
+      <img src={require("./images/tokyo-fuji.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
         <div className="carousel-caption d-none d-md-block">
-        <h5>Test 6</h5>
+        <h5>Tokyo, Japan</h5>
       </div>
     </div>
     <div className="carousel-item active data-bs-interval=3000">
-      <img src="https://c4.wallpaperflare.com/wallpaper/134/234/391/photography-mountains-snow-landscape-wallpaper-preview.jpg" className="d-block w-100" alt="..." data-bs-slide="0"/>
+      <img src={require("./images/seljalandsfoss.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
         <div className="carousel-caption d-none d-md-block">
-        <h5>Test 7</h5>
+        <h5>Seljalandsfoss, Iceland</h5>
       </div>
     </div>
     <div className="carousel-item active data-bs-interval=3000">
-      <img src="https://c4.wallpaperflare.com/wallpaper/134/234/391/photography-mountains-snow-landscape-wallpaper-preview.jpg" className="d-block w-100" alt="..." data-bs-slide="0"/>
+      <img src={require("./images/uluru.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
         <div className="carousel-caption d-none d-md-block">
-        <h5>Test 8</h5>
+        <h5>Uluru, Australia</h5>
       </div>
     </div>
     <div className="carousel-item data-bs-interval=3000">
       <img src="https://www.outsideonline.com/wp-content/uploads/2018/11/20/outside-guide-grand-canyon_h.jpg" className="d-block w-100" alt="..."/>
         <div className="carousel-caption d-none d-md-block">
-        <h5 className="outline">The Grand Canyon, Arizona, USA</h5>
+        <h5 className="outline">The Grand Canyon, USA</h5>
       </div>
     </div>
   </div>

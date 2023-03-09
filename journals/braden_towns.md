@@ -1,3 +1,7 @@
+### 3/8/2023
+
+Today was frustrating and productive. We worked in pairs again today. We spent a lot of time trying to get our bootstrap formatting to cooperate on the trip list page. We finally were able to implement some conditional rendering of the background, so that it always covered the whole page, not matter how many trips were listed. We also started cleaning up the code and removing un-used portions. We will continue with some of our final touches tomorrow.
+
 ### 3/7/2023
 
 Today was productive again. We spent most of the day working as pairs. I worked with Louis again today. We spent the day implementing a carousel for the front page, as well as formatting our forms and making sure they were consistent throughout. We also fixed formatting with our trip list page, and were able to center our cards.

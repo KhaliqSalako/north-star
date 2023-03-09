@@ -39,7 +39,8 @@ function SignUp() {
     <>
       <button
         type="button"
-        className="btn bg-dark btn-lg glow-small text-white rounded-0"
+        className="btn bg-dark btn-lg mt-3 mx-3 glow-small text-white rounded-0"
+        style={{ width:"115px" }}
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
       >

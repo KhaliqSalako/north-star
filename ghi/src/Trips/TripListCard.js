@@ -45,7 +45,7 @@ return (
     </div>
     <div className="card-body">
       <div>
-        <h1 className=" text-white">{trip.name}</h1>
+        <h1 className="text-white">{trip.name}</h1>
         <p className="card-text text-white">{wordDateStart}</p>
         <p className="card-text text-white">{wordDateEnd}</p>
       </div>
