@@ -84,17 +84,17 @@ function Itinerary() {
           }}
         >
           <div>
-            <h1 className="d-flex text-white justify-content-center">
+            <h1 className="d-flex text-white justify-content-center custom-font">
               {tripName}
             </h1>
           </div>
           <div className="row mt-4">
-            <h3 className="text-white col"> Date: {wordDate} </h3>
+            <h3 className="text-white col custom-font"> Date: {wordDate} </h3>
             <div className="mr-4  d-flex justify-content-end"
             style={{paddingLeft:'0px', paddingRight:'10%', marginBottom:'1%'}}>
               <Link
                 to={`/trips/${trip_id}/events/${date}/create`}
-                className="btn btn-lg bg-blue-translucent rounded-0 text-white glow-small"
+                className="btn btn-lg bg-blue-translucent rounded-0 text-white glow-small custom-font"
               >
                 Create Event
               </Link>
@@ -149,7 +149,7 @@ function Itinerary() {
                         >
                           <button
                             onClick={() => deleteEvent(event.id)}
-                            className="btn bg-red-translucent glow btn-lg text-white h-100 py-0"
+                            className="btn bg-red-translucent glow-small btn-lg text-white h-100 py-0 custom-font"
                             style={{ boxSizing: "content-box" }}
                           >
                             Delete
@@ -161,7 +161,7 @@ function Itinerary() {
                         >
                           <Link
                             to={`/trips/${trip_id}/events/detail/${event.id}`}
-                            className="btn bg-blue-translucent glow btn-lg text-white h-100 py-auto"
+                            className="btn bg-blue-translucent glow-small btn-lg text-white h-100 d-flex align-items-center py-auto custom-font"
                             style={{width:"auto", boxSizing:"border-box"}}
 
                           >

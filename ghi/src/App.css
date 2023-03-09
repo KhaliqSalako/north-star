@@ -64,6 +64,10 @@
   text-shadow: 0px 0px 5px white;
 }
 
+.text-shadow {
+  text-shadow: 0px 5px 7px black;
+}
+
 
 .carousel-item-size {
   width: 480px;
@@ -106,6 +110,10 @@
 .title-font {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 60px;
+}
+
+.custom-font {
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .logo-font {
