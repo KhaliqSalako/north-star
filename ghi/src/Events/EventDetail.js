@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import GoogleMapReact from 'google-map-react'
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
+import toDateFormat from "../common/date";
 
 
 export default function EventDetail() {
@@ -71,7 +72,7 @@ export default function EventDetail() {
             <tr>
               <td className="text-white">{event.event_name}</td>
               <td className="text-white">{event.location?.name}</td>
-              <td className="text-white">{event.date}</td>
+              <td className="text-white">{toDateFormat(event.date)}</td>
               <td className="text-white">{event.start_time}</td>
               <td className="text-white">{event.details}</td>
               <div>

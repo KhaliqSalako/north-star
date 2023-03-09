@@ -1,15 +1,9 @@
 import { Link } from 'react-router-dom'
+import toDateFormat from '../common/date'
 
 function TripListCard({trip, getTripData, name}) {
-
-let  dateArr = trip.start_date.split("-")
-let  wordDateStart = new Date(dateArr[0],dateArr[1],dateArr[2])
-wordDateStart = wordDateStart.toDateString()
-
-dateArr = trip.end_date.split("-")
-let  wordDateEnd = new Date(dateArr[0],dateArr[1],dateArr[2])
-wordDateEnd = wordDateEnd.toDateString()
-
+const  wordDateStart = toDateFormat(trip.start_date)
+const  wordDateEnd = toDateFormat(trip.end_date)
 
 const deleteTrip = async (trip_id) => {
     const response = await fetch(`${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}`, {
