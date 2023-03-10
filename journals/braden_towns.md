@@ -57,7 +57,7 @@ Today we were able to successfully set up our authentication with the database. 
 
 ### 2/13/2023
 
-Today we worked on our docker-compose files as well as our requirements.txt file. We were able to get our docker containers up and running, as well as going to the localhost:8000/docs. We began working through the authentication video, and were following along with it. We ran into an issue with getting the account endpoints to appear on the website. We started going through some example code that we had for mongo projects, and it was not very helpful. We will be seeking assistance from an instructor tomorrow.
+Today we worked on our docker-compose files as well as our requirements.txt file. We were able to get our docker containers up and running, as well as going to the localhost:8000/docs. We began working through the authentication video, and were following along with it. We ran into an issue with getting the account endpoints to appear on the website. We started going through some example code that we had for mongo projects, and it was not very helpful. We will be seeking assistance from an instructor tomorrow.We ran into an issue with getting the account endpoints to appear on the website. We started going through some example code that we had for mongo projects, and it was not very helpful. We will be seeking assistance from an instructor tomorrow.
 
 ### 2/10/2023
 
