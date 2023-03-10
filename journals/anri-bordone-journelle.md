@@ -1,33 +1,24 @@
-# Louis Journal
+# Anri's Journal
 
-1. 3/9/2022
+3/9/2022
+   We completed all we set out to do. In an effort to stop constant red following us like an omen we consulted the wise-man and wise-woman. With much effort and ritual it was found to be hopeless. But then in a trance I had received another vision remembering an omen of the last voyage and placed the keys in the right spot to cleanse the red away from our ship. 
 
-   - We finalized the project today by working through a series of minor bug fixes. We got the photo carosel working on the login page and worked through the linter. The code us fully ready to be graded with all bugs fixed and no red in the console. All features are working well.
+3/8/2022
+   Our voyage is nearing its final hour. The dreams still haunt me but we have acquired the coveted ambergris after capturing the great whale together, all four of us. We have just been processing what we have, polishing our product to sell at the markets. Much rum was drank and merryiment was made. 
 
-1. 3/8/2022
+3/7/2022
+   The great whale is on it's last legs I am sure of it. My co-captain, Khaliq managed to also break new waters in Event Detail page. We consulted our other seefaring peers gave us pointers for the hunt.
 
-   - Mostly finished with the project but just continued cleaning up a few errors, and fine tuning the styling. We are mostly working on adding photos to the website and formatting them on the pages. The project is almost complete and we should be done by tomorrow.
+3/6/2022
+  Itinerary was a formidable beast that had been plaguing our travels. A great sinister whale that seemed to take every hook and harpoon we thrown to tame the goliath. We consulted the wise-man on the top of mount 42 and showed us the path to traverse these treacherous waters.
 
-1. 3/7/2022
+3/3/2022
+   Me and my co capitain Khaliq have been sailing smoothly across the frontend sea. We captured sidebar with minimal effort and basked in its glorious spoils upon on browser. But then our sacrosanct map turned against us causing our ship to sink till we appeased it gold and bugfixes. 
 
-   - We are at the point in the project where we are working on styling and bug fixing. We set up the forms the way we wanted to and were working on divising containers for our main page. We also discussed adding some error handling to the code which we hope to implement tomorrow.
+3/2/2022
+   Our seige on the google map api seems to coming te the final hour. We have tunnelled mostly under it's walls but were unable to make a complete breakthrough. Splitting off into pairs again. Me and Khaliq worked to put a guard at the gate of the Return preventing passage until they had the golden hook of isEventLoaded. 
 
-1. 3/6/2022
-
-   - At this point, the functionality on our website is essentially complete. We broke up into pairs today and Braden and I finished up the signup and login modals. The rest of the day was spent working on styling. We got the main cards styled in a nice manner and we also got hte background for the main page and trips page working.
-
-1. 3/3/2022
-
-   - Today we had a tough day because we could not get our nav bar working. We also could not get our login modal working. We spent the whole day on these and did not make any progress. It was very frustrating. Luckily we came up with a plan that could potentially get us through this difficult challenge on monday.
-
-1. 3/2/2022
-
-   - Today we made a good amount of progress by first finishing up out Google API map views for both the itinerary page with multiple pins and the events page with one pin for each event. We then split up and Braden and I set up the Trip cards on the main home page. We got the photos and functionality working for the cards and it looks great.
-
-   Our seige on the google map api seems to coming te the final hour. We have tunnelled mostly under it's walls but were unable to make a complete breakthrough. Splitting off into pairs again
-
-1. 3/1/2022
-
+3/1/2022
    We decimated our milestones today, smashing bugs in a wild berserker rage. With the pests defeated we moved on to integrate google search functionality. Braden of House Towns proved a competant ally on this campaign.
 
 2/28/2022

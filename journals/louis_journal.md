@@ -2,7 +2,7 @@
 
 1. 3/9/2022
 
-   - We finalized the project today by working through a series of minor bug fixes. We got the photo carosel working on the login page and worked through the linter. The code us fully ready to be graded with all bugs fixed and no red in the console. All features are working well.
+   - We finalized the project today by working through a series of minor bug fixes. We got the photo carousel working on the login page and worked through the linter. The code us fully ready to be graded with all bugs fixed and no red in the console. All features are working well.
 
 1. 3/8/2022
 
@@ -10,7 +10,7 @@
 
 1. 3/7/2022
 
-   - We are at the point in the project where we are working on styling and bug fixing. We set up the forms the way we wanted to and were working on divising containers for our main page. We also discussed adding some error handling to the code which we hope to implement tomorrow.
+   - We are at the point in the project where we are working on styling and bug fixing. We set up the forms the way we wanted to and were working on devising containers for our main page. We also discussed adding some error handling to the code which we hope to implement tomorrow.
 
 1. 3/6/2022
 
@@ -26,7 +26,7 @@
 
 1. 3/1/2022
 
-   - Today we had another very productive day of coding. We got our entire external API working with Google. We integrated Google search into our front end, and also integrated a map with our segarch results that displays the locations of the events for our customers. We added some navigation to the website and also added photos based on the location search.
+   - Today we had another very productive day of coding. We got our entire external API working with Google. We integrated Google search into our front end, and also integrated a map with our search results that displays the locations of the events for our customers. We added some navigation to the website and also added photos based on the location search.
 
 1. 2/28/2022
 
@@ -50,7 +50,7 @@
 
 1. 2/21/2022
 
-   - Today we made some solid progress on the endpoints for backend. We managed to get our Get One, Update, and Delete functions working for Trips. This springboarded us to also be able to complete the Events endpoints as well by connecting then to the trips. We tested all the endpoints and everything seems to be working the way we expected. We are almost done with out backend and only have a few more endpoints to figure out.
+   - Today we made some solid progress on the endpoints for backend. We managed to get our Get One, Update, and Delete functions working for Trips. This spring-boarded us to also be able to complete the Events endpoints as well by connecting then to the trips. We tested all the endpoints and everything seems to be working the way we expected. We are almost done with out backend and only have a few more endpoints to figure out.
 
 1. 2/16/2022
 
@@ -66,7 +66,7 @@
 
 1. 2/13/2023
 
-   - Today we spent some time working on authentification for our project. This involed working with working with JWTdown for FastAIP. We worked through some of the documentation and started setting up the login logout signup functionality for our project.
+   - Today we spent some time working on authentification for our project. This involved working with working with JWTdown for FastAIP. We worked through some of the documentation and started setting up the login logout signup functionality for our project.
 
 1. 2/10/2023
 

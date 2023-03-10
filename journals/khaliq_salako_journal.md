@@ -1,6 +1,6 @@
 ## 2/10
 
-we worked more on our API endpoints, i think we are just about done with it really, seems like smooth sailing so far, i think we might be able to complete it faily early
+we worked more on our API endpoints, i think we are just about done with it really, seems like smooth sailing so far, i think we might be able to complete it fairly early
 
 ## 2/13
 

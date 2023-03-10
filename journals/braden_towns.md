@@ -41,7 +41,7 @@ Today we were able to get a functioning log in, log out, and sign up button on t
 
 ### 2/22/2023
 
-Today we started on front end authentication. We ran into some blockers as far as understanding how to apply the code that is in the cookbook. After asking for help, we were finally able to fix our errors. We got a very barebones login form made, and will be attempting to get it to work tomorrow.
+Today we started on front end authentication. We ran into some blockers as far as understanding how to apply the code that is in the cookbook. After asking for help, we were finally able to fix our errors. We got a very bare-bones login form made, and will be attempting to get it to work tomorrow.
 
 ### 2/21/2023
 
@@ -65,4 +65,4 @@ Today we finished our API endpoints. We also started discussing the pro's and co
 
 ### 2/9/2023
 
-Today we worked on our API endpoints. We were able to finish all of the end points for the most part. We did some research into our Google maps API, and what kind of calls we would be making to it. We also did some small revisions of wireframing because we noticed a few features were missing.
+Today we worked on our API endpoints. We were able to finish all of the end points for the most part. We did some research into our Google maps API, and what kind of calls we would be making to it. We also did some small revisions of wire-framing because we noticed a few features were missing.
