@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { getToken, getTokenInternal, useAuthContext, useToken } from "../Accounts/auth";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router";
 
 function CreateEventForm() {
-    const params = useParams()
-    const trip_id = params.trip_id
-    const date = params.date
-    const [locationData, setLocationData] = useState({})
-    const [locationDetail, setLocationDetail] = useState("");
+  const params = useParams();
+  const trip_id = params.trip_id;
+  const date = params.date;
+  const [locationDetail, setLocationDetail] = useState("");
 
   const [formData, setFormData] = useState({
     event_name: "",
@@ -19,24 +17,21 @@ function CreateEventForm() {
     trip_id: trip_id,
   });
 
-    const { token } = useAuthContext();
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    async function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}/events`;
     const response = await fetch(url, {
       method: "post",
-      body: JSON.stringify(
-        formData,
-      ),
+      body: JSON.stringify(formData),
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
     });
     if (response.ok) {
-        navigate(`/trips/${trip_id}/itinerary/${date}`);
+      navigate(`/trips/${trip_id}/itinerary/${date}`);
     }
     return false;
   }
@@ -53,27 +48,28 @@ function CreateEventForm() {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/location/${e.target.parentNode.querySelector("input").value}`;
+    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/location/${
+      e.target.parentNode.querySelector("input").value
+    }`;
     const response = await fetch(url, {
       credentials: "include",
     });
     if (response.ok) {
       const data = await response.json();
-      setLocationData(data)
-      setLocationDetail(`Name:${data.name}, Address:${data.formatted_address}`)
+      setLocationDetail(`Name:${data.name}, Address:${data.formatted_address}`);
       setFormData({
         ...formData,
 
         ["location"]: data,
-      })
+      });
     }
-  }
+  };
 
   return (
     <div
       className="custom-body-font text-center bg-black vh-100 vw-100 pt-4"
       style={{
-        backgroundImage: "url( " + require("./background.jpg") + ")",
+        backgroundImage: "url( " + require("../images/background.jpg") + ")",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
@@ -133,8 +129,6 @@ function CreateEventForm() {
       </div>
     </div>
   );
-
-
 }
 
 export default CreateEventForm;

@@ -1,22 +1,14 @@
 import React, { useState, useEffect } from "react";
-import {
-  getToken,
-  getTokenInternal,
-  useAuthContext,
-  useToken,
-} from "../Accounts/auth";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 
 function EditEventForm() {
   const navigate = useNavigate();
-  const { token } = useAuthContext();
   const [event, setEvent] = useState({});
   const params = useParams();
   const trip_id = params.trip_id;
   const event_id = params.event_id;
   const date = params.date;
-  const [locationData, setLocationData] = useState({});
   const [locationDetail, setLocationDetail] = useState("");
   const [formData, setFormData] = useState({
     event_name: "",
@@ -55,7 +47,7 @@ function EditEventForm() {
     if (response.ok) {
       const data = await response.json();
       setEvent(data);
-      setFormData(data)
+      setFormData(data);
     }
   };
 
@@ -83,7 +75,6 @@ function EditEventForm() {
     });
     if (response.ok) {
       const data = await response.json();
-      setLocationData(data);
       setLocationDetail(`Name:${data.name}, Address:${data.formatted_address}`);
       setFormData({
         ...formData,
@@ -97,7 +88,7 @@ function EditEventForm() {
     <div
       className="text-center bg-black vh-100 vw-100 pt-4 custom-body-font"
       style={{
-        backgroundImage: "url( " + require("./background.jpg") + ")",
+        backgroundImage: "url( " + require("../images/background.jpg") + ")",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",

@@ -6,9 +6,11 @@ class LocationQueries:
     def get_location_by_name(self, location_search: str):
         try:
             location_res = requests.get(
-                "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input="
+                "https://maps.googleapis.com/maps/api/"
+                + "place/findplacefromtext/json?input="
                 + location_search
-                + "&inputtype=textquery&fields=place_id%2Cphotos%2Cformatted_address%2Cname%2Cgeometry&key="
+                + "&inputtype=textquery&fields=place_id%2Cphotos"
+                + "%2Cformatted_address%2Cname%2Cgeometry&key="
                 + Google_APIKey
             )
             if location_res.status_code == 200:
@@ -26,7 +28,8 @@ class LocationQueries:
                 ][0]["photo_reference"]
                 place_id = location_data["candidates"][0]["place_id"]
                 details_res = requests.get(
-                    "https://maps.googleapis.com/maps/api/place/details/json?place_id="
+                    "https://maps.googleapis.com/maps/api/"
+                    + "place/details/json?place_id="
                     + place_id
                     + "&fields=editorial_summary&key="
                     + Google_APIKey

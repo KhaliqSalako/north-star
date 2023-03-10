@@ -1,11 +1,8 @@
 import { useToken } from "./auth";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
 
 function SignUp() {
-  const { token, signup } = useToken();
-  const navigate = useNavigate();
+  const { signup } = useToken();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -31,7 +28,6 @@ function SignUp() {
     const name = formData["name"];
     const email = formData["email"];
     await signup(username, password, email, name);
-
   };
 
   return (
@@ -39,7 +35,7 @@ function SignUp() {
       <button
         type="button"
         className="custom-font btn bg-dark btn-lg mt-3 mx-3 glow-small text-white rounded-0"
-        style={{ width:"115px" }}
+        style={{ width: "115px" }}
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
       >
@@ -94,14 +90,14 @@ function SignUp() {
                   />
                 </p>
                 <p>
-                    <input
-                      className="form-control"
-                      name="email"
-                      placeholder="Email Address"
-                      onChange={handleFormChange}
-                      type="text"
-                      required
-                    />
+                  <input
+                    className="form-control"
+                    name="email"
+                    placeholder="Email Address"
+                    onChange={handleFormChange}
+                    type="text"
+                    required
+                  />
                 </p>
                 <p>
                   <input

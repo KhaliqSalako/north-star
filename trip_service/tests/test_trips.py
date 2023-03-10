@@ -2,7 +2,6 @@ from fastapi.testclient import TestClient
 from main import app
 from queries.trips import TripRepository
 from authenticator import authenticator
-import json
 from models import TripOut, TripIn
 
 client = TestClient(app)

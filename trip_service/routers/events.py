@@ -3,7 +3,7 @@ from queries.events import EventIn, EventRepository
 from typing import List
 from models import EventOut
 from authenticator import authenticator
-from fastapi import FastAPI, HTTPException
+from fastapi import HTTPException
 
 router = APIRouter()
 
@@ -38,7 +38,9 @@ def get_itinerary(
     account_data: dict = Depends(authenticator.get_current_account_data),
     repo: EventRepository = Depends(),
 ):
-    events = repo.get_itinerary(account_id=account_data["id"], trip_id=trip_id, date=date)
+    events = repo.get_itinerary(
+        account_id=account_data["id"], trip_id=trip_id, date=date
+    )
 
     return {"events": events}
 

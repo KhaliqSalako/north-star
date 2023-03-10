@@ -1,9 +1,8 @@
 from fastapi import APIRouter, Depends
 from queries.trips import TripIn, TripRepository
-from typing import List
 from models import TripOut, TripList
 from authenticator import authenticator
-from fastapi import FastAPI, HTTPException
+from fastapi import HTTPException
 
 router = APIRouter()
 

@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from authenticator import authenticator
 from routers import accounts, locations, trips, events
-import os
 from fastapi.middleware.cors import CORSMiddleware
 
 

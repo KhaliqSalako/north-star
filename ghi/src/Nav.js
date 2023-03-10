@@ -3,11 +3,10 @@ import LogOut from "./Accounts/LogOut";
 import { useState, useEffect } from "react";
 import { useToken } from "./Accounts/auth";
 
-
 function Nav() {
   const { token } = useToken();
   const [name, setName] = useState("");
-  const location = useLocation()
+  const location = useLocation();
 
   const getName = async () => {
     const response = await fetch(
@@ -54,18 +53,18 @@ function Nav() {
           id="navbarNav"
           style={{ width: "100%" }}
         >
-            <div className="d-flex justify-content-end flex-row navbar-nav">
-              {token ? (
-                <div className="navbar-nav mx-auto">
-                  <h4 className=" text-white cursive text-glow">
-                    <span>Where to next, {name}?</span>
-                  </h4>
-                </div>
-              ) : null}
+          <div className="d-flex justify-content-end flex-row navbar-nav">
+            {token ? (
+              <div className="navbar-nav mx-auto">
+                <h4 className=" text-white cursive text-glow">
+                  <span>Where to next, {name}?</span>
+                </h4>
               </div>
-              <div className="nav-item bd-highlight ms-auto custom-font">
-                <LogOut />
-              </div>
+            ) : null}
+          </div>
+          <div className="nav-item bd-highlight ms-auto custom-font">
+            <LogOut />
+          </div>
         </div>
       </div>
     </nav>

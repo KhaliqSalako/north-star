@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { getToken, getTokenInternal, useAuthContext, useToken } from "../Accounts/auth";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 function CreateTripForm() {
   const [formData, setFormData] = useState({
@@ -8,22 +7,19 @@ function CreateTripForm() {
     end_date: "",
     picture_url: "",
   });
-    const { token } = useAuthContext();
-    const navigate = useNavigate();
-    async function createTrip(name, start_date, end_date, picture_url) {
+  const navigate = useNavigate();
+  async function createTrip() {
     const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips`;
     const response = await fetch(url, {
       method: "post",
-      body: JSON.stringify(
-        formData,
-      ),
+      body: JSON.stringify(formData),
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
     });
     if (response.ok) {
-        navigate("/trips");
+      navigate("/trips");
     }
     return false;
   }
@@ -43,13 +39,10 @@ function CreateTripForm() {
     const picture_url = formData["picture_url"];
     if (end_date < start_date) {
       alert("Date inputs is invalid!");
+    } else {
+      await createTrip(name, start_date, end_date, picture_url);
     }
-    else {
-    await createTrip(name, start_date, end_date, picture_url);
-    }
-
   };
-
 
   return (
     <div

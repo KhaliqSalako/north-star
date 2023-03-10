@@ -1,10 +1,8 @@
 import { useToken } from "./auth";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function Login() {
   const { login } = useToken();
-  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     username: "",
