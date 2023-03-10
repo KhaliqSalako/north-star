@@ -98,6 +98,8 @@ export function useToken() {
       setToken(token);
       navigate("/trips");
       return;
+    } else {
+        alert("Invalid Username or Password!");
     }
     let error = await response.json();
     return handleErrorMessage(error);

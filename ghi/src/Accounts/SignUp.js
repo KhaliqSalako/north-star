@@ -84,9 +84,9 @@ function SignUp() {
                     className="form-control"
                     name="name"
                     placeholder="Name"
+                    required
                     onChange={handleFormChange}
                     type="text"
-                    required
                   />
                 </p>
                 <p>

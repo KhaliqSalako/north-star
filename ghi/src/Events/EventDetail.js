@@ -43,7 +43,7 @@ export default function EventDetail() {
   if (!isLoaded || !isEventDataLoaded) return <div>Loading...</div>;
   return (
     <div
-      className="row vh-100 w-100 d-flex justify-items-center custom-body-font"
+      className="row vh-100 vw-100 d-flex justify-items-center custom-body-font"
       style={{
         backgroundImage: "url( " + require("../images/background.jpg") + ")",
         backgroundRepeat: "no-repeat",

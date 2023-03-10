@@ -143,6 +143,18 @@ function Itinerary() {
                         }}
                       >
                         <div
+                          className=" rounded-0 h-100"
+                          style={{ width: "145px", boxSizing: "content-box" }}
+                        >
+                          <Link
+                            to={`/trips/${trip_id}/events/detail/${event.id}`}
+                            className="btn bg-blue-translucent glow-small btn-lg text-white h-100 d-flex align-items-center py-auto custom-font"
+                            style={{ width: "auto", boxSizing: "border-box" }}
+                          >
+                            View Event
+                          </Link>
+                        </div>
+                        <div
                           className="text-white rounded-0 "
                           style={{
                             boxSizing: "content-box",
@@ -155,18 +167,6 @@ function Itinerary() {
                           >
                             Delete
                           </button>
-                        </div>
-                        <div
-                          className=" rounded-0 h-100"
-                          style={{ width: "145px", boxSizing: "content-box" }}
-                        >
-                          <Link
-                            to={`/trips/${trip_id}/events/detail/${event.id}`}
-                            className="btn bg-blue-translucent glow-small btn-lg text-white h-100 d-flex align-items-center py-auto custom-font"
-                            style={{ width: "auto", boxSizing: "border-box" }}
-                          >
-                            View Event
-                          </Link>
                         </div>
                       </td>
                     </tr>

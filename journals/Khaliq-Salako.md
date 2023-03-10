@@ -1,12 +1,8 @@
 ## 3/9
 Got a lot done today, we cleaned up our readme file, changed and edited the fonts of all our pages, finally made our trip card perfectly formatted, cleaned up our errors and our unused imports. I also added a conditional render as to which the dates would not submit if the end date is before the start date because that it not a valid entry, seems like we are pretty much done on our end and is ready for presentation, there were not that many complications
 
-<<<<<<< HEAD:journals/khaliq_salako_journal.md
-we worked more on our API endpoints, i think we are just about done with it really, seems like smooth sailing so far, i think we might be able to complete it fairly early
-=======
 ## 3/8
 Small additions today that are not hard. We could not figure out the Prop key error, Riley said he’s give us a pass on that one cause it seems like a weird error, today I added titles and conditional render for when the user is logged in to say “Where to next, {name}?”. Pretty straightforward day as it’s just thinking of what small changes and what small designs we want to add
->>>>>>> cf385222a623d017001e021dae1c7daaab986a02:journals/Khaliq-Salako.md
 
 ## 3/7
 We have basically completed most of our goals today! I finished working on the frontend of the Event details page and itinerary page with extra fixes based on feedback from my peers, Braden and Louis finished the forms on their end so we’ve progressed a lot today.
