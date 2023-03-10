@@ -1,26 +1,22 @@
 import { useState, useEffect, useMemo } from "react";
-import { useAuthContext } from "../Accounts/auth";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import GoogleMapReact from 'google-map-react'
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import toDateFormat from "../common/date";
 import { v4 as uuidv4 } from "uuid";
 
-
 export default function EventDetail() {
-  const { token } = useAuthContext();
   const [event, setEvent] = useState([]);
   const [isEventDataLoaded, setIsEventDataLoaded] = useState(false);
   const params = useParams();
   const trip_id = params.trip_id;
-  const event_id = params.event_id
+  const event_id = params.event_id;
   const photo_reference = event?.location?.photo_reference;
   const picture_url =
-  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference="
-  + photo_reference
-  + "&key="
-  + process.env.REACT_APP_GOOGLE_API_KEY;
+    "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=" +
+    photo_reference +
+    "&key=" +
+    process.env.REACT_APP_GOOGLE_API_KEY;
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   });
@@ -108,20 +104,21 @@ export default function EventDetail() {
   );
 }
 
-
 function Map(props) {
-  const center = useMemo(() => ( props.event?.location?.geo_location ), []);
+  const center = useMemo(() => props.event?.location?.geo_location, []);
 
-  if (props.event?.location?.geo_location === undefined) { return }
-    return [
-      <GoogleMap
-        mapContainerStyle={{ width: "450px", height: "422px" }}
-        zoom={12}
-        center={center}
-        mapContainerClassName="map-container"
-        key={uuidv4()}
-      >
-        <MarkerF position={center} />
-      </GoogleMap>,
-    ];
+  if (props.event?.location?.geo_location === undefined) {
+    return;
+  }
+  return [
+    <GoogleMap
+      mapContainerStyle={{ width: "450px", height: "422px" }}
+      zoom={12}
+      center={center}
+      mapContainerClassName="map-container"
+      key={uuidv4()}
+    >
+      <MarkerF position={center} />
+    </GoogleMap>,
+  ];
 }

@@ -2,7 +2,6 @@ import SignUp from "./Accounts/SignUp";
 import Login from "./Accounts/Login";
 
 function MainPage() {
-
   return (
     <>
       <div

@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from "react";
-import {
-  getToken,
-  getTokenInternal,
-  useAuthContext,
-  useToken,
-} from "../Accounts/auth";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 
 function EditTripForm() {
   const navigate = useNavigate();
-  const { token } = useAuthContext();
   const [trip, setTrip] = useState([]);
   const params = useParams();
   const trip_id = params.id;
@@ -28,8 +21,7 @@ function EditTripForm() {
     });
     if (trip.end_date < trip.start_date) {
       alert("Date inputs is invalid!");
-    }
-    else if (response.ok) {
+    } else if (response.ok) {
       navigate("/trips");
     }
     return false;

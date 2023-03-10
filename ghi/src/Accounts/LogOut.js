@@ -9,8 +9,8 @@ function LogOut() {
   };
 
   if (!token) {
-    return <></>
-  } else{
+    return <></>;
+  } else {
     return (
       <div>
         <button

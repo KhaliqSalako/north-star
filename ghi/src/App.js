@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import ErrorNotification from "./Misc/ErrorNotification";
 import "./App.css";
 import MainPage from "./MainPage.js";
 import Nav from "./Nav";

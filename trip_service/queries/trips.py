@@ -1,9 +1,8 @@
-from pydantic import BaseModel
-from models import TripIn, TripOut, Error
-from typing import List, Union
+from models import TripIn, TripOut
+from typing import List
 from .client import Queries
 from bson.objectid import ObjectId
-from fastapi import FastAPI, HTTPException
+from fastapi import HTTPException
 
 
 class TripRepository(Queries):
@@ -35,14 +34,14 @@ class TripRepository(Queries):
 
     def get_trip(self, trip_id) -> TripOut:
         trip_dict = self.collection.find_one({"_id": ObjectId(trip_id)})
-        if trip_dict == None:
+        if trip_dict is None:
             raise HTTPException(status_code=404, detail="trip_id not found")
         trip_dict["id"] = trip_id
         return TripOut(**trip_dict)
 
     def delete_trip(self, trip_id):
         trip_dict = self.collection.find_one({"_id": ObjectId(trip_id)})
-        if trip_dict == None:
+        if trip_dict is None:
             return False
-        response = self.collection.delete_one({"_id": ObjectId(trip_id)})
+        self.collection.delete_one({"_id": ObjectId(trip_id)})
         return True

@@ -1,5 +1,4 @@
 import { useState, useEffect, React } from "react";
-
 import { Link, useLocation } from "react-router-dom";
 import { useParams } from "react-router";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
@@ -14,15 +13,12 @@ function Itinerary() {
   const params = useParams();
   const trip_id = params.id;
   const date = params.date;
-  const wordDate = toDateFormat(date)
-
+  const wordDate = toDateFormat(date);
 
   const location = useLocation();
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   });
-
-
 
   const getEventData = async () => {
     const response = await fetch(
@@ -53,7 +49,7 @@ function Itinerary() {
   }, [location]);
 
   const deleteEvent = async (event_id) => {
-    const response = await fetch(
+    await fetch(
       `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${trip_id}/events/${event_id}`,
       {
         method: "DELETE",
@@ -63,7 +59,6 @@ function Itinerary() {
         },
       }
     );
-    const data = await response.json();
     getEventData();
   };
 
@@ -187,14 +182,12 @@ function Itinerary() {
       </div>
     </div>,
   ];
-
 }
 
 function Map(props) {
-
   const [prevEventData, setprevEventData] = useState();
 
-  const center = props.events[0]?.location.geo_location
+  const center = props.events[0]?.location.geo_location;
   const [averageCenter, setAverageCenter] = useState(center);
 
   const getAverage = async () => {
@@ -214,15 +207,14 @@ function Map(props) {
     });
   };
 
-
   useEffect(() => {
     if (props.events !== prevEventData) {
       getAverage();
     }
   }, [props.events]);
 
-
-  if(props.events.length === 0) return [<div key={uuidv4()} className="text-white"></div>]
+  if (props.events.length === 0)
+    return [<div key={uuidv4()} className="text-white"></div>];
   return [
     <GoogleMap
       key={uuidv4()}
@@ -231,10 +223,10 @@ function Map(props) {
       center={averageCenter}
       mapContainerClassName="map-container"
     >
-      {props.events.map((event,i) => {
-          const position = event?.location?.geo_location;
-          return <MarkerF key={uuidv4()} position={position} />;
-        })}
+      {props.events.map((event, i) => {
+        const position = event?.location?.geo_location;
+        return <MarkerF key={uuidv4()} position={position} />;
+      })}
     </GoogleMap>,
   ];
 }

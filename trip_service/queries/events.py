@@ -1,9 +1,8 @@
-from pydantic import BaseModel
-from models import EventIn, EventOut, Error
-from typing import List, Union
+from models import EventIn, EventOut
+from typing import List
 from .client import Queries
 from bson.objectid import ObjectId
-from fastapi import FastAPI, HTTPException
+from fastapi import HTTPException
 
 
 class EventRepository(Queries):
@@ -41,7 +40,7 @@ class EventRepository(Queries):
         event_dict = self.collection.find_one(
             {"_id": ObjectId(event_id), "trip_id": trip_id}
         )
-        if event_dict == None:
+        if event_dict is None:
             raise HTTPException(status_code=404, detail="event_id not found")
         event_dict["id"] = event_id
         return EventOut(**event_dict)
@@ -62,9 +61,9 @@ class EventRepository(Queries):
         event_dict = self.collection.find_one(
             {"_id": ObjectId(event_id), "trip_id": trip_id}
         )
-        if event_dict == None:
+        if event_dict is None:
             return False
-        response = self.collection.delete_one(
+        self.collection.delete_one(
             {"_id": ObjectId(event_id), "trip_id": trip_id}
         )
         return True

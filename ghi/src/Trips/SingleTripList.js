@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
-import { useAuthContext } from "../Accounts/auth";
-import {useParams} from 'react-router';
+import { useParams } from "react-router";
 
 function SingleTripList() {
-  const { token } = useAuthContext();
   const [trip, setTrip] = useState([]);
-  const params = useParams()
-  const trip_id = params.id
+  const params = useParams();
+  const trip_id = params.id;
 
   const getSingleTripData = async () => {
     const response = await fetch(
@@ -26,7 +24,6 @@ function SingleTripList() {
     getSingleTripData();
   }, []);
 
-
   return (
     <div className="container">
       <table className="table table-striped">
@@ -39,19 +36,18 @@ function SingleTripList() {
           </tr>
         </thead>
         <tbody>
-              <tr>
-                <td>{trip.name}</td>
-                <td>{trip.start_date}</td>
-                <td>{trip.end_date}</td>
-                <td>
-                  <img src={trip.picture_url} className="card-img-top" />
-                </td>
-              </tr>
+          <tr>
+            <td>{trip.name}</td>
+            <td>{trip.start_date}</td>
+            <td>{trip.end_date}</td>
+            <td>
+              <img src={trip.picture_url} className="card-img-top" />
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
   );
 }
-
 
 export default SingleTripList;

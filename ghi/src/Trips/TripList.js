@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
-import { useAuthContext } from "../Accounts/auth";
 import TripListCard from "./TripListCard";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 function TripList() {
-  const { token } = useAuthContext();
   const [trips, setTrips] = useState([]);
   const getTripData = async () => {
     const response = await fetch(
