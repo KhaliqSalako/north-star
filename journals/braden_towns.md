@@ -1,3 +1,7 @@
+### 3/9/2023
+
+Today was very exciting and productive. We were able to finish our project today! We mostly stayed as a group of 4 and fixed minor formatting issues. We finally found a solution that everyone was happy with in regards to the trip cards. We also fixed the carousel to work automatically.
+
 ### 3/8/2023
 
 Today was frustrating and productive. We worked in pairs again today. We spent a lot of time trying to get our bootstrap formatting to cooperate on the trip list page. We finally were able to implement some conditional rendering of the background, so that it always covered the whole page, not matter how many trips were listed. We also started cleaning up the code and removing un-used portions. We will continue with some of our final touches tomorrow.

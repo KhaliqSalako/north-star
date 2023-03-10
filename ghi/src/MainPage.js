@@ -35,55 +35,55 @@ function MainPage() {
           <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="9" aria-label="Slide 10"></button>
         </div>
   <div className="carousel-inner carousel-item-size center border glow">
-    <div className="carousel-item active data-bs-interval=3000">
+    <div className="carousel-item active" data-bs-interval="3000">
       <img src="https://c4.wallpaperflare.com/wallpaper/134/234/391/photography-mountains-snow-landscape-wallpaper-preview.jpg" className="d-block w-100" alt="..." data-bs-slide="0"/>
         <div className="carousel-caption d-none d-md-block">
         <h5>Mount Everest, Nepal</h5>
       </div>
     </div>
-    <div className="carousel-item active data-bs-interval=3000">
+    <div className="carousel-item data-bs-interval=3000">
       <img src={require("./images/hawaii-photo.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
         <div className="carousel-caption d-none d-md-block">
         <h5>Hawaii, USA</h5>
       </div>
     </div>
-    <div className="carousel-item active data-bs-interval=3000">
+    <div className="carousel-item data-bs-interval=3000">
       <img src={require("./images/santorini.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
         <div className="carousel-caption d-none d-md-block">
         <h5>Santorini, Greece</h5>
       </div>
     </div>
-    <div className="carousel-item active data-bs-interval=3000">
+    <div className="carousel-item data-bs-interval=3000">
       <img src={require("./images/niagara-falls.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
         <div className="carousel-caption d-none d-md-block">
         <h5>Niagara Falls, USA</h5>
       </div>
     </div>
-    <div className="carousel-item active data-bs-interval=3000">
+    <div className="carousel-item data-bs-interval=3000">
       <img src={require("./images/alexandria.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
         <div className="carousel-caption d-none d-md-block">
         <h5>Alexandria, Egypt</h5>
       </div>
     </div>
-    <div className="carousel-item active data-bs-interval=3000">
+    <div className="carousel-item data-bs-interval=3000">
       <img src={require("./images/rio-jesus.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
         <div className="carousel-caption d-none d-md-block">
         <h5>Rio De Janeiro, Brazil</h5>
       </div>
     </div>
-    <div className="carousel-item active data-bs-interval=3000">
+    <div className="carousel-item data-bs-interval=3000">
       <img src={require("./images/tokyo-fuji.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
         <div className="carousel-caption d-none d-md-block">
         <h5>Tokyo, Japan</h5>
       </div>
     </div>
-    <div className="carousel-item active data-bs-interval=3000">
+    <div className="carousel-item data-bs-interval=3000">
       <img src={require("./images/seljalandsfoss.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
         <div className="carousel-caption d-none d-md-block">
         <h5>Seljalandsfoss, Iceland</h5>
       </div>
     </div>
-    <div className="carousel-item active data-bs-interval=3000">
+    <div className="carousel-item data-bs-interval=3000">
       <img src={require("./images/uluru.jpg")} className="d-block w-100" alt="..." data-bs-slide="0"/>
         <div className="carousel-caption d-none d-md-block">
         <h5>Uluru, Australia</h5>

@@ -2,7 +2,6 @@ import { useToken } from "./auth";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 function Login() {
   const { login } = useToken();
   const navigate = useNavigate();
@@ -34,7 +33,7 @@ function Login() {
       <button
         type="button"
         className="custom-font btn bg-dark btn-lg mt-3 mx-3 glow-small text-white rounded-0"
-        style={{ width:"115px" }}
+        style={{ width: "115px" }}
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop1"
       >
