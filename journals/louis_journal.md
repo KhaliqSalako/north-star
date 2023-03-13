@@ -2,7 +2,7 @@
 
 1. 3/9/2022
 
-   - We finalized the project today by working through a series of minor bug fixes. We got the photo carousel working on the login page and worked through the linter. The code us fully ready to be graded with all bugs fixed and no red in the console. All features are working well.
+   - We finalized the project today by working through a series of minor bug fixes. We got the photo carousel working on the login page and worked through the linter. The code us fully ready to be graded with all bugs fixed and no red in the console. All features are working well.Test. 
 
 1. 3/8/2022
 
