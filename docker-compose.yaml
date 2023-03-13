@@ -3,14 +3,14 @@ volumes:
     external: true
 
 services:
-  trip_service:
+  trip-service:
     build:
-      context: trip_service
+      context: trip-service
       dockerfile: Dockerfile.dev
     ports:
       - 8000:8000
     volumes:
-      - ./trip_service:/app
+      - ./trip-service:/app
     environment:
       DATABASE_URL: mongodb://root:password@mongo/admin
       DATABASE_NAME: mongo-data
