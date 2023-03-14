@@ -2,7 +2,7 @@ import os
 import pymongo
 
 
-DATABASE_URL = os.environ["DATABASE_URL"]
+DATABASE_URL = os.environ.get("DATABASE_URL", "fake_url")
 client = pymongo.MongoClient(DATABASE_URL)
 
 
