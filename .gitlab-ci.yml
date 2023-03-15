@@ -22,8 +22,7 @@ trip-service-unit-test-job:
     - pip install -r requirements.txt
     - python -m pytest
   variables:
-    SIGNING_KEY: 87fn4a3fcfb60092dbaeb854a196bc3d4b190aed7930c934749e45243de698420c25f8e6199c421b4494k99459e01058de5dqa9d49584cd62ee975da9aea33da
-
+    SIGNING_KEY: ${SIGNING_KEY}
 
 # Build the React/JavaScript front-end
 build-front-end-job:

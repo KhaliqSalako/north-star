@@ -33,4 +33,4 @@ class AccountAuthenticator(Authenticator):
         return account.username, AccountOut(**account.dict())
 
 
-authenticator = AccountAuthenticator(os.environ["SIGNING_KEY"])
+authenticator = AccountAuthenticator(os.environ.get("SIGNING_KEY", "fake_url"))
