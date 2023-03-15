@@ -1,5 +1,6 @@
 import requests
-from .api_keys import Google_APIKey
+# from .api_keys import Google_APIKey
+import os
 
 
 class LocationQueries:
@@ -11,7 +12,7 @@ class LocationQueries:
                 + location_search
                 + "&inputtype=textquery&fields=place_id%2Cphotos"
                 + "%2Cformatted_address%2Cname%2Cgeometry&key="
-                + Google_APIKey
+                + os.environ.get('REACT_APP_GOOGLE_API_KEY')
             )
             if location_res.status_code == 200:
                 location_data = location_res.json()
@@ -32,7 +33,7 @@ class LocationQueries:
                     + "place/details/json?place_id="
                     + place_id
                     + "&fields=editorial_summary&key="
-                    + Google_APIKey
+                    + os.environ.get('REACT_APP_GOOGLE_API_KEY')
                 )
                 if location_res.status_code == 200:
                     details_data = details_res.json()
