@@ -52,9 +52,11 @@ function ItinerarySidebar(props) {
   return (
     <div className="custom-body-font fw-bold col-auto col px-sm-2 px-0 bg-dark">
       <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-        <a className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-          <span className="custom-font d-none d-sm-inline">Trip Dates:</span>
-        </a>
+        <div className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <span className="custom-font d-none d-sm-inline">
+            Trip Dates:
+          </span>
+        </div>
         <ul
           className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
           id="dates"

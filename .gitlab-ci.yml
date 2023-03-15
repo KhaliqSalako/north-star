@@ -9,16 +9,16 @@ lint-test-job:
   stage: test
   script:
     - pip install flake8
-    - flake8 trip_service
+    - flake8 trip-service
 
-Run the unit tests
-api-unit-test-job:
+# Run the unit tests
+trip-service-unit-test-job:
   image: python:3-bullseye
   stage: test
   needs:
     - lint-test-job
   script:
-    - cd trip_service
+    - cd trip-service
     - pip install -r requirements.txt
     - python -m pytest
 
@@ -33,8 +33,8 @@ build-front-end-job:
     # CI/CD variables, that value will override the value here.
     # You need to substitute in your real values for
     # GROUP_NAME, PROJECT_NAME, & WEBSERVICE_NAME below.
-    PUBLIC_URL: https://GROUP_NAME.gitlab.io/PROJECT_NAME/
-    REACT_APP_SAMPLE_SERVICE_API_HOST: https://WEBSERVICE_NAME.onrender.com
+    PUBLIC_URL: https://north-star-group.gitlab.io/north-star-project/
+    REACT_APP_ACCOUNTS_HOST: https://trip-service.nov-ct-10.mod3projects.com
   script:
     - cd ghi
     - npm install
@@ -58,3 +58,29 @@ pages:
   artifacts:
     paths:
       - public
+
+build-docker-master:
+  image: docker:19.03.1
+  stage: build
+  services:
+    - docker:19.03.1-dind
+  before_script:
+    - export DOCKER_REGISTRY_USER=$CI_REGISTRY_USER # built-in GitLab Registry User
+    - export DOCKER_REGISTRY_PASSWORD=$CI_REGISTRY_PASSWORD # built-in GitLab Registry Password
+    - export DOCKER_REGISTRY_URL=$CI_REGISTRY # built-in GitLab Registry URL
+    - export COMMIT_HASH=$CI_COMMIT_SHA # Your current commit sha
+    - export IMAGE_NAME_WITH_REGISTRY_PREFIX=$CI_REGISTRY_IMAGE # Your repository prefixed with GitLab Registry URL
+    - docker login -u "$DOCKER_REGISTRY_USER" -p "$DOCKER_REGISTRY_PASSWORD" $DOCKER_REGISTRY_URL # Instructs GitLab to login to its registry
+
+  script:
+    - cd trip-service
+    - echo "Building..." # MAKE SURE NO SPACE ON EITHER SIDE OF = IN THE FOLLOWING LINE
+    - export CONTAINER_FULL_IMAGE_NAME_WITH_TAG=$IMAGE_NAME_WITH_REGISTRY_PREFIX/trip-service:$COMMIT_HASH
+    - docker build -f ./Dockerfile --pull -t trip-service .
+    - docker tag trip-service "$CONTAINER_FULL_IMAGE_NAME_WITH_TAG"
+    - docker push "$CONTAINER_FULL_IMAGE_NAME_WITH_TAG"
+    - echo $CONTAINER_FULL_IMAGE_NAME_WITH_TAG
+    - echo "Deploying on CapRover..."
+    - docker run caprover/cli-caprover:v2.1.1 caprover deploy --caproverUrl $CAPROVER_URL --caproverPassword $CAPROVER_PASSWORD --caproverApp $CAPROVER_APP --imageName $CONTAINER_FULL_IMAGE_NAME_WITH_TAG
+  only:
+    - main
