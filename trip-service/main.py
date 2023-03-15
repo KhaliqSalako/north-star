@@ -14,12 +14,12 @@ app.include_router(events.router, tags=["Events"])
 
 
 origins = [
-    os.environ.get("CORS_HOST", "http://localhost:8000"),
-    os.environ.get("CORS_HOST", "https://north-star-group.gitlab.io"),
+    os.environ.get("CORS_HOST1", "http://localhost:8000"),
+    os.environ.get("CORS_HOST2", "https://north-star-group.gitlab.io"),
     os.environ.get(
-        "CORS_HOST", "https://trip-service.nov-ct-10.mod3projects.com"
+        "CORS_HOST3", "https://trip-service.nov-ct-10.mod3projects.com"
     ),
-    os.environ.get("CORS_HOST", "http://localhost:3000"),
+    os.environ.get("CORS_HOST4", "http://localhost:3000"),
 ]
 
 app.add_middleware(
