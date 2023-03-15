@@ -30,7 +30,7 @@ function TripList() {
         trips.length > 3 ? "h-100" : "vh-100"
       }`}
       style={{
-        backgroundImage: `url(background.jpg)`,
+        backgroundImage: "url( " + require("../images/background.jpg") + ")",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
