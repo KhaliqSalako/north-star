@@ -62,7 +62,6 @@ function Itinerary() {
     );
     getEventData();
   };
-  console.log("checking for loading component-----");
 
   if (!isLoaded || !isEventDataLoaded)
     return (

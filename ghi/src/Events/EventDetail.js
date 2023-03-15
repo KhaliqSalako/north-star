@@ -41,8 +41,6 @@ export default function EventDetail() {
     getEvent();
   }, []);
 
-  console.log("checking for loading component-----");
-
   if (!isLoaded || !isEventDataLoaded) return <div>Loading...</div>;
   return (
     <div
