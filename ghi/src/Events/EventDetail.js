@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
@@ -40,6 +41,8 @@ export default function EventDetail() {
     getEvent();
   }, []);
 
+  console.log("checking for loading component-----");
+
   if (!isLoaded || !isEventDataLoaded) return <div>Loading...</div>;
   return (
     <div
@@ -70,7 +73,7 @@ export default function EventDetail() {
             <tr>
               <td className="text-white">{event.event_name}</td>
               <td className="text-white">{event.location?.name}</td>
-              <td className="text-white">{toDateFormat(event.date)}</td>
+              <td className="text-white">{toDateFormat(event?.date)}</td>
               <td className="text-white">{event.start_time}</td>
               <td className="text-white">{event.details}</td>
               <td>

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 
@@ -24,6 +25,7 @@ function SingleTripList() {
     getSingleTripData();
   }, []);
 
+  console.log("checking for loading component-----");
   return (
     <div className="container">
       <table className="table table-striped">

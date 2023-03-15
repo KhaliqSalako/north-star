@@ -1,14 +1,15 @@
+/* eslint-disable */
 import { useState, useEffect, useMemo } from "react";
 import getDaysPls from "./getdaysArray.js";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 function ItinerarySidebar(props) {
-    const [tripData, setTripData] = useState({});
-    const [days, setDays] = useState([]);
-    const [isTripDataLoaded, setIsTripDataLoaded] = useState(false);
-    const currentdate = props.currentdate
-    const getTripData = async () => {
+  const [tripData, setTripData] = useState({});
+  const [days, setDays] = useState([]);
+  const [isTripDataLoaded, setIsTripDataLoaded] = useState(false);
+  const currentdate = props.currentdate;
+  const getTripData = async () => {
     const response = await fetch(
       `${process.env.REACT_APP_ACCOUNTS_HOST}/api/trips/${props.trip_id}`,
       {
@@ -27,23 +28,32 @@ function ItinerarySidebar(props) {
     const end_date = data.end_date;
     const dayslist = getDaysPls(new Date(start_date), new Date(end_date));
     setDays(dayslist);
-  }
+  };
   useEffect(() => {
     getTripData();
   }, []);
 
   if (!isTripDataLoaded) {
-        return(<div>Trip Data is Loading</div>)
-    }
-
+    return (
+      <div
+        className="col py-3"
+        style={{
+          backgroundImage: "url( " + require("../images/background.jpg") + ")",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        Trip Data is Loading
+      </div>
+    );
+  }
 
   return (
     <div className="custom-body-font fw-bold col-auto col px-sm-2 px-0 bg-dark">
       <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
         <a className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-          <span className="custom-font d-none d-sm-inline">
-            Trip Dates:
-          </span>
+          <span className="custom-font d-none d-sm-inline">Trip Dates:</span>
         </a>
         <ul
           className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"

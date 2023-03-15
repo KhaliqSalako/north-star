@@ -22,6 +22,8 @@ function TripList() {
     getTripData();
   }, []);
 
+  console.log("checking for loading component-----");
+
   return (
     <div
       className={`custom-body-font text-center w-100 ${

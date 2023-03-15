@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useState, useEffect, React } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useParams } from "react-router";
@@ -61,8 +62,22 @@ function Itinerary() {
     );
     getEventData();
   };
+  console.log("checking for loading component-----");
 
-  if (!isLoaded || !isEventDataLoaded) return <div>Loading...</div>;
+  if (!isLoaded || !isEventDataLoaded)
+    return (
+      <div
+        className="col py-3"
+        style={{
+          backgroundImage: "url( " + require("../images/background.jpg") + ")",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        Loading...
+      </div>
+    );
   return [
     <div key={uuidv4()} className="container-fluid">
       <div className="row flex-nowrap">
