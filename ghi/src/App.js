@@ -22,7 +22,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter basename="/north-star-project">
+    <BrowserRouter basename={"/north-star-project"}>
       <AuthProvider>
         <GetToken />
         <Nav />
