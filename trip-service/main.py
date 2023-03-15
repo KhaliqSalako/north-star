@@ -14,8 +14,8 @@ app.include_router(events.router, tags=["Events"])
 
 
 origins = [
-    os.environ.get("CORS_HOST", "https://north-star-group.gitlab.io"),
-    os.environ.get("CORS_HOST4", "http://localhost:3000"),
+    # os.environ.get("CORS_HOST", "https://north-star-group.gitlab.io"),
+    os.environ.get("PUBLIC_URL", "http://localhost:3000"),
 ]
 
 app.add_middleware(
