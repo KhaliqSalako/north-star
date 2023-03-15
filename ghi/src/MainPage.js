@@ -7,7 +7,7 @@ function MainPage() {
       <div
         className="text-center bg-black vh-100 vw-100"
         style={{
-          backgroundImage: `url(background.jpg)`,
+          backgroundImage: "url( " + require("./images/background.jpg") + ")",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
