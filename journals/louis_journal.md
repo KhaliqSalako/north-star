@@ -2,7 +2,7 @@
 
 1. 3/9/2022
 
-   - We finalized the project today by working through a series of minor bug fixes. We got the photo carousel working on the login page and worked through the linter. The code us fully ready to be graded with all bugs fixed and no red in the console. All features are working well.Test. 
+   - We finalized the project today by working through a series of minor bug fixes. We got the photo carousel working on the login page and worked through the linter. The code us fully ready to be graded with all bugs fixed and no red in the console. All features are working well.Test.
 
 1. 3/8/2022
 
@@ -74,3 +74,5 @@
 
 1. 2/9/2023
    - Today we finished up doing the wire frame work for our project. We also started designing out API framework. This involved mapping out the different web pages of our project and figuring out what needs to be done. Then in markup files we drew out exactly what data we need and expect to get from each endpoint.
+
+test
